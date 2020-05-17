@@ -1,4 +1,5 @@
 from nodes.bank import Bank
+from nodes.validator import Validator
 from utils.tables import display_item, display_list
 
 
@@ -64,10 +65,41 @@ def display_bank(bank):
     )
 
 
+def display_validator(validator):
+    """
+    Display validator details
+    """
+
+    config = validator.get_config()
+    display_item(config, title='Config')
+
+    bank_registration_list = validator.get_bank_registration_list()
+    display_list(
+        bank_registration_list,
+        excluded=['created_date', 'modified_date'],
+        title='Bank Registrations'
+    )
+
+    bank_list = validator.get_bank_list()
+    display_list(
+        bank_list,
+        title='Banks'
+    )
+
+
 if __name__ == '__main__':
-    _bank = Bank(
-        ip_address='192.168.1.232',
-        port=8000,
+    # print()
+    # _bank = Bank(
+    #     ip_address='192.168.1.232',
+    #     port=8000,
+    #     protocol='http'
+    # )
+    # display_bank(_bank)
+
+    print()
+    _validator = Validator(
+        ip_address='127.0.0.1',
+        port=8001,
         protocol='http'
     )
-    display_bank(_bank)
+    display_validator(_validator)
