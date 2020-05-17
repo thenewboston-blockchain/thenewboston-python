@@ -12,6 +12,24 @@ def display_nodes(bank, validator):
     display_validator(validator)
 
 
+def get_test_block():
+    """
+    Return test block
+    """
+
+    return {
+        'txs': [
+            {
+                'amount': 54,
+                'balance_key': '960297be66dbdc83615a1a91ca515ae1',
+                'recipient': 'validator123'
+            }
+        ],
+        'signature': '93c4f312326e08b508db1fc6204b98655742554318cab5b73b2b5',
+        'verifying_key_hex': 'a30e83483996d83b06ff53d1c022c79420b'
+    }
+
+
 if __name__ == '__main__':
     _bank = Bank(
         ip_address='192.168.1.232',
@@ -25,15 +43,8 @@ if __name__ == '__main__':
         protocol='http'
     )
 
-    tx = {
-        'amount': 54,
-        'balance_key': '960297be66dbdc83615a1a91ca515ae1',
-        'recipient': 'validator123'
-    }
     response = _validator.create_bank_registration(
         bank=_bank,
-        signature='4234',
-        tx=tx,
-        verifying_key_hex='3123'
+        block=get_test_block()
     )
     print(response)
