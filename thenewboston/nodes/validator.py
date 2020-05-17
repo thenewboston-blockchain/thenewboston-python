@@ -1,6 +1,6 @@
-from nodes.node import Node
-from utils.network import post
-from utils.blocks import validate_block
+from thenewboston.nodes.node import Node
+from thenewboston.utils.blocks import validate_block
+from thenewboston.utils.network import post
 
 
 class Validator(Node):

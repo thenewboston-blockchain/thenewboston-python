@@ -1,5 +1,5 @@
-from nodes.node import Node
-from utils.network import fetch
+from thenewboston.nodes.node import Node
+from thenewboston.utils.network import fetch
 
 
 class Bank(Node):

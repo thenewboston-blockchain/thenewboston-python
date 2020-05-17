@@ -1,6 +1,6 @@
-from nodes.bank import Bank
-from nodes.validator import Validator
-from utils.display import display_bank, display_validator
+from thenewboston.nodes.bank import Bank
+from thenewboston.nodes.validator import Validator
+from thenewboston.utils.display import display_bank, display_validator
 
 
 def display_nodes(bank, validator):

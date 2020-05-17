@@ -1,8 +1,8 @@
 import ipaddress
 
-from config.constants import PROTOCOL_CHOICES
-from utils.format import format_address
-from utils.network import fetch
+from thenewboston.config.constants import PROTOCOL_CHOICES
+from thenewboston.utils.format import format_address
+from thenewboston.utils.network import fetch
 
 
 class Node:

@@ -1,4 +1,4 @@
-from utils.tables import display_item, display_list
+from thenewboston.utils.tables import display_item, display_list
 
 
 def display_bank(bank):
