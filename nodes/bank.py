@@ -2,6 +2,7 @@ import ipaddress
 
 from config.constants import PROTOCOL_CHOICES
 from utils.format import format_address
+from utils.network import fetch
 
 
 class Bank:
@@ -11,7 +12,6 @@ class Bank:
         self.port = port
         self.protocol = protocol
         self._validate_init()
-
         self.address = format_address(ip_address=ip_address, port=port, protocol=protocol)
 
     def _validate_init(self):
@@ -29,3 +29,12 @@ class Bank:
 
         if self.protocol not in PROTOCOL_CHOICES:
             raise RuntimeError(f'Invalid protocol, choices are {PROTOCOL_CHOICES}')
+
+    def get_member_list(self):
+        """
+        Return a list of members
+        """
+
+        url = f'{self.address}/members'
+        results = fetch(url=url, headers={})
+        return results
