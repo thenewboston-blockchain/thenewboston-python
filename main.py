@@ -44,3 +44,11 @@ if __name__ == '__main__':
         excluded=['created_date', 'modified_date'],
         title='Member Registrations'
     )
+
+    self_transaction_fee_tier_list = bank.get_self_transaction_fee_tier_list()
+    display_list(
+        self_transaction_fee_tier_list,
+        ascending=False,
+        order_by='trust',
+        title='Self Transaction Fee Tiers'
+    )

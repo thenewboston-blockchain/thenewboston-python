@@ -83,3 +83,12 @@ class Bank:
         url = f'{self.address}/member_registrations'
         results = fetch(url=url, headers={})
         return results
+
+    def get_self_transaction_fee_tier_list(self):
+        """
+        Return a list of self transaction fee tiers
+        """
+
+        url = f'{self.address}/self_transaction_fee_tiers'
+        results = fetch(url=url, headers={})
+        return results
