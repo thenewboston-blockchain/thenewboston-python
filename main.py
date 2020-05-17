@@ -52,3 +52,15 @@ if __name__ == '__main__':
         order_by='trust',
         title='Self Transaction Fee Tiers'
     )
+
+    validator_list = bank.get_validator_list()
+    display_list(
+        validator_list,
+        title='Validators'
+    )
+
+    validator_transaction_fee_tier_list = bank.get_validator_transaction_fee_tier_list()
+    display_list(
+        validator_transaction_fee_tier_list,
+        title='Validator Transaction Fee Tiers'
+    )

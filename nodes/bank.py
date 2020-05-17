@@ -92,3 +92,21 @@ class Bank:
         url = f'{self.address}/self_transaction_fee_tiers'
         results = fetch(url=url, headers={})
         return results
+
+    def get_validator_list(self):
+        """
+        Return a list of validators
+        """
+
+        url = f'{self.address}/validators'
+        results = fetch(url=url, headers={})
+        return results
+
+    def get_validator_transaction_fee_tier_list(self):
+        """
+        Return a list of validator transaction fee tiers
+        """
+
+        url = f'{self.address}/validator_transaction_fee_tiers'
+        results = fetch(url=url, headers={})
+        return results
