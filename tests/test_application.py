@@ -14,9 +14,9 @@ class TestApplication(unittest.TestCase):
 
         style = pycodestyle.StyleGuide(ignore=['E501', 'W504'])
         result = style.check_files([
-            'config/',
-            'nodes/',
             'tests/',
-            'utils/',
+            'thenewboston/config/',
+            'thenewboston/nodes/',
+            'thenewboston/utils/',
         ])
         self.assertEqual(result.total_errors, 0)
