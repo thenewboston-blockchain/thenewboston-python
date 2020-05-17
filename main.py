@@ -1,13 +1,11 @@
 from nodes.bank import Bank
 from utils.tables import display_item, display_list
 
-if __name__ == '__main__':
-    print()
-    bank = Bank(
-        ip_address='192.168.1.232',
-        port=8000,
-        protocol='http'
-    )
+
+def display_bank(bank):
+    """
+    Display bank details
+    """
 
     config = bank.get_config()
     display_item(config, title='Config')
@@ -64,3 +62,12 @@ if __name__ == '__main__':
         validator_transaction_fee_tier_list,
         title='Validator Transaction Fee Tiers'
     )
+
+
+if __name__ == '__main__':
+    _bank = Bank(
+        ip_address='192.168.1.232',
+        port=8000,
+        protocol='http'
+    )
+    display_bank(_bank)
