@@ -1,7 +1,29 @@
 from prettytable import PrettyTable
 
 
-def display_list(*, list_items, excluded=None):
+def display_item(item, *, excluded=None, title=None):
+    """
+    Display dictionary in table format
+    """
+
+    if not item:
+        return
+
+    pt = PrettyTable(header=False)
+
+    excluded = excluded or []
+    items = [[k, v] for k, v in item.items() if k not in excluded]
+
+    for item in items:
+        pt.add_row(item)
+
+    if title:
+        print(title)
+
+    print(f'{pt}\n')
+
+
+def display_list(list_items, *, excluded=None, title=None):
     """
     Display formatted table of list items
     """
@@ -17,7 +39,10 @@ def display_list(*, list_items, excluded=None):
     for item in list_items:
         pt.add_row([item.get(i) for i in list_headers])
 
-    print(pt)
+    if title:
+        print(title)
+
+    print(f'{pt}\n')
 
 
 def get_list_headers(list_items):

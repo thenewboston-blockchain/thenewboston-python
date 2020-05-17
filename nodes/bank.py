@@ -30,11 +30,56 @@ class Bank:
         if self.protocol not in PROTOCOL_CHOICES:
             raise RuntimeError(f'Invalid protocol, choices are {PROTOCOL_CHOICES}')
 
+    def get_bank_registration_list(self):
+        """
+        Return a list of bank registrations
+        """
+
+        url = f'{self.address}/bank_registrations'
+        results = fetch(url=url, headers={})
+        return results
+
+    def get_bank_transaction_list(self):
+        """
+        Return a list of bank transactions
+        """
+
+        url = f'{self.address}/bank_transactions'
+        results = fetch(url=url, headers={})
+        return results
+
+    def get_bank_list(self):
+        """
+        Return a list of banks
+        """
+
+        url = f'{self.address}/banks'
+        results = fetch(url=url, headers={})
+        return results
+
+    def get_config(self):
+        """
+        Return config
+        """
+
+        url = f'{self.address}/config'
+        results = fetch(url=url, headers={})
+        return results
+
     def get_member_list(self):
         """
         Return a list of members
         """
 
         url = f'{self.address}/members'
+        results = fetch(url=url, headers={})
+        return results
+
+    def get_member_registration_list(self):
+        """
+        Return a list of member registrations
+        """
+
+        url = f'{self.address}/member_registrations'
         results = fetch(url=url, headers={})
         return results
