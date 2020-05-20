@@ -8,12 +8,8 @@ thenewboston.egg-info/SOURCES.txt
 thenewboston.egg-info/dependency_links.txt
 thenewboston.egg-info/requires.txt
 thenewboston.egg-info/top_level.txt
-thenewboston/config/__init__.py
-thenewboston/config/constants.py
-thenewboston/config/settings.py
 thenewboston/constants/__init__.py
-thenewboston/constants/models.py
-thenewboston/constants/nodes.py
+thenewboston/constants/network.py
 thenewboston/models/__init__.py
 thenewboston/models/created_modified.py
 thenewboston/models/network_node.py

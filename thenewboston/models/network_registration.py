@@ -3,7 +3,7 @@ from uuid import uuid4
 from django.core.validators import MinValueValidator
 from django.db import models
 
-from thenewboston.constants.models import PENDING, REGISTRATION_STATUS_CHOICES
+from thenewboston.constants.network import PENDING, REGISTRATION_STATUS_CHOICES
 from thenewboston.models.created_modified import CreatedModified
 from thenewboston.utils.validators import validate_is_real_number
 

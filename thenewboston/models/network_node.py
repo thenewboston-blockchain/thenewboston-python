@@ -1,7 +1,7 @@
 from django.core.validators import MinValueValidator
 from django.db import models
 
-from thenewboston.constants.models import PROTOCOL_CHOICES
+from thenewboston.constants.network import PROTOCOL_CHOICES
 from thenewboston.utils.validators import validate_is_real_number
 
 
