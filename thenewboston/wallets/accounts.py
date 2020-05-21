@@ -34,7 +34,7 @@ def create_account_and_save_signing_key_file(file):
     return signing_key, account_number
 
 
-def encode_account_number(account_number):
+def encode_account_number(*, account_number):
     """
     Return the hexadecimal representation of the binary account number data
     """
@@ -45,7 +45,7 @@ def encode_account_number(account_number):
     return account_number.encode(encoder=HexEncoder).decode('utf-8')
 
 
-def generate_balance_lock(tx):
+def generate_balance_lock(*, tx):
     """
     Generate a balance lock from a Tx
     """
@@ -66,20 +66,20 @@ def generate_block(*, account_number, balance_lock, payments, signing_key):
             'balance_key': balance_lock,
             'recipient': payment['recipient']
         }
-        balance_lock = generate_balance_lock(tx)
+        balance_lock = generate_balance_lock(tx=tx)
         txs.append(tx)
 
     message = sort_and_encode(txs)
-    signature = generate_signature(message, signing_key)
+    signature = generate_signature(message=message, signing_key=signing_key)
     block = {
-        'account_number': encode_account_number(account_number),
+        'account_number': encode_account_number(account_number=account_number),
         'signature': signature.hex(),
         'txs': txs
     }
     return block
 
 
-def generate_signature(message, signing_key):
+def generate_signature(*, message, signing_key):
     """
     Sign message using signing key and return signature
     """
@@ -87,7 +87,7 @@ def generate_signature(message, signing_key):
     return signing_key.sign(message).signature
 
 
-def get_account_number(signing_key):
+def get_account_number(*, signing_key):
     """
     Return the account number from the signing key
     """
@@ -96,15 +96,6 @@ def get_account_number(signing_key):
         raise RuntimeError('signing_key must be of type nacl.signing.SigningKey')
 
     return signing_key.verify_key
-
-
-def get_balance_lock_from_balance_sheet(account_number):
-    """
-    Get balance sheet lock
-    """
-
-    balance_sheet = read_json(BALANCE_SHEET_JSON)
-    return balance_sheet[account_number]['balance_lock']
 
 
 def read_signing_key_file(file):
@@ -124,12 +115,12 @@ def sort_and_encode(dictionary):
     return json.dumps(dictionary, sort_keys=True).encode('utf-8')
 
 
-def update_balance_sheet(block):
+def update_balance_sheet(*, block):
     """
     Update balance sheet
     """
 
-    account_number, txs = verify_block(block)
+    account_number, txs = verify_block(block=block)
 
     balance_sheet = read_json(BALANCE_SHEET_JSON)
     account_data = balance_sheet[account_number]
@@ -149,7 +140,7 @@ def update_balance_sheet(block):
                 'balance_lock': recipient
             }
 
-        balance_lock = generate_balance_lock(unlocked_tx)
+        balance_lock = generate_balance_lock(tx=unlocked_tx)
         balance_sheet[account_number]['balance'] -= amount
         balance_sheet[account_number]['balance_lock'] = balance_lock
         unlocked_tx = next((tx for tx in txs if tx['balance_key'] == balance_lock), None)
@@ -157,7 +148,7 @@ def update_balance_sheet(block):
     write_json(BALANCE_SHEET_JSON, balance_sheet)
 
 
-def verify_block(block):
+def verify_block(*, block):
     """
     Verify Tx block formatting, data, and signature
     """
@@ -190,7 +181,7 @@ def verify_block(block):
         raise RuntimeError(f'Block must contain Tx with balance_key matching balance_lock {balance_lock}')
 
     while unlocked_tx:
-        balance_lock = generate_balance_lock(unlocked_tx)
+        balance_lock = generate_balance_lock(tx=unlocked_tx)
         unlocked_tx = next((tx for tx in txs if tx['balance_key'] == balance_lock), None)
 
     verify_signature(
@@ -217,6 +208,9 @@ def write_signing_key_file(signing_key, file):
     Save signing key to file
     """
 
+    if not isinstance(signing_key, SigningKey):
+        raise RuntimeError('signing_key must be of type nacl.signing.SigningKey')
+
     if path.exists(file):
         raise RuntimeError(f'{file} already exists')
 
@@ -226,7 +220,7 @@ def write_signing_key_file(signing_key, file):
 
 if __name__ == '__main__':
     _signing_key = read_signing_key_file('buckys_signing_key_file')
-    _account_number = get_account_number(_signing_key)
+    _account_number = get_account_number(signing_key=_signing_key)
 
     _payments = [
         {
@@ -251,4 +245,4 @@ if __name__ == '__main__':
     )
 
     write_json('block.json', _block)
-    update_balance_sheet(_block)
+    update_balance_sheet(block=_block)
