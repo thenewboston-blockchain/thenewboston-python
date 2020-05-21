@@ -239,7 +239,7 @@ if __name__ == '__main__':
 
     _block = generate_block(
         account_number=_account_number,
-        balance_lock='1bf64dcc67e58f288e5b0d809da0c006fdc6643b4e9d974b1b013d8dfc10f0a6',
+        balance_lock='315c3486a4e1d7c78dcf17c0335a8e5d2185523c4c07fc344b87d2a8eaea2156',
         payments=_payments,
         signing_key=_signing_key,
     )

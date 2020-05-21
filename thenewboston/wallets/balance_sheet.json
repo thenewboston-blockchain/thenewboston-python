@@ -1,18 +1,18 @@
 {
   "5712b07ec5781d6de991becec680c89261fbb6d30441550b64f167f630d8ccbd": {
-    "balance": 800,
-    "balance_lock": "f6bf3ce380483c802c3a448ae50ce717bd715663f69f26f0388168efbdfd186f"
+    "balance": 700,
+    "balance_lock": "c240a80ea4b0fcde955d3dcb54f1127263fdd84bb57d84da92a92f32a7dc0246"
   },
   "c6b14782902ee6eaa7bc86d843149e08f45dfd7e7fbc085e9aafd2e86d5e314b": {
-    "balance": 100,
+    "balance": 150,
     "balance_lock": "a"
   },
   "8b8b8815a45c7f1f2740f77a3b5d85e9c26fc400ec67e7a58114f996237e40d6": {
-    "balance": 60,
+    "balance": 90,
     "balance_lock": "b"
   },
   "e245723754548550f4892bfc583e5c8bd749bebe1b54d362590d51e520185555": {
-    "balance": 40,
+    "balance": 60,
     "balance_lock": "c"
   }
 }
