@@ -22,6 +22,18 @@ def create_account():
     return signing_key, account_number
 
 
+def create_account_and_save_signing_key_file(file):
+    """
+    Create a new account
+    Save signing key to file
+    Return signing_key, account_number
+    """
+
+    signing_key, account_number = create_account()
+    write_signing_key_file(signing_key, file)
+    return signing_key, account_number
+
+
 def encode_account_number(account_number):
     """
     Return the hexadecimal representation of the binary account number data
@@ -213,9 +225,6 @@ def write_signing_key_file(signing_key, file):
 
 
 if __name__ == '__main__':
-    # _signing_key, _account_number = create_account()
-    # write_signing_key_file(_signing_key, 'buckys_signing_key_file')
-
     _signing_key = read_signing_key_file('buckys_signing_key_file')
     _account_number = get_account_number(_signing_key)
 
@@ -236,10 +245,10 @@ if __name__ == '__main__':
 
     _block = generate_block(
         account_number=_account_number,
-        balance_lock='c240a80ea4b0fcde955d3dcb54f1127263fdd84bb57d84da92a92f32a7dc0246',
+        balance_lock='c0ff32df04f22180baef1c8d6df5b8e2e5441e65c0ccbfd2f6dc3e3d867b35bb',
         payments=_payments,
         signing_key=_signing_key,
     )
 
-    # write_json('block.json', _block)
+    write_json('block.json', _block)
     update_balance_sheet(_block)
