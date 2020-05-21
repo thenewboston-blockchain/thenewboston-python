@@ -70,10 +70,9 @@ def generate_block(*, account_number, balance_lock, payments, signing_key):
         txs.append(tx)
 
     message = sort_and_encode(txs)
-    signature = generate_signature(message=message, signing_key=signing_key)
     block = {
         'account_number': encode_account_number(account_number=account_number),
-        'signature': signature.hex(),
+        'signature': generate_signature(message=message, signing_key=signing_key),
         'txs': txs
     }
     return block
@@ -84,7 +83,7 @@ def generate_signature(*, message, signing_key):
     Sign message using signing key and return signature
     """
 
-    return signing_key.sign(message).signature
+    return signing_key.sign(message).signature.hex()
 
 
 def get_account_number(*, signing_key):
@@ -239,7 +238,7 @@ if __name__ == '__main__':
 
     _block = generate_block(
         account_number=_account_number,
-        balance_lock='8e2e7cd501aab30c9075d27a71e5fa1388a79c74e5899ee5d04ae57b80442726',
+        balance_lock='96cb5158deedee1eab2a72e8a214d81963170ad3dde7ee252c41190f4922070b',
         payments=_payments,
         signing_key=_signing_key,
     )
