@@ -179,9 +179,15 @@ def verify_block(*, block):
     if not unlocked_tx:
         raise RuntimeError(f'Block must contain Tx with balance_key matching balance_lock {balance_lock}')
 
+    unlocked_tx_counter = 0
+
     while unlocked_tx:
+        unlocked_tx_counter += 1
         balance_lock = generate_balance_lock(tx=unlocked_tx)
         unlocked_tx = next((tx for tx in txs if tx['balance_key'] == balance_lock), None)
+
+    if unlocked_tx_counter != len(txs):
+        raise RuntimeError(f'Invalid block, unlocked {unlocked_tx_counter}/{len(txs)} Txs')
 
     verify_signature(
         account_number=account_number,
@@ -238,7 +244,7 @@ if __name__ == '__main__':
 
     _block = generate_block(
         account_number=_account_number,
-        balance_lock='96cb5158deedee1eab2a72e8a214d81963170ad3dde7ee252c41190f4922070b',
+        balance_lock='f4f2dffb55787c65c08894956fdb846c3f39ce2e8ab5852109000454b40d9470',
         payments=_payments,
         signing_key=_signing_key,
     )
