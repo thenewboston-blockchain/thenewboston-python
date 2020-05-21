@@ -1,17 +1,17 @@
-def validate_block(block):
+def validate_block_format(block):
     """
     Validate that block is properly formatted
     """
 
-    txs = block.get('txs')
+    account_number = block.get('account_number')
     signature = block.get('signature')
-    verifying_key_hex = block.get('verifying_key_hex')
+    txs = block.get('txs')
 
-    if not isinstance(txs, list):
-        raise TypeError('Block must include list of txs (empty lists are acceptable)')
+    if not isinstance(account_number, str):
+        raise TypeError('Block must include account_number of type str')
 
     if not isinstance(signature, str):
         raise TypeError('Block must include signature of type str')
 
-    if not isinstance(verifying_key_hex, str):
-        raise TypeError('Block must include verifying_key_hex of type str')
+    if not isinstance(txs, list):
+        raise TypeError('Block must include list of txs (empty lists are acceptable)')

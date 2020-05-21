@@ -1,14 +1,14 @@
 import json
 from hashlib import sha3_256 as sha3
-
-from nacl.encoding import HexEncoder
-from nacl.exceptions import BadSignatureError
-from nacl.signing import SigningKey, VerifyKey
 from os import path
 
-import json
-from hashlib import sha3_256 as sha3
-from thenewboston.utils.files import write_json
+from nacl.encoding import HexEncoder
+from nacl.signing import SigningKey, VerifyKey
+
+from thenewboston.utils.blocks import validate_block_format
+from thenewboston.utils.files import read_json, write_json
+
+BALANCE_SHEET_JSON = 'balance_sheet.json'
 
 
 def create_account():
@@ -38,16 +38,13 @@ def generate_balance_lock(tx):
     Generate a balance lock from a Tx
     """
 
-    return sha3(json.dumps(tx, sort_keys=True).encode('utf-8')).digest().hex()
+    return sha3(sort_and_encode(tx)).digest().hex()
 
 
-def generate_block(*, payments, signing_key, account_number):
+def generate_block(*, account_number, balance_lock, payments, signing_key):
     """
     Generate block
     """
-
-    # balance_lock = get_balance_lock_from_balance_sheet(account_number)
-    balance_lock = '123'
 
     txs = []
 
@@ -60,7 +57,7 @@ def generate_block(*, payments, signing_key, account_number):
         balance_lock = generate_balance_lock(tx)
         txs.append(tx)
 
-    message = json.dumps(txs, sort_keys=True).encode('utf-8')
+    message = sort_and_encode(txs)
     signature = generate_signature(message, signing_key)
     block = {
         'account_number': encode_account_number(account_number),
@@ -89,6 +86,15 @@ def get_account_number(signing_key):
     return signing_key.verify_key
 
 
+def get_balance_lock_from_balance_sheet(account_number):
+    """
+    Get balance sheet lock
+    """
+
+    balance_sheet = read_json(BALANCE_SHEET_JSON)
+    return balance_sheet[account_number]['balance_lock']
+
+
 def read_signing_key_file(file):
     """
     Read signing key from file
@@ -96,6 +102,109 @@ def read_signing_key_file(file):
 
     with open(file, 'rb') as f:
         return SigningKey(f.read(), encoder=HexEncoder)
+
+
+def sort_and_encode(dictionary):
+    """
+    Sort dictionary and return encoded data
+    """
+
+    return json.dumps(dictionary, sort_keys=True).encode('utf-8')
+
+
+def update_balance_sheet(block):
+    """
+    Update balance sheet
+    """
+
+    account_number, txs = verify_block(block)
+
+    # print(account_number)
+    # print(txs)
+
+    balance_sheet = read_json(BALANCE_SHEET_JSON)
+    account_data = balance_sheet[account_number]
+    balance_lock = account_data['balance_lock']
+
+    unlocked_tx = next((tx for tx in txs if tx['balance_key'] == balance_lock), None)
+
+    while unlocked_tx:
+        amount = unlocked_tx['amount']
+        recipient = unlocked_tx['recipient']
+
+        if recipient in balance_sheet:
+            balance_sheet[recipient]['balance'] += amount
+        else:
+            balance_sheet[recipient] = {
+                'balance': amount,
+                'balance_lock': recipient
+            }
+
+        balance_lock = generate_balance_lock(unlocked_tx)
+        balance_sheet[account_number]['balance'] -= amount
+        balance_sheet[account_number]['balance_lock'] = balance_lock
+        unlocked_tx = next((tx for tx in txs if tx['balance_key'] == balance_lock), None)
+
+    write_json(BALANCE_SHEET_JSON, balance_sheet)
+
+
+def verify_block(block):
+    """
+    Verify Tx block
+    """
+
+    validate_block_format(block)
+
+    account_number = block['account_number']
+    signature = block['signature']
+    txs = block['txs']
+
+    if not txs:
+        raise RuntimeError('No Txs to verify')
+
+    tx_amounts = [tx['amount'] for tx in txs]
+
+    if [tx_amount for tx_amount in tx_amounts if tx_amount <= 0]:
+        raise RuntimeError('Invalid Tx amount')
+
+    balance_sheet = read_json(BALANCE_SHEET_JSON)
+    account_data = balance_sheet[account_number]
+    balance = account_data['balance']
+    balance_lock = account_data['balance_lock']
+
+    if balance < sum(tx_amounts):
+        raise RuntimeError('Not enough points')
+
+    unlocked_tx = next((tx for tx in txs if tx['balance_key'] == balance_lock), None)
+
+    if not unlocked_tx:
+        raise RuntimeError(f'Block must contain Tx with balance_key matching balance_lock {balance_lock}')
+
+    while unlocked_tx:
+        balance_lock = generate_balance_lock(unlocked_tx)
+        unlocked_tx = next((tx for tx in txs if tx['balance_key'] == balance_lock), None)
+
+    print(account_number)
+    print(signature)
+    print(txs)
+
+    verify_signature(
+        account_number=account_number,
+        signature=signature,
+        message=sort_and_encode(txs)
+    )
+
+    return account_number, txs
+
+
+def verify_signature(*, account_number, signature, message):
+    """
+    Verify signature
+    """
+
+    account_number = VerifyKey(account_number.encode('utf-8'), encoder=HexEncoder)
+    signature = bytes.fromhex(signature)
+    account_number.verify(message, signature)
 
 
 def write_signing_key_file(signing_key, file):
@@ -112,31 +221,32 @@ def write_signing_key_file(signing_key, file):
 
 if __name__ == '__main__':
     # _signing_key, _account_number = create_account()
-    # write_signing_key_file(_signing_key, 'hello')
+    # write_signing_key_file(_signing_key, 'buckys_signing_key_file')
 
-    _signing_key = read_signing_key_file('hello')
+    _signing_key = read_signing_key_file('buckys_signing_key_file')
     _account_number = get_account_number(_signing_key)
 
     _payments = [
         {
-            'amount': 10,
+            'amount': 25,
             'recipient': 'c6b14782902ee6eaa7bc86d843149e08f45dfd7e7fbc085e9aafd2e86d5e314b',
         },
         {
-            'amount': 5,
+            'amount': 15,
             'recipient': '8b8b8815a45c7f1f2740f77a3b5d85e9c26fc400ec67e7a58114f996237e40d6',
         },
         {
-            'amount': 15,
+            'amount': 10,
             'recipient': 'e245723754548550f4892bfc583e5c8bd749bebe1b54d362590d51e520185555',
         }
     ]
 
     _block = generate_block(
+        account_number=_account_number,
+        balance_lock='0045edd775286ba5d7355ea972aea233f097b3d2f1b3bd32d761571de35f222d',
         payments=_payments,
         signing_key=_signing_key,
-        account_number=_account_number
     )
 
-    print(_block)
-    write_json('block.json', _block)
+    # write_json('block.json', _block)
+    update_balance_sheet(_block)

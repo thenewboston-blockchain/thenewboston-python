@@ -1,0 +1,18 @@
+{
+  "5712b07ec5781d6de991becec680c89261fbb6d30441550b64f167f630d8ccbd": {
+    "balance": 850,
+    "balance_lock": "1bf64dcc67e58f288e5b0d809da0c006fdc6643b4e9d974b1b013d8dfc10f0a6"
+  },
+  "c6b14782902ee6eaa7bc86d843149e08f45dfd7e7fbc085e9aafd2e86d5e314b": {
+    "balance": 75,
+    "balance_lock": "a"
+  },
+  "8b8b8815a45c7f1f2740f77a3b5d85e9c26fc400ec67e7a58114f996237e40d6": {
+    "balance": 45,
+    "balance_lock": "b"
+  },
+  "e245723754548550f4892bfc583e5c8bd749bebe1b54d362590d51e520185555": {
+    "balance": 30,
+    "balance_lock": "c"
+  }
+}
