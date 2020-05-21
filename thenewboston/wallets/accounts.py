@@ -150,7 +150,7 @@ def update_balance_sheet(block):
 
 def verify_block(block):
     """
-    Verify Tx block
+    Verify Tx block formatting, data, and signature
     """
 
     validate_block_format(block)
@@ -183,10 +183,6 @@ def verify_block(block):
     while unlocked_tx:
         balance_lock = generate_balance_lock(unlocked_tx)
         unlocked_tx = next((tx for tx in txs if tx['balance_key'] == balance_lock), None)
-
-    print(account_number)
-    print(signature)
-    print(txs)
 
     verify_signature(
         account_number=account_number,
@@ -243,7 +239,7 @@ if __name__ == '__main__':
 
     _block = generate_block(
         account_number=_account_number,
-        balance_lock='0045edd775286ba5d7355ea972aea233f097b3d2f1b3bd32d761571de35f222d',
+        balance_lock='1bf64dcc67e58f288e5b0d809da0c006fdc6643b4e9d974b1b013d8dfc10f0a6',
         payments=_payments,
         signing_key=_signing_key,
     )
