@@ -119,9 +119,6 @@ def update_balance_sheet(block):
 
     account_number, txs = verify_block(block)
 
-    # print(account_number)
-    # print(txs)
-
     balance_sheet = read_json(BALANCE_SHEET_JSON)
     account_data = balance_sheet[account_number]
     balance_lock = account_data['balance_lock']
@@ -239,7 +236,7 @@ if __name__ == '__main__':
 
     _block = generate_block(
         account_number=_account_number,
-        balance_lock='315c3486a4e1d7c78dcf17c0335a8e5d2185523c4c07fc344b87d2a8eaea2156',
+        balance_lock='c240a80ea4b0fcde955d3dcb54f1127263fdd84bb57d84da92a92f32a7dc0246',
         payments=_payments,
         signing_key=_signing_key,
     )
