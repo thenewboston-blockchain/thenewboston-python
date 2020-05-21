@@ -119,7 +119,10 @@ def update_balance_sheet(*, block):
     Update balance sheet
     """
 
-    account_number, txs = verify_block(block=block)
+    account_number, txs = verify_block(block=block, allow_empty_txs=True)
+
+    if not txs:
+        return
 
     balance_sheet = read_json(BALANCE_SHEET_JSON)
     account_data = balance_sheet[account_number]
@@ -147,7 +150,7 @@ def update_balance_sheet(*, block):
     write_json(BALANCE_SHEET_JSON, balance_sheet)
 
 
-def verify_block(*, block):
+def verify_block(*, block, allow_empty_txs):
     """
     Verify Tx block formatting, data, and signature
     """
@@ -157,6 +160,29 @@ def verify_block(*, block):
     account_number = block['account_number']
     signature = block['signature']
     txs = block['txs']
+
+    if txs:
+        verify_block_transactions(
+            account_number=account_number,
+            signature=signature,
+            txs=txs
+        )
+    elif allow_empty_txs:
+        verify_signature(
+            account_number=account_number,
+            signature=signature,
+            message=sort_and_encode(txs)
+        )
+    else:
+        raise RuntimeError('No Txs to verify')
+
+    return account_number, txs
+
+
+def verify_block_transactions(*, account_number, signature, txs):
+    """
+    Verify Tx block data and signature
+    """
 
     if not txs:
         raise RuntimeError('No Txs to verify')
@@ -195,8 +221,6 @@ def verify_block(*, block):
         message=sort_and_encode(txs)
     )
 
-    return account_number, txs
-
 
 def verify_signature(*, account_number, signature, message):
     """
@@ -227,6 +251,14 @@ if __name__ == '__main__':
     _signing_key = read_signing_key_file('buckys_signing_key_file')
     _account_number = get_account_number(signing_key=_signing_key)
 
+    _empty_block = generate_block(
+        account_number=_account_number,
+        balance_lock='4f061ad561efa453f6ff2e7d692d92c407316f4c0e216df9257c4385890334cd',
+        payments=[],
+        signing_key=_signing_key,
+    )
+    verify_block(block=_empty_block, allow_empty_txs=True)
+
     _payments = [
         {
             'amount': 25,
@@ -244,7 +276,7 @@ if __name__ == '__main__':
 
     _block = generate_block(
         account_number=_account_number,
-        balance_lock='f4f2dffb55787c65c08894956fdb846c3f39ce2e8ab5852109000454b40d9470',
+        balance_lock='d000d74ba2d3691056f0416b833740b77ec00fc616ca433c4cedd390611a9826',
         payments=_payments,
         signing_key=_signing_key,
     )

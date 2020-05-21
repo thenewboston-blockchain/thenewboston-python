@@ -25,8 +25,11 @@ thenewboston/serializers/network_transaction.py
 thenewboston/utils/__init__.py
 thenewboston/utils/blocks.py
 thenewboston/utils/display.py
+thenewboston/utils/files.py
 thenewboston/utils/format.py
 thenewboston/utils/network.py
 thenewboston/utils/serializers.py
 thenewboston/utils/tables.py
 thenewboston/utils/validators.py
+thenewboston/wallets/__init__.py
+thenewboston/wallets/accounts.py
