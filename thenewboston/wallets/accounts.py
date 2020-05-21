@@ -239,13 +239,13 @@ if __name__ == '__main__':
         },
         {
             'amount': 10,
-            'recipient': 'e245723754548550f4892bfc583e5c8bd749bebe1b54d362590d51e520185555',
+            'recipient': 'e245723754548550f4892bfc583e5c8bd749bebe1b54d362590d51e520185558',
         }
     ]
 
     _block = generate_block(
         account_number=_account_number,
-        balance_lock='c0ff32df04f22180baef1c8d6df5b8e2e5441e65c0ccbfd2f6dc3e3d867b35bb',
+        balance_lock='8e2e7cd501aab30c9075d27a71e5fa1388a79c74e5899ee5d04ae57b80442726',
         payments=_payments,
         signing_key=_signing_key,
     )
