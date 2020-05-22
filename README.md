@@ -2,6 +2,13 @@
 
 Python library for thenewboston.
 
+## Project Setup
+
+Install required packages:
+```
+pip3 install -r requirements/local.txt
+```
+
 ## Testing
 
 To run tests:
