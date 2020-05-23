@@ -6,7 +6,7 @@ from thenewboston.utils.validators import validate_is_real_number
 
 
 class NetworkNode(models.Model):
-    account_number = models.CharField(max_length=256)
+    account_number = models.CharField(max_length=64)
     ip_address = models.GenericIPAddressField(unique=True)
     port = models.PositiveSmallIntegerField(blank=True, null=True)
     protocol = models.CharField(choices=PROTOCOL_CHOICES, max_length=5)

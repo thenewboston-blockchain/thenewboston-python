@@ -14,10 +14,10 @@ class NetworkTransaction(models.Model):
             validate_is_real_number
         ]
     )
-    balance_key = models.CharField(max_length=256, unique=True)
-    recipient = models.CharField(max_length=256)
-    sender = models.CharField(max_length=256)
-    signature = models.CharField(max_length=256)
+    balance_key = models.CharField(max_length=64, unique=True)
+    recipient = models.CharField(max_length=64)
+    sender = models.CharField(max_length=64)
+    signature = models.CharField(max_length=128)
 
     class Meta:
         abstract = True
