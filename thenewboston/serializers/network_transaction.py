@@ -1,10 +1,12 @@
 from rest_framework import serializers
 
+from thenewboston.constants.network import ACCOUNT_NUMBER_LENGTH, BALANCE_LOCK_LENGTH
+
 
 class NetworkTransactionSerializer(serializers.Serializer):
     amount = serializers.DecimalField(max_digits=32, decimal_places=16)
-    balance_key = serializers.CharField(max_length=256)
-    recipient = serializers.CharField(max_length=256)
+    balance_key = serializers.CharField(max_length=BALANCE_LOCK_LENGTH)
+    recipient = serializers.CharField(max_length=ACCOUNT_NUMBER_LENGTH)
 
     def create(self, validated_data):
         pass

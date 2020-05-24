@@ -1,12 +1,12 @@
 from django.core.validators import MinValueValidator
 from django.db import models
 
-from thenewboston.constants.network import PROTOCOL_CHOICES
+from thenewboston.constants.network import ACCOUNT_NUMBER_LENGTH, PROTOCOL_CHOICES
 from thenewboston.utils.validators import validate_is_real_number
 
 
 class NetworkNode(models.Model):
-    account_number = models.CharField(max_length=64)
+    account_number = models.CharField(max_length=ACCOUNT_NUMBER_LENGTH)
     ip_address = models.GenericIPAddressField(unique=True)
     port = models.PositiveSmallIntegerField(blank=True, null=True)
     protocol = models.CharField(choices=PROTOCOL_CHOICES, max_length=5)
