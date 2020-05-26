@@ -6,7 +6,7 @@ Python library for thenewboston.
 
 Install required packages:
 ```
-pip3 install -r requirements/local.txt
+pip3 install -r requirements.txt
 ```
 
 ## Testing
