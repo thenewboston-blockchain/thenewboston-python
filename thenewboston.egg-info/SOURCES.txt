@@ -20,6 +20,8 @@ thenewboston/blocks/signatures.py
 thenewboston/blocks/validation.py
 thenewboston/constants/__init__.py
 thenewboston/constants/network.py
+thenewboston/environment/__init__.py
+thenewboston/environment/environment_variables.py
 thenewboston/models/__init__.py
 thenewboston/models/created_modified.py
 thenewboston/models/network_node.py
