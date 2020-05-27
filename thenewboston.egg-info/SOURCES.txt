@@ -33,6 +33,7 @@ thenewboston/nodes/bank.py
 thenewboston/nodes/node.py
 thenewboston/nodes/validator.py
 thenewboston/serializers/__init__.py
+thenewboston/serializers/block.py
 thenewboston/serializers/network_transaction.py
 thenewboston/transactions/__init__.py
 thenewboston/transactions/validation.py
