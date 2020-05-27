@@ -10,11 +10,11 @@ def generate_signature(*, message, signing_key):
     return signing_key.sign(message).signature.hex()
 
 
-def verify_signature(*, account_number, signature, message):
+def verify_signature(*, message, signature, verify_key):
     """
     Verify block signature
     """
 
-    account_number = VerifyKey(account_number.encode('utf-8'), encoder=HexEncoder)
+    verify_key = VerifyKey(verify_key.encode('utf-8'), encoder=HexEncoder)
     signature = bytes.fromhex(signature)
-    account_number.verify(message, signature)
+    verify_key.verify(message, signature)
