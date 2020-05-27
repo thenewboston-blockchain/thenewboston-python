@@ -23,15 +23,15 @@ def validate_block(*, allow_empty_txs, balance_lock, block):
             txs=txs
         )
         verify_signature(
-            account_number=account_number,
+            message=sort_and_encode(txs),
             signature=signature,
-            message=sort_and_encode(txs)
+            verify_key=account_number
         )
     elif allow_empty_txs:
         verify_signature(
-            account_number=account_number,
+            message=sort_and_encode(txs),
             signature=signature,
-            message=sort_and_encode(txs)
+            verify_key=account_number
         )
     else:
         raise RuntimeError('No Txs to verify')
