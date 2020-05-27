@@ -11,7 +11,6 @@ thenewboston.egg-info/dependency_links.txt
 thenewboston.egg-info/requires.txt
 thenewboston.egg-info/top_level.txt
 thenewboston/accounts/__init__.py
-thenewboston/accounts/account_numbers.py
 thenewboston/accounts/key_files.py
 thenewboston/accounts/manage.py
 thenewboston/blocks/__init__.py
@@ -44,3 +43,5 @@ thenewboston/utils/network.py
 thenewboston/utils/tables.py
 thenewboston/utils/tools.py
 thenewboston/utils/validators.py
+thenewboston/verify_keys/__init__.py
+thenewboston/verify_keys/verify_key.py

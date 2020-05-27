@@ -1,15 +1,15 @@
-from thenewboston.accounts.account_numbers import encode_account_number, get_account_number
 from thenewboston.accounts.key_files import read_signing_key_file
 from thenewboston.blocks.block import generate_block
 from thenewboston.utils.files import write_json
+from thenewboston.verify_keys.verify_key import encode_verify_key, get_verify_key
 
 if __name__ == '__main__':
     # signing_key, account_number = create_account()
     # write_signing_key_file(signing_key, 'buckys_signing_key_file')
     signing_key = read_signing_key_file('buckys_signing_key_file')
-    account_number = get_account_number(signing_key=signing_key)
+    account_number = get_verify_key(signing_key=signing_key)
 
-    encoded_account_number = encode_account_number(account_number=account_number)
+    encoded_account_number = encode_verify_key(verify_key=account_number)
     print(encoded_account_number)
 
     payments = [
