@@ -3,7 +3,7 @@ from thenewboston.blocks.signatures import verify_signature
 from thenewboston.utils.tools import sort_and_encode
 
 
-def validate_block(*, allow_empty_txs, balance_lock, block):
+def validate_block(*, balance_lock, block):
     """
     Validate block:
     - Tx formatting
@@ -17,24 +17,18 @@ def validate_block(*, allow_empty_txs, balance_lock, block):
     signature = block['signature']
     txs = block['txs']
 
-    if txs:
-        validate_block_transaction_chain(
-            balance_lock=balance_lock,
-            txs=txs
-        )
-        verify_signature(
-            message=sort_and_encode(txs),
-            signature=signature,
-            verify_key=account_number
-        )
-    elif allow_empty_txs:
-        verify_signature(
-            message=sort_and_encode(txs),
-            signature=signature,
-            verify_key=account_number
-        )
-    else:
+    if not txs:
         raise RuntimeError('No Txs to verify')
+
+    validate_block_transaction_chain(
+        balance_lock=balance_lock,
+        txs=txs
+    )
+    verify_signature(
+        message=sort_and_encode(txs),
+        signature=signature,
+        verify_key=account_number
+    )
 
     return account_number, txs
 
