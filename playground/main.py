@@ -30,7 +30,7 @@ if __name__ == '__main__':
     ]
     block = generate_block(
         account_number=account_number,
-        balance_lock='684b3176c63d5f37d808404af1a12c4b9649cd6f6769f35bdf5a816133623fbh',
+        balance_lock='684b3176c63d5f37d808404af1a12c4b9649cd6f6769f35bdf5a816133623fbj',
         payments=payments,
         signing_key=signing_key,
     )
