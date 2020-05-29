@@ -1,0 +1,16 @@
+{
+  "account_number": "484b3176c63d5f37d808404af1a12c4b9649cd6f6769f35bdf5a816133623fbc",
+  "signature": "1d5d096e93767a048b563afdeb8394431ee3d7209b87a0c8d05de1142d6e2fd5b0ac8b6cdd0ad82c00023eb736a4f4b717f80537e68719fdffcc50010507290f",
+  "txs": [
+    {
+      "amount": 2,
+      "balance_key": "484b3176c63d5f37d808404af1a12c4b9649cd6f6769f35bdf5a816133623fbd",
+      "recipient": "bank_001"
+    },
+    {
+      "amount": 2,
+      "balance_key": "97d10175a7dbb2b8bd44fe1cf958372739a9dbad0dc62628c414b7cde96da244",
+      "recipient": "validator_001"
+    }
+  ]
+}
