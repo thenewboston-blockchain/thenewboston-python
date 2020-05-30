@@ -1,6 +1,6 @@
 {
   "account_number": "0cdd4ba04456ca169baca3d66eace869520c62fe84421329086e03d91a68acdb",
-  "signature": "b843a20333836b51ac1da3acb09fd352795340b41bb367b22aac205b98c919476bfb2ca8f7b3dc903b0357a65ee8ad54ea5609886979485e5483f99d52bae704",
+  "signature": "46dcde9393b6f2eb9270adb13b94a116e393e4a568ed7903aa8649c66b32a45d859095375553bc05b16c33d0cadb9d242637cacb90969d3475881173b24f3a05",
   "txs": [
     {
       "amount": 2,
@@ -11,11 +11,7 @@
       "amount": 2,
       "balance_key": "4df4f6e7bee51f30d11b0160ce72145a189639f14083432a72c55549ebde4dec",
       "recipient": "ad1f8845c6a1abb6011a2a434a079a087c460657aad54329a84b406dce8bf314"
-    },
-    {
-      "amount": 100,
-      "balance_key": "7cddcd9d4a3baae40545e3890cef6b4d68203687a3dda734cd5739688ef7b1c7",
-      "recipient": "484b3176c63d5f37d808404af1a12c4b9649cd6f6769f35bdf5a816133623fbc"
     }
-  ]
+  ],
+  "balance_lock": "0cdd4ba04456ca169baca3d66eace869520c62fe84421329086e03d91a68acdb"
 }
