@@ -28,6 +28,7 @@ thenewboston/models/network_node.py
 thenewboston/models/network_registration.py
 thenewboston/models/network_transaction.py
 thenewboston/models/network_transaction_fee_tier.py
+thenewboston/models/network_validator.py
 thenewboston/nodes/__init__.py
 thenewboston/nodes/bank.py
 thenewboston/nodes/node.py
