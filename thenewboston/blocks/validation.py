@@ -58,6 +58,8 @@ def validate_block_transaction_chain(*, balance_lock, txs):
     - has Txs
     - does not contain any Txs with amounts <= 0
     - has Txs properly chained
+
+    Returns the final (new) balance lock
     """
 
     if not txs:
@@ -80,3 +82,5 @@ def validate_block_transaction_chain(*, balance_lock, txs):
 
     if unlocked_tx_counter != len(txs):
         raise RuntimeError(f'Invalid block, unlocked {unlocked_tx_counter}/{len(txs)} Txs')
+
+    return balance_lock

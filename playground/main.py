@@ -37,7 +37,7 @@ def create_block():
             'recipient': VALIDATOR_ACCOUNT_NUMBER,
         },
         {
-            'amount': 4294967298,
+            'amount': 20,
             'recipient': BUCKY_ACCOUNT_NUMBER,
         }
     ]
@@ -47,7 +47,7 @@ def create_block():
         payments=payments,
         signing_key=signing_key,
     )
-    write_json('block.json', block)
+    write_json('valid-block.json', block)
 
 
 def create_member_registration_block():
