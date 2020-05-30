@@ -6,7 +6,7 @@ from thenewboston.accounts.manage import create_account
 
 if __name__ == '__main__':
     # signing_key, account_number = create_account()
-    # write_signing_key_file(signing_key, 'validator_signing_key_file')
+    # write_signing_key_file(signing_key, 'treasury_signing_key_file')
 
     signing_key = read_signing_key_file('buckys_signing_key_file')
     account_number = get_verify_key(signing_key=signing_key)
