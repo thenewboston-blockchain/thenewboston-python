@@ -37,7 +37,7 @@ def create_block():
             'recipient': VALIDATOR_ACCOUNT_NUMBER,
         },
         {
-            'amount': 100,
+            'amount': 4294967298,
             'recipient': BUCKY_ACCOUNT_NUMBER,
         }
     ]
