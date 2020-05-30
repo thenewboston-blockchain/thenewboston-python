@@ -5,11 +5,11 @@ from thenewboston.verify_keys.verify_key import encode_verify_key, get_verify_ke
 from thenewboston.accounts.manage import create_account
 
 if __name__ == '__main__':
-    # signing_key, account_number = create_account()
-    # write_signing_key_file(signing_key, 'treasury_signing_key_file')
+    signing_key, account_number = create_account()
+    write_signing_key_file(signing_key, 'vr1')
 
-    signing_key = read_signing_key_file('buckys_signing_key_file')
-    account_number = get_verify_key(signing_key=signing_key)
+    # signing_key = read_signing_key_file('buckys_signing_key_file')
+    # account_number = get_verify_key(signing_key=signing_key)
 
     encoded_account_number = encode_verify_key(verify_key=account_number)
     print(encoded_account_number)
