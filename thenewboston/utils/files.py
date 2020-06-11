@@ -1,4 +1,22 @@
 import json
+from hashlib import sha3_256 as sha3
+
+
+def get_file_hash(file):
+    """
+    Return hash value of file
+    """
+
+    h = sha3()
+
+    with open(file, 'rb') as file:
+        chunk = 0
+
+        while chunk != b'':
+            chunk = file.read(1024)
+            h.update(chunk)
+
+    return h.hexdigest()
 
 
 def read_json(file):
