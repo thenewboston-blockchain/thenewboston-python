@@ -25,7 +25,7 @@ def create_block():
 
     signing_key = read_signing_key_file('treasury_signing_key_file')
     account_number = get_verify_key(signing_key=signing_key)
-    balance_lock = '69214f0984765de0ccdf26f29121ce48bce3be6c82aab6a41510686a405b6653'
+    balance_lock = 'df246a329d6eff183c53f5c2704626e03ca29e00aa55e68e643551f63d10e886'
 
     transactions = [
         {
@@ -37,7 +37,7 @@ def create_block():
             'recipient': VALIDATOR_ACCOUNT_NUMBER,
         },
         {
-            'amount': 20,
+            'amount': 4.125,
             'recipient': BUCKY_ACCOUNT_NUMBER,
         }
     ]

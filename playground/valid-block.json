@@ -1,10 +1,10 @@
 {
   "account_number": "0cdd4ba04456ca169baca3d66eace869520c62fe84421329086e03d91a68acdb",
   "message": {
-    "balance_key": "69214f0984765de0ccdf26f29121ce48bce3be6c82aab6a41510686a405b6653",
+    "balance_key": "df246a329d6eff183c53f5c2704626e03ca29e00aa55e68e643551f63d10e886",
     "txs": [
       {
-        "amount": 20,
+        "amount": 4.125,
         "recipient": "484b3176c63d5f37d808404af1a12c4b9649cd6f6769f35bdf5a816133623fbc"
       },
       {
@@ -17,5 +17,5 @@
       }
     ]
   },
-  "signature": "e827edae5028d54f50c33ff0cb456ea2b32feb2f73341d8093e244fb883dcff38a460c8000d7f6469398b5324bc918e9bde14b01e2ba3b1840286a01df10a70c"
+  "signature": "41bb7af16ebb7fef601b3cc8d8e2d465372f81f0581e308324a359221c66c2dd18fe4a9d91ce4679c201954e3a94dc60948dc970d218bf13ac588a4422418b03"
 }
