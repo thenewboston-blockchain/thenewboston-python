@@ -6,7 +6,7 @@ from thenewboston.verify_keys.verify_key import get_verify_key
 # Bank
 BANK_ACCOUNT_NUMBER = '5e12967707909e62b2bb2036c209085a784fabbc3deccefee70052b6181c8ed8'
 BANK_REGISTRATION_FEE = 2
-BANK_TX_FEE = 2
+BANK_TX_FEE = 1
 
 # Validator
 VALIDATOR_ACCOUNT_NUMBER = 'ad1f8845c6a1abb6011a2a434a079a087c460657aad54329a84b406dce8bf314'

@@ -8,7 +8,7 @@
         "recipient": "484b3176c63d5f37d808404af1a12c4b9649cd6f6769f35bdf5a816133623fbc"
       },
       {
-        "amount": 2,
+        "amount": 1,
         "recipient": "5e12967707909e62b2bb2036c209085a784fabbc3deccefee70052b6181c8ed8"
       },
       {
@@ -17,5 +17,5 @@
       }
     ]
   },
-  "signature": "306c3d7b08d69ba27ffe793bb44f26bb9d35bcdf5232a8b6ec6ec1a3fb99a25b51e4212f501d2de9be4ccbe712d781d902eb7fc9bb829f42cde0836756bdd304"
+  "signature": "1a4ca4ea08fdfb4fd78b27130653029c3e0393e1b241f1f214b50774c9cd92f47b6c73c1c61a93273e9c9f21cb17301a24f5b257f0973a5551807f00d8e90e06"
 }
