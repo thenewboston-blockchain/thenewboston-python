@@ -25,7 +25,7 @@ def create_block():
 
     signing_key = read_signing_key_file('treasury_signing_key_file')
     account_number = get_verify_key(signing_key=signing_key)
-    balance_lock = '0cdd4ba04456ca169baca3d66eace869520c62fe84421329086e03d91a68acd8'
+    balance_lock = '69214f0984765de0ccdf26f29121ce48bce3be6c82aab6a41510686a405b6653'
 
     transactions = [
         {
