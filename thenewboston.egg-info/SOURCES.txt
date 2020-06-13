@@ -19,7 +19,6 @@ thenewboston/blocks/__init__.py
 thenewboston/blocks/balance_lock.py
 thenewboston/blocks/block.py
 thenewboston/blocks/signatures.py
-thenewboston/blocks/validation.py
 thenewboston/constants/__init__.py
 thenewboston/constants/network.py
 thenewboston/environment/__init__.py
