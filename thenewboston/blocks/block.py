@@ -1,29 +1,29 @@
-from thenewboston.blocks.balance_lock import generate_balance_lock
+from operator import itemgetter
+
 from thenewboston.blocks.signatures import generate_signature
 from thenewboston.utils.tools import sort_and_encode
 from thenewboston.verify_keys.verify_key import encode_verify_key
 
 
-def generate_block(*, account_number, balance_lock, payments, signing_key):
+def generate_block(*, account_number, balance_lock, signing_key, transactions):
     """
     Generate block
     """
 
-    txs = []
+    message = {
+        'balance_key': balance_lock,
+        'txs': sorted(transactions, key=itemgetter('recipient'))
+    }
 
-    for payment in payments:
-        tx = {
-            'amount': payment['amount'],
-            'balance_key': balance_lock,
-            'recipient': payment['recipient']
-        }
-        balance_lock = generate_balance_lock(tx=tx)
-        txs.append(tx)
+    signature = generate_signature(
+        message=sort_and_encode(message),
+        signing_key=signing_key
+    )
 
-    message = sort_and_encode(txs)
     block = {
         'account_number': encode_verify_key(verify_key=account_number),
-        'signature': generate_signature(message=message, signing_key=signing_key),
-        'txs': txs
+        'message': message,
+        'signature': signature
     }
+
     return block

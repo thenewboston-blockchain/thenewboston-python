@@ -1,6 +1,8 @@
 README.md
 setup.py
 playground/__init__.py
+playground/bank_registration_sample.py
+playground/generate_blocks.py
 playground/main.py
 tests/__init__.py
 tests/test_application.py

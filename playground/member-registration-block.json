@@ -1,17 +1,17 @@
 {
   "account_number": "0cdd4ba04456ca169baca3d66eace869520c62fe84421329086e03d91a68acdb",
-  "signature": "46dcde9393b6f2eb9270adb13b94a116e393e4a568ed7903aa8649c66b32a45d859095375553bc05b16c33d0cadb9d242637cacb90969d3475881173b24f3a05",
-  "txs": [
-    {
-      "amount": 2,
-      "balance_key": "0cdd4ba04456ca169baca3d66eace869520c62fe84421329086e03d91a68acdb",
-      "recipient": "5e12967707909e62b2bb2036c209085a784fabbc3deccefee70052b6181c8ed8"
-    },
-    {
-      "amount": 2,
-      "balance_key": "4df4f6e7bee51f30d11b0160ce72145a189639f14083432a72c55549ebde4dec",
-      "recipient": "ad1f8845c6a1abb6011a2a434a079a087c460657aad54329a84b406dce8bf314"
-    }
-  ],
-  "balance_lock": "0cdd4ba04456ca169baca3d66eace869520c62fe84421329086e03d91a68acdb"
+  "message": {
+    "balance_key": "0cdd4ba04456ca169baca3d66eace869520c62fe84421329086e03d91a68acdb",
+    "txs": [
+      {
+        "amount": 2,
+        "recipient": "5e12967707909e62b2bb2036c209085a784fabbc3deccefee70052b6181c8ed8"
+      },
+      {
+        "amount": 2,
+        "recipient": "ad1f8845c6a1abb6011a2a434a079a087c460657aad54329a84b406dce8bf314"
+      }
+    ]
+  },
+  "signature": "863694bf71e353bd4598f506b834de8b8273a52f3026ff830e4e153e004e84e29e216f7d71f1ff81c7a18c9e7b9b0a2d912a69cc0b783a3cf97aa18159b0ce02"
 }
