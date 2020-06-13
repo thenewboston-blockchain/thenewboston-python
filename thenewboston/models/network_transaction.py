@@ -1,7 +1,7 @@
 from django.core.validators import MinValueValidator
 from django.db import models
 
-from thenewboston.constants.network import BALANCE_LOCK_LENGTH, MIN_POINT_VALUE, VERIFY_KEY_LENGTH
+from thenewboston.constants.network import MIN_POINT_VALUE, VERIFY_KEY_LENGTH
 from thenewboston.utils.validators import validate_is_real_number
 
 
@@ -15,7 +15,6 @@ class NetworkTransaction(models.Model):
             validate_is_real_number
         ]
     )
-    balance_key = models.CharField(max_length=BALANCE_LOCK_LENGTH, unique=True)
     recipient = models.CharField(max_length=VERIFY_KEY_LENGTH)
 
     class Meta:
