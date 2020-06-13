@@ -1,4 +1,5 @@
 from thenewboston.accounts.key_files import read_signing_key_file
+from thenewboston.blocks.balance_lock import generate_balance_lock
 from thenewboston.blocks.block import generate_block
 from thenewboston.utils.files import write_json
 from thenewboston.verify_keys.verify_key import get_verify_key
@@ -24,7 +25,7 @@ def create_block():
 
     signing_key = read_signing_key_file('treasury_signing_key_file')
     account_number = get_verify_key(signing_key=signing_key)
-    balance_lock = '0cdd4ba04456ca169baca3d66eace869520c62fe84421329086e03d91a68acdb'
+    balance_lock = '0cdd4ba04456ca169baca3d66eace869520c62fe84421329086e03d91a68acd8'
 
     transactions = [
         {
@@ -46,6 +47,10 @@ def create_block():
         signing_key=signing_key,
         transactions=transactions
     )
+
+    next_balance_lock = generate_balance_lock(message=block['message'])
+    print(f'Next balance lock will be: {next_balance_lock}')
+
     write_json('valid-block.json', block)
 
 
@@ -75,9 +80,13 @@ def create_member_registration_block():
         signing_key=signing_key,
         transactions=transactions
     )
+
+    next_balance_lock = generate_balance_lock(message=block['message'])
+    print(f'Next balance lock will be: {next_balance_lock}')
+
     write_json('member-registration-block.json', block)
 
 
 if __name__ == '__main__':
     create_block()
-    create_member_registration_block()
+    # create_member_registration_block()
