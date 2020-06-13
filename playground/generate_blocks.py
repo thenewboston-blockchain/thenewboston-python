@@ -2,6 +2,8 @@ from thenewboston.accounts.key_files import read_signing_key_file
 from thenewboston.blocks.balance_lock import generate_balance_lock
 from thenewboston.blocks.block import generate_block
 from thenewboston.utils.files import write_json
+from thenewboston.utils.format import format_address
+from thenewboston.utils.network import post
 from thenewboston.verify_keys.verify_key import get_verify_key
 
 # Bank
@@ -17,7 +19,7 @@ VALIDATOR_TX_FEE = 2
 BUCKY_ACCOUNT_NUMBER = '484b3176c63d5f37d808404af1a12c4b9649cd6f6769f35bdf5a816133623fbc'
 
 
-def create_block():
+def create_and_send_block_to_bank():
     """
     Create block used for:
     - POST /blocks
@@ -25,7 +27,7 @@ def create_block():
 
     signing_key = read_signing_key_file('treasury_signing_key_file')
     account_number = get_verify_key(signing_key=signing_key)
-    balance_lock = 'df246a329d6eff183c53f5c2704626e03ca29e00aa55e68e643551f63d10e886'
+    balance_lock = 'e7e8a1af9e9531f866161ef48f3df0e99507b16ab09ec747d18b0c8f884386e8'
 
     transactions = [
         {
@@ -49,7 +51,18 @@ def create_block():
     )
 
     next_balance_lock = generate_balance_lock(message=block['message'])
-    print(f'Next balance lock will be: {next_balance_lock}')
+    print(f'\nNext balance lock will be: {next_balance_lock}\n')
+
+    bank_address = format_address(
+        ip_address='192.168.1.232',
+        port=8000,
+        protocol='http'
+    )
+    url = f'{bank_address}/blocks'
+    results = post(url=url, body=block)
+
+    for k, v in results.items():
+        print(f'{k}: {v}')
 
     write_json('valid-block.json', block)
 
@@ -88,5 +101,5 @@ def create_member_registration_block():
 
 
 if __name__ == '__main__':
-    create_block()
+    create_and_send_block_to_bank()
     # create_member_registration_block()

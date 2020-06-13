@@ -1,4 +1,3 @@
-from thenewboston.blocks.validation import validate_block_format
 from thenewboston.nodes.node import Node
 from thenewboston.utils.network import post
 
@@ -12,8 +11,6 @@ class Validator(Node):
         """
         Create bank registration
         """
-
-        validate_block_format(block)
 
         body = {
             **block,
