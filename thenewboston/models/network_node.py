@@ -1,4 +1,4 @@
-from django.core.validators import MinValueValidator
+from django.core.validators import MaxValueValidator, MinValueValidator
 from django.db import models
 
 from thenewboston.constants.network import MIN_POINT_VALUE, PROTOCOL_CHOICES, VERIFY_KEY_LENGTH
@@ -9,7 +9,13 @@ class NetworkNode(models.Model):
     account_number = models.CharField(max_length=VERIFY_KEY_LENGTH)
     ip_address = models.GenericIPAddressField(unique=True)
     network_identifier = models.CharField(max_length=VERIFY_KEY_LENGTH, unique=True)
-    port = models.PositiveSmallIntegerField(blank=True, null=True)
+    port = models.PositiveIntegerField(
+        blank=True,
+        null=True,
+        validators=[
+            MaxValueValidator(65535)
+        ]
+    )
     protocol = models.CharField(choices=PROTOCOL_CHOICES, max_length=5)
     version = models.CharField(max_length=32)
 
