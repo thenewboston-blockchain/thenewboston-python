@@ -6,12 +6,8 @@ def fetch(*, url, headers):
     Send a GET request and return response as Python object
     """
 
-    try:
-        response = requests.get(url, headers=headers)
-        return response.json()
-    except Exception as e:
-        print(e, url)
-        return None
+    response = requests.get(url, headers=headers)
+    return response.json()
 
 
 def post(*, url, body):
