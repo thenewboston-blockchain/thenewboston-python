@@ -14,6 +14,8 @@ thenewboston.egg-info/top_level.txt
 thenewboston/accounts/__init__.py
 thenewboston/accounts/key_files.py
 thenewboston/accounts/manage.py
+thenewboston/base_classes/__init__.py
+thenewboston/base_classes/initialize_node.py
 thenewboston/blocks/__init__.py
 thenewboston/blocks/balance_lock.py
 thenewboston/blocks/block.py
