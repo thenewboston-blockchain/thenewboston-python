@@ -8,10 +8,10 @@
         "recipient": "5e12967707909e62b2bb2036c209085a784fabbc3deccefee70052b6181c8ed8"
       },
       {
-        "amount": 2,
+        "amount": 1,
         "recipient": "ad1f8845c6a1abb6011a2a434a079a087c460657aad54329a84b406dce8bf314"
       }
     ]
   },
-  "signature": "863694bf71e353bd4598f506b834de8b8273a52f3026ff830e4e153e004e84e29e216f7d71f1ff81c7a18c9e7b9b0a2d912a69cc0b783a3cf97aa18159b0ce02"
+  "signature": "fed5d047e2851c913ed14ae5b27f6681e0105a2a9af52726bd53ca980be863e82d576a141285d977a0f62d4183f164b7c815e61c3f9c3948d8a8d060aa478104"
 }

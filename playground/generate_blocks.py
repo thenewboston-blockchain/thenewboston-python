@@ -13,7 +13,7 @@ BANK_TX_FEE = 1
 
 # Validator
 VALIDATOR_ACCOUNT_NUMBER = 'ad1f8845c6a1abb6011a2a434a079a087c460657aad54329a84b406dce8bf314'
-VALIDATOR_TX_FEE = 2
+VALIDATOR_TX_FEE = 1
 
 # Users
 BUCKY_ACCOUNT_NUMBER = '484b3176c63d5f37d808404af1a12c4b9649cd6f6769f35bdf5a816133623fbc'
@@ -101,5 +101,5 @@ def create_member_registration_block():
 
 
 if __name__ == '__main__':
-    create_and_send_block_to_bank()
-    # create_member_registration_block()
+    # create_and_send_block_to_bank()
+    create_member_registration_block()
