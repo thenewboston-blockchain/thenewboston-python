@@ -15,7 +15,6 @@ def generate_signed_create_bank_registration_request():
     network_identifier = get_verify_key(signing_key=signing_key)
 
     message = {
-        'status': ACCEPTED,
         'validator': 'a8101b03-15ad-42fc-8e64-2de24b850e0e'
     }
 
