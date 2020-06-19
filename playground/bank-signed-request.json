@@ -1,0 +1,8 @@
+{
+  "message": {
+    "status": "ACCEPTED",
+    "validator": "a8101b03-15ad-42fc-8e64-2de24b850e0e"
+  },
+  "network_identifier": "d5356888dc9303e44ce52b1e06c3165a7759b9df1e6a6dfbd33ee1c3df1ab4d1",
+  "signature": "c2a23296ea693c4860f371652bf1e77ebecd3466c87d31a5396446b6449444c1440742c016771689ea15d7470a36ca16f8abd530a34e82c826d53e2d03b92901"
+}
