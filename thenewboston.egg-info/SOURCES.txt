@@ -1,8 +1,11 @@
 README.md
 setup.py
 playground/__init__.py
-playground/generate_blocks.py
-playground/main.py
+playground/config.py
+playground/create_block.py
+playground/create_member_registration_block.py
+playground/create_signed_patch_bank_registration_request.py
+playground/create_signed_post_bank_registration_request.py
 tests/__init__.py
 tests/test_application.py
 thenewboston/__init__.py
@@ -49,6 +52,7 @@ thenewboston/utils/fields.py
 thenewboston/utils/files.py
 thenewboston/utils/format.py
 thenewboston/utils/network.py
+thenewboston/utils/signed_requests.py
 thenewboston/utils/tables.py
 thenewboston/utils/tools.py
 thenewboston/utils/validators.py
