@@ -3,6 +3,7 @@ import os
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 BLOCKS_DIR = os.path.join(BASE_DIR, 'blocks')
+SIGNED_REQUESTS_DIR = os.path.join(BASE_DIR, 'signed_requests')
 SIGNING_KEY_DIR = os.path.join(BASE_DIR, 'signing_keys')
 
 # Account numbers
