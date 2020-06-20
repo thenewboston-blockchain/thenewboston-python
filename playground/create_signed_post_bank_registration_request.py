@@ -10,10 +10,9 @@ from playground.config import (
 )
 from thenewboston.accounts.key_files import read_signing_key_file
 from thenewboston.blocks.block import generate_block
-from thenewboston.blocks.signatures import generate_signature
 from thenewboston.utils.files import write_json
-from thenewboston.utils.tools import sort_and_encode
-from thenewboston.verify_keys.verify_key import encode_verify_key, get_verify_key
+from thenewboston.utils.signed_requests import generate_signed_requests
+from thenewboston.verify_keys.verify_key import get_verify_key
 
 
 def run():
@@ -37,27 +36,18 @@ def run():
         ]
     )
 
-    request_data = {
-        'block': block,
-        'validator_network_identifier': VALIDATOR_NID_ACCOUNT_NUMBER
-    }
-
     # Signed request
     bank_nid_signing_key = read_signing_key_file(os.path.join(SIGNING_KEY_DIR, 'bank_nid'))
-    bank_nid = get_verify_key(signing_key=bank_nid_signing_key)
-    signature = generate_signature(
-        message=sort_and_encode(request_data),
-        signing_key=bank_nid_signing_key
+    signed_request = generate_signed_requests(
+        data={
+            'block': block,
+            'validator_network_identifier': VALIDATOR_NID_ACCOUNT_NUMBER
+        },
+        nid_signing_key=bank_nid_signing_key
     )
-    signed_request_data = {
-        'message': request_data,
-        'network_identifier': encode_verify_key(verify_key=bank_nid),
-        'signature': signature
-    }
-
     write_json(
         os.path.join(SIGNED_REQUESTS_DIR, 'signed-post-bank-registration-request.json'),
-        signed_request_data
+        signed_request
     )
 
 

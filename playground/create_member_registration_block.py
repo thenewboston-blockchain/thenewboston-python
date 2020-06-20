@@ -3,6 +3,7 @@ import os
 from playground.config import (
     BANK_ACCOUNT_NUMBER,
     BANK_REGISTRATION_FEE,
+    BLOCKS_DIR,
     SIGNING_KEY_DIR,
     VALIDATOR_ACCOUNT_NUMBER,
     VALIDATOR_TX_FEE
@@ -46,7 +47,10 @@ def run(send_to_bank=False):
     if send_to_bank:
         send_block_to_bank(block)
 
-    write_json('blocks/member-registration-block.json', block)
+    write_json(
+        os.path.join(BLOCKS_DIR, 'member-registration-block.json'),
+        block
+    )
 
 
 def send_block_to_bank(block):
