@@ -23,7 +23,7 @@ def create_block():
     - POST /blocks
     """
 
-    signing_key = read_signing_key_file('treasury_signing_key_file')
+    signing_key = read_signing_key_file('signing_keys/treasury_signing_key_file')
     account_number = get_verify_key(signing_key=signing_key)
     balance_lock = '0cdd4ba04456ca169baca3d66eace869520c62fe84421329086e03d91a68acdb'
 
@@ -56,7 +56,7 @@ def create_member_registration_block():
     - POST /member_registrations
     """
 
-    signing_key = read_signing_key_file('treasury_signing_key_file')
+    signing_key = read_signing_key_file('signing_keys/treasury_signing_key_file')
     account_number = get_verify_key(signing_key=signing_key)
     balance_lock = '0cdd4ba04456ca169baca3d66eace869520c62fe84421329086e03d91a68acdb'
 

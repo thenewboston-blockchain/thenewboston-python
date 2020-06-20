@@ -20,7 +20,7 @@ def generate_signed_create_bank_registration_request():
     Generate signed create bank registration request
     """
 
-    bank_signing_key = read_signing_key_file('bank_signing_key_file')
+    bank_signing_key = read_signing_key_file('signing_keys/bank_signing_key_file')
     bank_account_number_verify_key = get_verify_key(signing_key=bank_signing_key)
 
     # Payment block (for validator registration fees)
@@ -42,7 +42,7 @@ def generate_signed_create_bank_registration_request():
     }
 
     # Signed request
-    bank_nid_signing_key = read_signing_key_file('bank_nid_signing_key_file')
+    bank_nid_signing_key = read_signing_key_file('signing_keys/bank_nid_signing_key_file')
     bank_network_identifier = get_verify_key(signing_key=bank_nid_signing_key)
     signature = generate_signature(
         message=sort_and_encode(message),
@@ -62,7 +62,7 @@ def generate_signed_update_bank_registration_request():
     Generate signed update bank registration request
     """
 
-    signing_key = read_signing_key_file('validator_nid_signing_key_file')
+    signing_key = read_signing_key_file('signing_keys/validator_nid_signing_key_file')
     network_identifier = get_verify_key(signing_key=signing_key)
 
     message = {
