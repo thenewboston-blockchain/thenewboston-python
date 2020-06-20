@@ -10,6 +10,15 @@ def fetch(*, url, headers):
     return response.json()
 
 
+def patch(*, url, body):
+    """
+    Send a PATCH request and return response as Python object
+    """
+
+    response = requests.patch(url, json=body)
+    return response.json()
+
+
 def post(*, url, body):
     """
     Send a POST request and return response as Python object
