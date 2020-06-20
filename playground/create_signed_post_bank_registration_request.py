@@ -11,7 +11,7 @@ from playground.config import (
 from thenewboston.accounts.key_files import read_signing_key_file
 from thenewboston.blocks.block import generate_block
 from thenewboston.utils.files import write_json
-from thenewboston.utils.signed_requests import generate_signed_requests
+from thenewboston.utils.signed_requests import generate_signed_request
 from thenewboston.verify_keys.verify_key import get_verify_key
 
 
@@ -38,7 +38,7 @@ def run():
 
     # Signed request
     bank_nid_signing_key = read_signing_key_file(os.path.join(SIGNING_KEY_DIR, 'bank_nid'))
-    signed_request = generate_signed_requests(
+    signed_request = generate_signed_request(
         data={
             'block': block,
             'validator_network_identifier': VALIDATOR_NID_ACCOUNT_NUMBER

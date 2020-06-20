@@ -3,7 +3,7 @@ from thenewboston.utils.tools import sort_and_encode
 from thenewboston.verify_keys.verify_key import encode_verify_key, get_verify_key
 
 
-def generate_signed_requests(*, data, nid_signing_key):
+def generate_signed_request(*, data, nid_signing_key):
     """
     Generate and return signed request
     """
