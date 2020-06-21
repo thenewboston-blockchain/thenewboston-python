@@ -47,19 +47,19 @@ def run():
         transactions=transactions
     )
 
-    bank_nid_signing_key = read_signing_key_file(os.path.join(SIGNING_KEY_DIR, 'bank_nid'))
-    network_identifier = get_verify_key(signing_key=bank_nid_signing_key)
-    network_identifier = encode_verify_key(verify_key=network_identifier)
+    bank_nid_sk = read_signing_key_file(os.path.join(SIGNING_KEY_DIR, 'bank_nid'))
+    bank_nid = get_verify_key(signing_key=bank_nid_sk)
+    bank_nid = encode_verify_key(verify_key=bank_nid)
     message = sort_and_encode(block)
 
     signed_block = {
         'block': block,
-        'network_identifier': network_identifier,
-        'signature': generate_signature(message=message, signing_key=bank_nid_signing_key)
+        'bank_nid': bank_nid,
+        'signature': generate_signature(message=message, signing_key=bank_nid_sk)
     }
 
     write_json(
-        os.path.join(BLOCKS_DIR, 'signed-block.json'),
+        os.path.join(BLOCKS_DIR, 'signed-bank-block.json'),
         signed_block
     )
 
