@@ -4,6 +4,7 @@ playground/__init__.py
 playground/config.py
 playground/create_block.py
 playground/create_member_registration_block.py
+playground/create_signed_bank_block.py
 playground/create_signed_patch_bank_registration_request.py
 playground/create_signed_post_bank_registration_request.py
 tests/__init__.py

@@ -11,7 +11,7 @@ class NetworkNode(models.Model):
     id = models.UUIDField(default=uuid4, editable=False, primary_key=True)
     account_number = models.CharField(max_length=VERIFY_KEY_LENGTH)
     ip_address = models.GenericIPAddressField(unique=True)
-    network_identifier = models.CharField(max_length=VERIFY_KEY_LENGTH, unique=True)
+    node_identifier = models.CharField(max_length=VERIFY_KEY_LENGTH, unique=True)
     port = models.PositiveIntegerField(
         blank=True,
         null=True,

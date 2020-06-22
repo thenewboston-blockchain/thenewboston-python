@@ -41,7 +41,7 @@ def run():
     signed_request = generate_signed_request(
         data={
             'block': block,
-            'validator_network_identifier': VALIDATOR_NID_ACCOUNT_NUMBER
+            'validator_node_identifier': VALIDATOR_NID_ACCOUNT_NUMBER
         },
         nid_signing_key=bank_nid_signing_key
     )

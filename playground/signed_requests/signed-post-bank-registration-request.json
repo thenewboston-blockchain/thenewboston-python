@@ -13,8 +13,8 @@
       },
       "signature": "a341eb2d678df410fb110760fd2c77c5969975d4fcba9a3846d9f11dfb43151bc23a157c26dd29163f061697806bc2b75d74a300ed6ba1a504ae2de6013d8c0f"
     },
-    "validator_network_identifier": "3afdf37573f1a511def0bd85553404b7091a76bcd79cdcebba1310527b167521"
+    "validator_node_identifier": "3afdf37573f1a511def0bd85553404b7091a76bcd79cdcebba1310527b167521"
   },
-  "network_identifier": "d5356888dc9303e44ce52b1e06c3165a7759b9df1e6a6dfbd33ee1c3df1ab4d1",
+  "node_identifier": "d5356888dc9303e44ce52b1e06c3165a7759b9df1e6a6dfbd33ee1c3df1ab4d1",
   "signature": "890d200626e4403702f15bb00906d5d8f4abba2cab68cec37007d6436f9256e202d2e26a049ad0e68d5c07cea7db7c20cb346b15ac973f909bac0df8f605f60c"
 }

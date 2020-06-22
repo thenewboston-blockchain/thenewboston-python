@@ -133,7 +133,7 @@ class InitializeNode(BaseCommand):
         """
         Validate verify key
         - account_number
-        - network_identifier
+        - node_identifier
         """
 
         valid = False
