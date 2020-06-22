@@ -27,7 +27,7 @@ def run(send_to_bank=False):
     signing_key = read_signing_key_file(os.path.join(SIGNING_KEY_DIR, 'treasury'))
     account_number = get_verify_key(signing_key=signing_key)
 
-    balance_lock = 'e7e8a1af9e9531f866161ef48f3df0e99507b16ab09ec747d18b0c8f884386e8'
+    balance_lock = '0cdd4ba04456ca169baca3d66eace869520c62fe84421329086e03d91a68acdb'
     transactions = [
         {
             'amount': BANK_TX_FEE,
@@ -38,7 +38,7 @@ def run(send_to_bank=False):
             'recipient': VALIDATOR_ACCOUNT_NUMBER,
         },
         {
-            'amount': 4.125,
+            'amount': 10000,
             'recipient': BUCKY_ACCOUNT_NUMBER,
         }
     ]
