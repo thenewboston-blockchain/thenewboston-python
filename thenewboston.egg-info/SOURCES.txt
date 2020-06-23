@@ -25,6 +25,7 @@ thenewboston/blocks/balance_lock.py
 thenewboston/blocks/block.py
 thenewboston/blocks/signatures.py
 thenewboston/constants/__init__.py
+thenewboston/constants/errors.py
 thenewboston/constants/network.py
 thenewboston/environment/__init__.py
 thenewboston/environment/environment_variables.py
