@@ -33,7 +33,7 @@ def run(send_to_node=False):
         send_request_to_node(signed_request)
 
     write_json(
-        os.path.join(SIGNED_REQUESTS_DIR, 'signed-connection-request.json'),
+        os.path.join(SIGNED_REQUESTS_DIR, 'connection-request.json'),
         signed_request
     )
 
@@ -59,4 +59,4 @@ def send_request_to_node(signed_request):
 
 
 if __name__ == '__main__':
-    run(send_to_node=True)
+    run(send_to_node=False)
