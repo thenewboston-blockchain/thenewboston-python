@@ -9,7 +9,7 @@ def get_account_balance_lock(*, account_number):
     """
 
     bank_address = format_address(
-        ip_address='192.168.1.74',
+        ip_address='192.168.1.75',
         port=8000,
         protocol='http'
     )
