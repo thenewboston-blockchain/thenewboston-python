@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     install_requires=[
-        'Django==3.0.6',
+        'Django==3.0.7',
         'PTable==0.9.2',
         'PyNaCl==1.3.0',
         'djangorestframework==3.11.0',
