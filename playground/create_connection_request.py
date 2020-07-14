@@ -44,7 +44,7 @@ def send_request_to_node(signed_request):
     """
 
     node_address = format_address(
-        ip_address='192.168.1.74',
+        ip_address='192.168.1.75',
         port=8000,
         protocol='http'
     )
@@ -59,4 +59,4 @@ def send_request_to_node(signed_request):
 
 
 if __name__ == '__main__':
-    run(send_to_node=False)
+    run(send_to_node=True)
