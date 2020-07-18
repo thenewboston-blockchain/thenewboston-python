@@ -13,7 +13,7 @@ class PrimaryValidatorSerializer(serializers.Serializer):
     default_transaction_fee = serializers.DecimalField(max_digits=32, decimal_places=16)
     ip_address = serializers.IPAddressField(protocol='both')
     node_identifier = serializers.CharField(max_length=VERIFY_KEY_LENGTH)
-    port = serializers.IntegerField(max_value=65535, min_value=0, required=False)
+    port = serializers.IntegerField(allow_null=True, max_value=65535, min_value=0, required=False)
     protocol = serializers.ChoiceField(choices=PROTOCOL_CHOICES)
     root_account_file = serializers.URLField()
     root_account_file_hash = serializers.CharField(max_length=HEAD_HASH_LENGTH)
