@@ -19,10 +19,10 @@ def run(send_to_node=False):
     """
 
     # Signed request
-    sk = read_signing_key_file(os.path.join(SIGNING_KEY_DIR, 'bank_nid'))
+    sk = read_signing_key_file(os.path.join(SIGNING_KEY_DIR, 'cv_nid'))
     signed_request = generate_signed_request(
         data={
-            'ip_address': '167.99.173.247',
+            'ip_address': '138.68.233.185',
             'port': '80',
             'protocol': 'http'
         },

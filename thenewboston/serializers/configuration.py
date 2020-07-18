@@ -14,7 +14,7 @@ class ConfigurationSerializer(serializers.Serializer):
     ip_address = serializers.IPAddressField(protocol='both')
     node_identifier = serializers.CharField(max_length=VERIFY_KEY_LENGTH)
     node_type = serializers.CharField(max_length=22)
-    port = serializers.IntegerField(max_value=65535, min_value=0, required=False)
+    port = serializers.IntegerField(allow_null=True, max_value=65535, min_value=0, required=False)
     protocol = serializers.ChoiceField(choices=PROTOCOL_CHOICES)
     version = serializers.CharField(max_length=32)
 
