@@ -1,15 +1,7 @@
 import os
 
-from playground.config import (
-    BANK_ACCOUNT_NUMBER,
-    BANK_TX_FEE,
-    BLOCKS_DIR,
-    BUCKY_ACCOUNT_NUMBER,
-    PV_ACCOUNT_NUMBER,
-    SIGNING_KEY_DIR,
-    TREASURY_ACCOUNT_NUMBER,
-    PV_TX_FEE
-)
+from playground.config import (BANK_ACCOUNT_NUMBER, BANK_TX_FEE, BLOCKS_DIR, BUCKY_ACCOUNT_NUMBER, PV_ACCOUNT_NUMBER,
+                               PV_TX_FEE, SIGNING_KEY_DIR, TREASURY_ACCOUNT_NUMBER)
 from playground.utils import get_account_balance_lock
 from thenewboston.accounts.key_files import read_signing_key_file
 from thenewboston.blocks.block import generate_block
@@ -55,7 +47,7 @@ def run(send_to_bank=False):
         send_block_to_bank(block)
 
     write_json(
-        os.path.join(BLOCKS_DIR, 'block.json'),
+        os.path.join(BLOCKS_DIR, 'blocks.json'),
         block
     )
 
@@ -81,7 +73,7 @@ def send_block_to_bank(block):
             print(f'{k}: {v}')
 
     write_json(
-        os.path.join(BLOCKS_DIR, 'block-response.json'),
+        os.path.join(BLOCKS_DIR, 'blocks-response.json'),
         results
     )
 
