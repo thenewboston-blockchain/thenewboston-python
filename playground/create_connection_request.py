@@ -22,8 +22,8 @@ def run(send_to_node=False):
     sk = read_signing_key_file(os.path.join(SIGNING_KEY_DIR, 'bank_nid'))
     signed_request = generate_signed_request(
         data={
-            'ip_address': '192.168.1.232',
-            'port': '8000',
+            'ip_address': '167.99.173.247',
+            'port': '80',
             'protocol': 'http'
         },
         nid_signing_key=sk
@@ -44,8 +44,8 @@ def send_request_to_node(signed_request):
     """
 
     node_address = format_address(
-        ip_address='192.168.1.75',
-        port=8000,
+        ip_address='64.225.47.205',
+        port=80,
         protocol='http'
     )
     url = f'{node_address}/connection_requests'
