@@ -69,8 +69,8 @@ def send_block_to_bank(block):
     print(f'\nNext balance lock will be: {next_balance_lock}\n')
 
     bank_address = format_address(
-        ip_address='192.168.1.232',
-        port=8000,
+        ip_address='167.99.173.247',
+        port=None,
         protocol='http'
     )
     url = f'{bank_address}/blocks'
