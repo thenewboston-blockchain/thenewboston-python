@@ -31,7 +31,7 @@ def run(send_to_pv=False):
     treasury_signing_key = read_signing_key_file(os.path.join(SIGNING_KEY_DIR, 'treasury'))
     account_number = get_verify_key(signing_key=treasury_signing_key)
 
-    balance_lock = get_account_balance_lock(account_number=TREASURY_ACCOUNT_NUMBER)
+    balance_lock = get_account_balance_lock(account_number=TREASURY_ACCOUNT_NUMBER, live_pv=True)
     transactions = [
         {
             'amount': BANK_TX_FEE,
@@ -42,7 +42,7 @@ def run(send_to_pv=False):
             'recipient': PV_ACCOUNT_NUMBER,
         },
         {
-            'amount': 4.125,
+            'amount': 1.0,
             'recipient': BUCKY_ACCOUNT_NUMBER,
         }
     ]
@@ -79,8 +79,8 @@ def send_request_to_pv(signed_request):
     """
 
     node_address = format_address(
-        ip_address='192.168.1.75',
-        port=8000,
+        ip_address='64.225.47.205',
+        port=None,
         protocol='http'
     )
     url = f'{node_address}/bank_blocks'

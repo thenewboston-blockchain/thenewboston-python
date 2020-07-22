@@ -2,10 +2,10 @@
   "block": {
     "account_number": "0cdd4ba04456ca169baca3d66eace869520c62fe84421329086e03d91a68acdb",
     "message": {
-      "balance_key": "ee7a6d21feb2905605f9af446566e003decec3de2f55a6eff9815d41fcde59e0",
+      "balance_key": "8e49a22f8f899093912166f303d7d9aebd75d3921b1ed2703b5d7faeb0c1dfb5",
       "txs": [
         {
-          "amount": 4.125,
+          "amount": 1.0,
           "recipient": "484b3176c63d5f37d808404af1a12c4b9649cd6f6769f35bdf5a816133623fbc"
         },
         {
@@ -18,8 +18,8 @@
         }
       ]
     },
-    "signature": "e8b5215193cd5f91029b2a7a9ff2426b0a9fc0032f5a0f74ec0e6cc2f3ac9f20acd170f90e1557e561c85d34daa37d0cec90901f3d4c9579700847f67de22a05"
+    "signature": "5e2c82c34c2cedc7bd3f160e992623e7840c0e199a49ec73577c18b65b6aac07c80c1cfda27386b3b239f642b40f39273639294d6530180debb37f168d1eec0c"
   },
   "node_identifier": "d5356888dc9303e44ce52b1e06c3165a7759b9df1e6a6dfbd33ee1c3df1ab4d1",
-  "signature": "4f019d36d362f09960399fe51dd67d7ddbee27d73994558cf4015bb13260957f861afaa1694d40fd0397ed2a889834d8a20bff4c3417bbde383e2cd4e219cb0f"
+  "signature": "0d4efd37718384ae90ca23c6d05c3cfc071b2f59c8772deeca56caf0d2bafbe10a22f60c90d0b157fd41830abedbc00f9021943cc0c8bed8689fffbf74243305"
 }

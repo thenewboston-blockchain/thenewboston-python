@@ -40,7 +40,7 @@ def run(send_to_bank=False):
             'recipient': PV_ACCOUNT_NUMBER,
         },
         {
-            'amount': 12.50,
+            'amount': 2.5,
             'recipient': BUCKY_ACCOUNT_NUMBER,
         }
     ]
@@ -69,8 +69,8 @@ def send_block_to_bank(block):
     print(f'\nNext balance lock will be: {next_balance_lock}\n')
 
     bank_address = format_address(
-        ip_address='167.99.173.247',
-        port=None,
+        ip_address='192.168.1.232',
+        port=8000,
         protocol='http'
     )
     url = f'{bank_address}/blocks'
