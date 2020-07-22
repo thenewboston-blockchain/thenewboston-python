@@ -3,17 +3,25 @@ from thenewboston.utils.format import format_address
 from thenewboston.utils.network import fetch
 
 
-def get_account_balance_lock(*, account_number):
+def get_account_balance_lock(*, account_number, live_pv=False):
     """
     Return the balance lock for the given account
     """
 
-    bank_address = format_address(
-        ip_address='192.168.1.75',
-        port=8000,
-        protocol='http'
-    )
-    url = f'{bank_address}/account_balance_lock/{account_number}'
+    if live_pv:
+        pv_address = format_address(
+            ip_address='64.225.47.205',
+            port=None,
+            protocol='http'
+        )
+    else:
+        pv_address = format_address(
+            ip_address='192.168.1.75',
+            port=8000,
+            protocol='http'
+        )
+
+    url = f'{pv_address}/account_balance_lock/{account_number}'
     results = fetch(url=url, headers={})
     return results['balance_lock']
 

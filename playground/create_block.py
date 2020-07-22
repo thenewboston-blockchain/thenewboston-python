@@ -1,7 +1,15 @@
 import os
 
-from playground.config import (BANK_ACCOUNT_NUMBER, BANK_TX_FEE, BLOCKS_DIR, BUCKY_ACCOUNT_NUMBER, PV_ACCOUNT_NUMBER,
-                               PV_TX_FEE, SIGNING_KEY_DIR, TREASURY_ACCOUNT_NUMBER)
+from playground.config import (
+    BANK_ACCOUNT_NUMBER,
+    BANK_TX_FEE,
+    BLOCKS_DIR,
+    BUCKY_ACCOUNT_NUMBER,
+    PV_ACCOUNT_NUMBER,
+    PV_TX_FEE,
+    SIGNING_KEY_DIR,
+    TREASURY_ACCOUNT_NUMBER
+)
 from playground.utils import get_account_balance_lock
 from thenewboston.accounts.key_files import read_signing_key_file
 from thenewboston.blocks.block import generate_block
@@ -21,7 +29,7 @@ def run(send_to_bank=False):
     signing_key = read_signing_key_file(os.path.join(SIGNING_KEY_DIR, 'treasury'))
     account_number = get_verify_key(signing_key=signing_key)
 
-    balance_lock = get_account_balance_lock(account_number=TREASURY_ACCOUNT_NUMBER)
+    balance_lock = get_account_balance_lock(account_number=TREASURY_ACCOUNT_NUMBER, live_pv=True)
     transactions = [
         {
             'amount': BANK_TX_FEE,
@@ -43,13 +51,13 @@ def run(send_to_bank=False):
         transactions=transactions
     )
 
-    if send_to_bank:
-        send_block_to_bank(block)
-
     write_json(
         os.path.join(BLOCKS_DIR, 'blocks.json'),
         block
     )
+
+    if send_to_bank:
+        send_block_to_bank(block)
 
 
 def send_block_to_bank(block):
@@ -61,8 +69,8 @@ def send_block_to_bank(block):
     print(f'\nNext balance lock will be: {next_balance_lock}\n')
 
     bank_address = format_address(
-        ip_address='192.168.1.232',
-        port=8000,
+        ip_address='167.99.173.247',
+        port=None,
         protocol='http'
     )
     url = f'{bank_address}/blocks'
