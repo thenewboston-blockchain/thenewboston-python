@@ -1,0 +1,21 @@
+{
+  "account_number": "484b3176c63d5f37d808404af1a12c4b9649cd6f6769f35bdf5a816133623fbc",
+  "message": {
+    "balance_key": "8db1bd4404eadce824b8f7af2461976e1fde8ebd7a279a2ccec2614479ede338",
+    "txs": [
+      {
+        "amount": 2.5,
+        "recipient": "484b3176c63d5f37d808404af1a12c4b9649cd6f6769f35bdf5a816133623fbc"
+      },
+      {
+        "amount": 1,
+        "recipient": "5e12967707909e62b2bb2036c209085a784fabbc3deccefee70052b6181c8ed8"
+      },
+      {
+        "amount": 4,
+        "recipient": "ad1f8845c6a1abb6011a2a434a079a087c460657aad54329a84b406dce8bf314"
+      }
+    ]
+  },
+  "signature": "17c76cbce89eb3ebfc15a07a0146818b65019f5992c33a2eba4db6a16e2fcc8da95ff978f994b7872e9d65979d4b7164ae05ce9051fca95388bc8a12750ea006"
+}
