@@ -1,9 +1,9 @@
 {
   "message": {
-    "ip_address": "167.99.173.247",
-    "port": "80",
+    "ip_address": "138.68.233.185",
+    "port": null,
     "protocol": "http"
   },
-  "node_identifier": "d5356888dc9303e44ce52b1e06c3165a7759b9df1e6a6dfbd33ee1c3df1ab4d1",
-  "signature": "35ea9986bbcd50bff2307fc4705dd05e55f4ff3832a060d32fdec5e078519e27fe2ef5a6ca0df93cd14473b603489b448dca0d1994069d000b66f923f42d4705"
+  "node_identifier": "59479a31c3b91d96bb7a0b3e07f18d4bf301f1bb0bde05f8d36d9611dcbe7cbf",
+  "signature": "921dc46d8d197ce402aef7f9bc905ea24032ae17e2f8a460c2c13d73008f4bcaf2f7f2398fb087f12200736ff0ecd74bcaae9ebde7cb002bab49f2933988da09"
 }

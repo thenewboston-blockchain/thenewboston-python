@@ -19,18 +19,18 @@ def run(send_to_node=False):
     """
 
     # Signed request
-    sk = read_signing_key_file(os.path.join(SIGNING_KEY_DIR, 'bank_nid'))
+    sk = read_signing_key_file(os.path.join(SIGNING_KEY_DIR, 'cv_nid'))
     signed_request = generate_signed_request(
         data={
-            'ip_address': '167.99.173.247',
-            'port': '80',
+            'ip_address': '138.68.233.185',
+            'port': None,
             'protocol': 'http'
         },
         nid_signing_key=sk
     )
 
     if send_to_node:
-        send_request_to_node(signed_request)
+        send_request_to_node(signed_request, live_pv=True)
 
     write_json(
         os.path.join(SIGNED_REQUESTS_DIR, 'connection-request.json'),
@@ -38,16 +38,24 @@ def run(send_to_node=False):
     )
 
 
-def send_request_to_node(signed_request):
+def send_request_to_node(signed_request, live_pv=False):
     """
     Send connection request to node
     """
 
-    node_address = format_address(
-        ip_address='64.225.47.205',
-        port=80,
-        protocol='http'
-    )
+    if live_pv:
+        node_address = format_address(
+            ip_address='64.225.47.205',
+            port=None,
+            protocol='http'
+        )
+    else:
+        node_address = format_address(
+            ip_address='192.168.1.75',
+            port=8000,
+            protocol='http'
+        )
+
     url = f'{node_address}/connection_requests'
     results = post(url=url, body=signed_request)
 
