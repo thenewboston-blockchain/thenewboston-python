@@ -1,6 +1,6 @@
 import os
 
-from playground.config import SIGNED_REQUESTS_DIR, SIGNING_KEY_DIR
+from playground.config import CV_NID_ACCOUNT_NUMBER, SIGNED_REQUESTS_DIR, SIGNING_KEY_DIR
 from thenewboston.accounts.key_files import read_signing_key_file
 from thenewboston.utils.files import write_json
 from thenewboston.utils.format import format_address
@@ -8,23 +8,21 @@ from thenewboston.utils.network import post
 from thenewboston.utils.signed_requests import generate_signed_request
 
 """
-Primary validator updated notice from bank
-POST /primary_validator_updated
+Bank request asking a confirmation validator to upgrade to a primary validator
+POST /upgrade_request
 """
 
 
 def run(send_to_cv=False):
     """
-    Generate primary validator updated notice (from bank)
+    Bank asking a confirmation validator to upgrade to a primary validator
     """
 
     # Signed request
     sk = read_signing_key_file(os.path.join(SIGNING_KEY_DIR, 'bank_nid'))
 
     new_pv_data = {
-        'ip_address': '192.168.1.20',
-        'port': '8000',
-        'protocol': 'http'
+        'validator_node_identifier': CV_NID_ACCOUNT_NUMBER
     }
 
     signed_request = generate_signed_request(
@@ -36,7 +34,7 @@ def run(send_to_cv=False):
         send_request_to_cv(signed_request)
 
     write_json(
-        os.path.join(SIGNED_REQUESTS_DIR, 'primary-validator-updated-request.json'),
+        os.path.join(SIGNED_REQUESTS_DIR, 'upgrade-request-request.json'),
         signed_request
     )
 
@@ -51,7 +49,7 @@ def send_request_to_cv(signed_request):
         port=8000,
         protocol='http'
     )
-    url = f'{node_address}/primary_validator_updated'
+    url = f'{node_address}/upgrade_request'
     results = post(url=url, body=signed_request)
 
     if isinstance(results, dict):
@@ -61,7 +59,7 @@ def send_request_to_cv(signed_request):
     print(results)
 
     write_json(
-        os.path.join(SIGNED_REQUESTS_DIR, 'primary-validator-updated-response.json'),
+        os.path.join(SIGNED_REQUESTS_DIR, 'upgrade-request-response.json'),
         results
     )
 
