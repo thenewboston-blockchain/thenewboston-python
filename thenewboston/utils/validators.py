@@ -3,8 +3,6 @@ import math
 from django.core.exceptions import ValidationError
 from django.utils.translation import gettext_lazy as _
 
-from thenewboston.constants.network import SIGNATURE_LENGTH
-
 
 def validate_is_real_number(value):
     """
