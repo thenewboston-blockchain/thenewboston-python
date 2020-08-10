@@ -7,8 +7,14 @@ playground/create_block.py
 playground/create_connection_request.py
 playground/create_invalid_block.py
 playground/create_primary_validator_updated.py
+playground/create_signed_account_patch.py
 playground/create_signed_bank_block.py
+playground/create_signed_bank_patch.py
+playground/create_signed_validator_patch.py
+playground/create_upgrade_request.py
 playground/create_validator_confirmation_services.py
+playground/signature_example.py
+playground/upw.py
 playground/utils.py
 tests/__init__.py
 tests/test_application.py
@@ -56,7 +62,6 @@ thenewboston/utils/format.py
 thenewboston/utils/messages.py
 thenewboston/utils/network.py
 thenewboston/utils/signed_requests.py
-thenewboston/utils/tables.py
 thenewboston/utils/tools.py
 thenewboston/utils/validators.py
 thenewboston/verify_keys/__init__.py
