@@ -30,6 +30,8 @@ def run(send_to_bank=False):
     account_number = get_verify_key(signing_key=signing_key)
 
     balance_lock = get_account_balance_lock(account_number=TREASURY_ACCOUNT_NUMBER, live_pv=True)
+    print(f'\nCurrent balance lock: {balance_lock}')
+
     transactions = [
         {
             'amount': BANK_TX_FEE,
@@ -66,7 +68,7 @@ def send_block_to_bank(block):
     """
 
     next_balance_lock = get_message_hash(message=block['message'])
-    print(f'\nNext balance lock will be: {next_balance_lock}\n')
+    print(f'Next balance lock: {next_balance_lock}\n')
 
     bank_address = format_address(
         ip_address='167.99.173.247',
