@@ -9,6 +9,9 @@ setup(
         'djangorestframework==3.11.0',
         'pycodestyle==2.6.0',
         'requests~=2.23.0',
+        'pytest==6.0.1',
+        'pytest-django==3.9.0',
+        'factory-boy==3.0.1',
     ],
     name='thenewboston',
     packages=find_packages(
