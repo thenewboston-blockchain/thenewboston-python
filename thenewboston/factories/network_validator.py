@@ -1,8 +1,8 @@
 from factory import Faker
 
+from .network_node import NetworkNodeFactory
 from ..constants.network import ACCOUNT_FILE_HASH_LENGTH, BLOCK_IDENTIFIER_LENGTH
 from ..models.network_validator import NetworkValidator
-from .network_node import NetworkNodeFactory
 
 
 class NetworkValidatorFactory(NetworkNodeFactory):

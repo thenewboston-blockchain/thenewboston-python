@@ -1,8 +1,8 @@
 import pytz
 from factory import Faker
 
-from ..models.confirmation_service import ConfirmationService
 from .created_modified import CreatedModifiedFactory
+from ..models.confirmation_service import ConfirmationService
 
 
 class ConfirmationServiceFactory(CreatedModifiedFactory):

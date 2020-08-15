@@ -7,15 +7,15 @@ setup(
         'PyNaCl==1.3.0',
         'django-cors-headers==3.4.0',
         'djangorestframework==3.11.0',
-        'pycodestyle==2.6.0',
-        'requests~=2.23.0',
-        'pytest==6.0.1',
-        'pytest-django==3.9.0',
         'factory-boy==3.0.1',
+        'pycodestyle==2.6.0',
+        'pytest-django==3.9.0',
+        'pytest==6.0.1',
+        'requests~=2.23.0',
     ],
     name='thenewboston',
     packages=find_packages(
         exclude=['tests', 'tests.*']
     ),
-    version='0.0.7',
+    version='0.0.8',
 )
