@@ -1,9 +1,9 @@
 from uuid import uuid4
 
-from django.core.validators import MaxValueValidator
+from django.core.validators import MaxValueValidator, MinValueValidator
 from django.db import models
 
-from thenewboston.constants.network import PROTOCOL_CHOICES, VERIFY_KEY_LENGTH
+from thenewboston.constants.network import MAX_POINT_VALUE, MIN_POINT_VALUE, PROTOCOL_CHOICES, VERIFY_KEY_LENGTH
 
 
 class NetworkNode(models.Model):
@@ -22,7 +22,13 @@ class NetworkNode(models.Model):
     version = models.CharField(max_length=32)
 
     # Fees
-    default_transaction_fee = models.PositiveBigIntegerField()
+    default_transaction_fee = models.PositiveBigIntegerField(
+        default=MIN_POINT_VALUE,
+        validators=[
+            MaxValueValidator(MAX_POINT_VALUE),
+            MinValueValidator(MIN_POINT_VALUE),
+        ]
+    )
 
     class Meta:
         abstract = True
