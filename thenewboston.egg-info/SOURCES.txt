@@ -11,6 +11,7 @@ playground/create_signed_account_patch.py
 playground/create_signed_bank_block.py
 playground/create_signed_bank_patch.py
 playground/create_signed_validator_patch.py
+playground/create_upgrade_notice.py
 playground/create_upgrade_request.py
 playground/create_validator_confirmation_services.py
 playground/signature_example.py
