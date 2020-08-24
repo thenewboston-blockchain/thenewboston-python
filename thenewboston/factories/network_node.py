@@ -8,7 +8,7 @@ from ..models.network_node import NetworkNode
 
 class NetworkNodeFactory(DjangoModelFactory):
     account_number = Faker('text', max_nb_chars=VERIFY_KEY_LENGTH)
-    default_transaction_fee = Faker('pyfloat', left_digits=16, right_digits=16)
+    default_transaction_fee = Faker('pyint')
     ip_address = Faker('ipv4')
     node_identifier = Faker('text', max_nb_chars=VERIFY_KEY_LENGTH)
     port = Faker('random_int', min=0, max=65535)

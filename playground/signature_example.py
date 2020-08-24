@@ -15,7 +15,7 @@ def run():
         "balance_key": "6cb8f4fe23c57a1c169e5a193c59ad9f21bbe5a54d69c44a4522f4644bf5b2a2",
         "txs": [
             {
-                "amount": 5.5,
+                "amount": 5,
                 "recipient": "484b3176c63d5f37d808404af1a12c4b9649cd6f6769f35bdf5a816133623fbc"
             },
             {

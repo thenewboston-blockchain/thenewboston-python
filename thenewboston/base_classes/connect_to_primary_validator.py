@@ -56,11 +56,11 @@ class ConnectToPrimaryValidator(InitializeNode):
                 continue
 
             if trust < 0:
-                self._error(f'Value can not be less than 0')
+                self._error('Value can not be less than 0')
                 continue
 
             if trust > 100:
-                self._error(f'Value can not be greater than 100')
+                self._error('Value can not be greater than 100')
                 continue
 
             self.required_input['trust'] = trust

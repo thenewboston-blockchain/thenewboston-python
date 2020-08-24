@@ -10,7 +10,7 @@ The PrimaryValidatorSerializer is used as a base class to ensure that a nodes pr
 
 class PrimaryValidatorSerializer(serializers.Serializer):
     account_number = serializers.CharField(max_length=VERIFY_KEY_LENGTH)
-    default_transaction_fee = serializers.DecimalField(max_digits=32, decimal_places=16)
+    default_transaction_fee = serializers.IntegerField(min_value=0)
     ip_address = serializers.IPAddressField(protocol='both')
     node_identifier = serializers.CharField(max_length=VERIFY_KEY_LENGTH)
     port = serializers.IntegerField(allow_null=True, max_value=65535, min_value=0, required=False)

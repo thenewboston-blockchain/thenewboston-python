@@ -1,10 +1,9 @@
 from uuid import uuid4
 
-from django.core.validators import MaxValueValidator, MinValueValidator
+from django.core.validators import MaxValueValidator
 from django.db import models
 
-from thenewboston.constants.network import MIN_POINT_VALUE, PROTOCOL_CHOICES, VERIFY_KEY_LENGTH
-from thenewboston.utils.validators import validate_is_real_number
+from thenewboston.constants.network import PROTOCOL_CHOICES, VERIFY_KEY_LENGTH
 
 
 class NetworkNode(models.Model):
@@ -23,15 +22,7 @@ class NetworkNode(models.Model):
     version = models.CharField(max_length=32)
 
     # Fees
-    default_transaction_fee = models.DecimalField(
-        decimal_places=16,
-        default=MIN_POINT_VALUE,
-        max_digits=32,
-        validators=[
-            MinValueValidator(MIN_POINT_VALUE),
-            validate_is_real_number
-        ]
-    )
+    default_transaction_fee = models.PositiveBigIntegerField()
 
     class Meta:
         abstract = True

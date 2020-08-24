@@ -6,7 +6,7 @@ from ..models.network_transaction import NetworkTransaction
 
 
 class NetworkTransactionFactory(DjangoModelFactory):
-    amount = Faker('pydecimal', left_digits=16, right_digits=16)
+    amount = Faker('pyint')
     recipient = Faker('text', max_nb_chars=VERIFY_KEY_LENGTH)
 
     class Meta:
