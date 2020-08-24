@@ -4,8 +4,7 @@ from django.core.exceptions import ValidationError
 from django.core.management.base import BaseCommand
 from django.core.validators import validate_ipv46_address
 
-from thenewboston.constants.network import MIN_POINT_VALUE, PROTOCOL_LIST, VERIFY_KEY_LENGTH
-from thenewboston.utils.validators import validate_is_real_number
+from thenewboston.constants.network import PROTOCOL_LIST, VERIFY_KEY_LENGTH
 
 
 class InitializeNode(BaseCommand):
@@ -36,19 +35,9 @@ class InitializeNode(BaseCommand):
                 self._error(f'{attribute_name} required')
                 continue
 
-            is_valid_decimal, fee = self.validate_and_convert_to_decimal(fee)
+            is_valid_integer, fee = self.validate_and_convert_to_integer(fee)
 
-            if not is_valid_decimal:
-                continue
-
-            try:
-                validate_is_real_number(fee)
-            except ValidationError:
-                self._error('Value must be a real number')
-                continue
-
-            if fee < MIN_POINT_VALUE:
-                self._error(f'Value can not be less than {MIN_POINT_VALUE:.16f}')
+            if not is_valid_integer:
                 continue
 
             self.required_input[attribute_name] = fee
@@ -97,11 +86,11 @@ class InitializeNode(BaseCommand):
                 continue
 
             if port < 0:
-                self._error(f'port can not be less than 0')
+                self._error('port can not be less than 0')
                 continue
 
             if port > 65535:
-                self._error(f'port can not be greater than 65535')
+                self._error('port can not be greater than 65535')
                 continue
 
             self.required_input['port'] = port
@@ -191,6 +180,20 @@ class InitializeNode(BaseCommand):
             value = decimal.Decimal(value)
         except decimal.InvalidOperation:
             self._error(f'Can not convert {value} to a decimal')
+            return False, None
+
+        return True, value
+
+    def validate_and_convert_to_integer(self, value):
+        """
+        Validate that given value can be converted to integer value
+        Returns: is_valid (bool), integer_value (int)
+        """
+
+        try:
+            value = int(value)
+        except ValueError:
+            self._error(f'Can not convert {value} to an integer')
             return False, None
 
         return True, value

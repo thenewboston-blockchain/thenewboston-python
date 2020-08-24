@@ -4,7 +4,7 @@ from thenewboston.constants.network import VERIFY_KEY_LENGTH
 
 
 class NetworkTransactionSerializer(serializers.Serializer):
-    amount = serializers.DecimalField(max_digits=32, decimal_places=16)
+    amount = serializers.IntegerField(min_value=0)
     recipient = serializers.CharField(max_length=VERIFY_KEY_LENGTH)
 
     def create(self, validated_data):

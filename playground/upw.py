@@ -33,7 +33,7 @@ def run():
             'recipient': PV_ACCOUNT_NUMBER,
         },
         {
-            'amount': 2.5,
+            'amount': 2,
             'recipient': BUCKY_ACCOUNT_NUMBER,
         }
     ]

@@ -42,7 +42,7 @@ def run(send_to_bank=False):
             'recipient': PV_ACCOUNT_NUMBER,
         },
         {
-            'amount': 5.50,
+            'amount': 5,
             'recipient': BUCKY_ACCOUNT_NUMBER,
         }
     ]
