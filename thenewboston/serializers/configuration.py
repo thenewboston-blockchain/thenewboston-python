@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from thenewboston.constants.network import PROTOCOL_CHOICES, VERIFY_KEY_LENGTH
+from thenewboston.constants.network import MAX_POINT_VALUE, MIN_POINT_VALUE, PROTOCOL_CHOICES, VERIFY_KEY_LENGTH
 
 """
 The ConfigurationSerializer is used as a base class to ensure that a node is properly configured
@@ -10,7 +10,7 @@ The ConfigurationSerializer is used as a base class to ensure that a node is pro
 
 class ConfigurationSerializer(serializers.Serializer):
     account_number = serializers.CharField(max_length=VERIFY_KEY_LENGTH)
-    default_transaction_fee = serializers.IntegerField(min_value=0)
+    default_transaction_fee = serializers.IntegerField(max_value=MAX_POINT_VALUE, min_value=MIN_POINT_VALUE)
     ip_address = serializers.IPAddressField(protocol='both')
     node_identifier = serializers.CharField(max_length=VERIFY_KEY_LENGTH)
     node_type = serializers.CharField(max_length=22)

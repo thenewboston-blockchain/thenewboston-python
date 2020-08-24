@@ -1,10 +1,10 @@
 from rest_framework import serializers
 
-from thenewboston.constants.network import VERIFY_KEY_LENGTH
+from thenewboston.constants.network import MAX_POINT_VALUE, MIN_POINT_VALUE, VERIFY_KEY_LENGTH
 
 
 class NetworkTransactionSerializer(serializers.Serializer):
-    amount = serializers.IntegerField(min_value=0)
+    amount = serializers.IntegerField(max_value=MAX_POINT_VALUE, min_value=MIN_POINT_VALUE)
     recipient = serializers.CharField(max_length=VERIFY_KEY_LENGTH)
 
     def create(self, validated_data):
