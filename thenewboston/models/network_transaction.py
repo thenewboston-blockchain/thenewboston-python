@@ -9,6 +9,7 @@ from thenewboston.constants.network import MAX_POINT_VALUE, MIN_POINT_VALUE, VER
 class NetworkTransaction(models.Model):
     id = models.UUIDField(default=uuid4, editable=False, primary_key=True)
     amount = models.PositiveBigIntegerField(
+        default=MIN_POINT_VALUE,
         validators=[
             MaxValueValidator(MAX_POINT_VALUE),
             MinValueValidator(MIN_POINT_VALUE),

@@ -23,6 +23,7 @@ class NetworkNode(models.Model):
 
     # Fees
     default_transaction_fee = models.PositiveBigIntegerField(
+        default=MIN_POINT_VALUE,
         validators=[
             MaxValueValidator(MAX_POINT_VALUE),
             MinValueValidator(MIN_POINT_VALUE),
