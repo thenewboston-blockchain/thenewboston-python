@@ -1,9 +1,0 @@
-{
-  "message": {
-    "ip_address": "104.131.41.225",
-    "port": null,
-    "protocol": "http"
-  },
-  "node_identifier": "55ed54ff88d06f289f153f76a1f1c0e029752b61372abda0079b8ce65d796f93",
-  "signature": "2a7dc3b38e1f6e0ec0fe8603200ba1a657ec55fc81af35932237ca12c8b5ac282e5a05cc430b0c6a5aa70dda229282c37cde211b47098be58b95cfa95f2da80f"
-}
