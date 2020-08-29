@@ -11,7 +11,7 @@ constants used by both the [Bank](https://github.com/thenewboston-developers/Ban
 [Validator](https://github.com/thenewboston-developers/Validator) on thenewboston network.
 
 **This project is still in development. Users who star this repository will be eligible for beta testing and will 
-receive the first coins for testing.**
+receive the first round of coins.**
 
 ## Community
 
