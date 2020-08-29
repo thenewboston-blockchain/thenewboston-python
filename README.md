@@ -1,6 +1,10 @@
+<p align="center">
+  <img alt="thenewboston logo" src="https://i.imgur.com/dpz9Gld.png">
+</p>
+
 ## Overview
 
-Python library for thenewboston.
+Python library for thenewboston digital currency.
 
 ## Project Setup
 
