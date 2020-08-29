@@ -15,8 +15,8 @@ receive the first round of coins.**
 
 ## Community
 
-Join the community to stay updated on the most recent developments, project roadmaps, and as always random discussions 
-about completely unrelated topics.
+Join the community to stay updated on the most recent developments, project roadmaps, and random discussions about 
+completely unrelated topics.
 
 - [thenewboston.com](https://thenewboston.com/)
 - [Slack](https://join.slack.com/t/thenewboston/shared_invite/zt-gyodq1sw-OYiKy4sy_rmREHIlisFjLA)
