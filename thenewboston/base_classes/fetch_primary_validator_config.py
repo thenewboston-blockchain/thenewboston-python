@@ -6,8 +6,12 @@ from thenewboston.utils.format import format_address
 from thenewboston.utils.network import fetch
 from thenewboston.utils.validators import validate_is_real_number
 
+"""
+The FetchPrimaryValidatorConfig class contains logic to fetch and validate configuration data from a primary validator.
+"""
 
-class ConnectToPrimaryValidator(InitializeNode):
+
+class FetchPrimaryValidatorConfig(InitializeNode):
 
     def __init__(self):
         super().__init__()
@@ -66,7 +70,7 @@ class ConnectToPrimaryValidator(InitializeNode):
             self.required_input['trust'] = trust
             valid = True
 
-    def get_validator_config(self):
+    def fetch_validator_config(self):
         """
         Return config
         """
@@ -95,13 +99,13 @@ class ConnectToPrimaryValidator(InitializeNode):
             self.get_port()
 
             try:
-                config = self.get_validator_config()
+                config = self.fetch_validator_config()
 
                 if not self.is_config_valid(config):
                     continue
 
                 self.get_trust()
-                self.set_primary_validator(config)
+                self.handle_primary_validator_config(config)
             except Exception as e:
                 self._error('Unable to connect')
                 self._error(e)
@@ -110,6 +114,15 @@ class ConnectToPrimaryValidator(InitializeNode):
             connected = True
 
         self.stdout.write(self.style.SUCCESS('Success'))
+
+    def handle_primary_validator_config(self, primary_validator_config):
+        """
+        Handle primary validator configuration data
+        """
+
+        raise NotImplementedError(
+            'subclasses of FetchPrimaryValidatorConfig must provide a handle_primary_validator_config() method'
+        )
 
     def is_config_valid(self, config):
         """
@@ -121,10 +134,3 @@ class ConnectToPrimaryValidator(InitializeNode):
             return False
 
         return True
-
-    def set_primary_validator(self, validator_config):
-        """
-        Set primary validator
-        """
-
-        raise NotImplementedError('subclasses of InitializeNode must provide a set_primary_validator() method')

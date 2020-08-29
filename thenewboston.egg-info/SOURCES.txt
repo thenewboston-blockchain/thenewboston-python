@@ -11,7 +11,7 @@ thenewboston/accounts/__init__.py
 thenewboston/accounts/key_files.py
 thenewboston/accounts/manage.py
 thenewboston/base_classes/__init__.py
-thenewboston/base_classes/connect_to_primary_validator.py
+thenewboston/base_classes/fetch_primary_validator_config.py
 thenewboston/base_classes/initialize_node.py
 thenewboston/blocks/__init__.py
 thenewboston/blocks/block.py

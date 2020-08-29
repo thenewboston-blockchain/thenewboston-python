@@ -6,6 +6,14 @@ from django.core.validators import validate_ipv46_address
 
 from thenewboston.constants.network import PROTOCOL_LIST, VERIFY_KEY_LENGTH
 
+"""
+The InitializeNode class contains the core logic used when initializing network nodes via the command line.
+
+Includes methods to:
+- validate config settings are properly formatted
+- standardize error handling
+"""
+
 
 class InitializeNode(BaseCommand):
 
