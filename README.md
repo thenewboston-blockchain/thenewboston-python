@@ -1,5 +1,5 @@
 <p align="center">
-  <img alt="thenewboston logo" src="https://i.imgur.com/dpz9Gld.png">
+  <img alt="thenewboston logo" src="https://i.imgur.com/MautJBL.png" width="620">
 </p>
 
 ## Overview
