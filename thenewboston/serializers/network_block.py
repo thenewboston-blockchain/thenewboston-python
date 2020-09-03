@@ -3,6 +3,7 @@ from rest_framework import serializers
 from thenewboston.blocks.signatures import verify_signature
 from thenewboston.constants.network import SIGNATURE_LENGTH, VERIFY_KEY_LENGTH
 from thenewboston.serializers.message import MessageSerializer
+from thenewboston.utils.serializers import validate_keys
 from thenewboston.utils.tools import sort_and_encode
 
 
@@ -43,5 +44,7 @@ class NetworkBlockSerializer(serializers.Serializer):
 
         if account_number in recipient_set:
             raise serializers.ValidationError('Block account_number not allowed as Tx recipient')
+
+        validate_keys(self, data)
 
         return data

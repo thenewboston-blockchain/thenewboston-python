@@ -56,6 +56,7 @@ thenewboston/utils/files.py
 thenewboston/utils/format.py
 thenewboston/utils/messages.py
 thenewboston/utils/network.py
+thenewboston/utils/serializers.py
 thenewboston/utils/signed_requests.py
 thenewboston/utils/tools.py
 thenewboston/utils/validators.py

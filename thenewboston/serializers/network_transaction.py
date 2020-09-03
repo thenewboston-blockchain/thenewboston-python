@@ -1,6 +1,7 @@
 from rest_framework import serializers
 
 from thenewboston.constants.network import MAX_POINT_VALUE, MIN_POINT_VALUE, VERIFY_KEY_LENGTH
+from thenewboston.utils.serializers import validate_keys
 
 
 class NetworkTransactionSerializer(serializers.Serializer):
@@ -12,6 +13,15 @@ class NetworkTransactionSerializer(serializers.Serializer):
 
     def update(self, instance, validated_data):
         pass
+
+    def validate(self, data):
+        """
+        Check that there are no additional keys included in the data
+        """
+
+        validate_keys(self, data)
+
+        return data
 
     @staticmethod
     def validate_amount(amount):
