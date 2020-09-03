@@ -13,3 +13,13 @@ class MessageSerializer(serializers.Serializer):
 
     def update(self, instance, validated_data):
         pass
+
+    def validate(self, data):
+        """
+        Validate Txs exist
+        """
+
+        if not data['txs']:
+            raise serializers.ValidationError('Invalid Txs')
+
+        return data
