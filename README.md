@@ -10,9 +10,6 @@ This library contains all of the core logic, shared functionality, and
 constants used by both the [Bank](https://github.com/thenewboston-developers/Bank) and 
 [Validator](https://github.com/thenewboston-developers/Validator) on thenewboston network.
 
-**This project is still in development. Users who star this repository will be eligible for beta testing and will 
-receive the first round of coins.**
-
 ## Community
 
 Join the community to stay updated on the most recent developments, project roadmaps, and random discussions about 
