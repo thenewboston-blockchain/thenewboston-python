@@ -7,7 +7,7 @@ with open(path.join(path.abspath(path.dirname(__file__)), 'README.md'), encoding
 
 setup(
     install_requires=[
-        'Django==3.1',
+        'Django==3.1.1',
         'PTable==0.9.2',
         'PyNaCl==1.3.0',
         'channels-redis==2.4.2',
@@ -17,9 +17,10 @@ setup(
         'factory-boy==3.0.1',
         'pycodestyle==2.6.0',
         'pytest-asyncio==0.14.0',
-        'pytest-django==3.9.0',
-        'pytest==6.0.1',
-        'requests~=2.23.0',
+        'pytest-django==3.10.0',
+        'pytest-cov==2.10.1',
+        'pytest==6.0.2',
+        'requests~=2.24.0',
     ],
     long_description=long_description,
     long_description_content_type='text/markdown',
@@ -27,5 +28,5 @@ setup(
     packages=find_packages(
         exclude=['tests', 'tests.*']
     ),
-    version='0.0.19',
+    version='0.0.20',
 )
