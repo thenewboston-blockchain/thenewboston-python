@@ -1,0 +1,21 @@
+[run]
+omit = */tests/*
+       */factories/*
+       */migrations/*
+       */urls.py
+branch = True
+
+include =
+    thenewboston/*
+
+[report]
+precision = 2
+ignore_errors = True
+exclude_lines =
+    pragma: no cover
+    raise NotImplementedError
+    except ImportError
+    def __repr__
+    def __str__
+    if self\.logger\.debug
+    if __name__ == .__main__.:

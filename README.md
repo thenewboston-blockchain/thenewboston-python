@@ -39,6 +39,11 @@ To run tests:
 pytest
 ```
 
+To run tests with coverage report:
+```
+pytest --cov-config=.coveragerc --cov=./thenewboston 
+```
+
 ## Building
 
 To produce a source distribution:
