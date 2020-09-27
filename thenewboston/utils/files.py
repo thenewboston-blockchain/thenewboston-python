@@ -1,6 +1,9 @@
 import json
 from hashlib import sha3_256 as sha3
 
+from django.core.files.base import ContentFile
+from django.core.files.storage import default_storage
+
 
 def get_file_hash(file):
     """
@@ -9,7 +12,7 @@ def get_file_hash(file):
 
     h = sha3()
 
-    with open(file, 'rb') as file:
+    with default_storage.open(file, 'rb') as file:
         chunk = 0
 
         while chunk != b'':
@@ -25,7 +28,7 @@ def read_json(file):
     """
 
     try:
-        with open(file, 'r') as f:
+        with default_storage.open(file, 'r') as f:
             data = json.load(f)
     except FileNotFoundError:
         data = None
@@ -37,5 +40,14 @@ def write_json(file, data):
     Write JSON file
     """
 
-    with open(file, 'w') as f:
-        json.dump(data, f, indent=2)
+    try:
+        default_storage.delete(file)
+    except NotImplementedError:
+        pass
+
+    default_storage.save(
+        file,
+        ContentFile(
+            json.dumps(data)
+        )
+    )
