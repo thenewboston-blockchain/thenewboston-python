@@ -32,6 +32,7 @@ def read_json(file):
             data = json.load(f)
     except FileNotFoundError:
         data = None
+
     return data
 
 
