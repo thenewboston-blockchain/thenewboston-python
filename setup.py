@@ -21,6 +21,7 @@ setup(
         'pytest-django==3.10.0',
         'pytest==6.0.2',
         'requests~=2.24.0',
+        'sentry-sdk==0.18.0'
     ],
     long_description=long_description,
     long_description_content_type='text/markdown',
@@ -28,5 +29,5 @@ setup(
     packages=find_packages(
         exclude=['tests', 'tests.*']
     ),
-    version='0.0.21',
+    version='0.0.22',
 )
