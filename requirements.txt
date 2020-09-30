@@ -14,3 +14,4 @@ pytest==6.0.2
 requests~=2.24.0
 setuptools==50.3.0
 wheel==0.35.1
+sentry-sdk==0.18.0
