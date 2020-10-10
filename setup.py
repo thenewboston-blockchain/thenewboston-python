@@ -29,5 +29,5 @@ setup(
     packages=find_packages(
         exclude=['tests', 'tests.*']
     ),
-    version='0.0.22',
+    version='0.0.23',
 )
