@@ -1,17 +1,27 @@
 from rest_framework import serializers
 
-from thenewboston.constants.network import VERIFY_KEY_LENGTH
+from thenewboston.constants.network import MAX_POINT_VALUE, MIN_POINT_VALUE, VERIFY_KEY_LENGTH
+from thenewboston.utils.serializers import validate_keys
 
 
 class NetworkTransactionSerializer(serializers.Serializer):
-    amount = serializers.DecimalField(max_digits=32, decimal_places=16)
-    recipient = serializers.CharField(max_length=VERIFY_KEY_LENGTH)
+    amount = serializers.IntegerField(max_value=MAX_POINT_VALUE, min_value=MIN_POINT_VALUE)
+    recipient = serializers.CharField(max_length=VERIFY_KEY_LENGTH, min_length=VERIFY_KEY_LENGTH)
 
     def create(self, validated_data):
         pass
 
     def update(self, instance, validated_data):
         pass
+
+    def validate(self, data):
+        """
+        Check that there are no additional keys included in the data
+        """
+
+        validate_keys(self, data)
+
+        return data
 
     @staticmethod
     def validate_amount(amount):
@@ -23,14 +33,3 @@ class NetworkTransactionSerializer(serializers.Serializer):
             raise serializers.ValidationError('Tx amount can not be 0 (Tx should be excluded)')
 
         return amount
-
-    @staticmethod
-    def validate_recipient(recipient):
-        """
-        Check recipient length
-        """
-
-        if len(recipient) != VERIFY_KEY_LENGTH:
-            raise serializers.ValidationError(f'recipient must be {VERIFY_KEY_LENGTH} characters long')
-
-        return recipient

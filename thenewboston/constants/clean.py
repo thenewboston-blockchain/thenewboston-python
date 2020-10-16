@@ -1,0 +1,6 @@
+CLEAN_COMMAND_START = 'start'
+CLEAN_COMMAND_STOP = 'stop'
+
+CLEAN_STATUS_CLEANING = 'cleaning'
+CLEAN_STATUS_NOT_CLEANING = 'not_cleaning'
+CLEAN_STATUS_STOP_REQUESTED = 'stop_requested'
