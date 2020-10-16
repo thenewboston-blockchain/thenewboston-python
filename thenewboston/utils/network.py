@@ -37,9 +37,7 @@ def validate_response(response):
     """
     
     if response.status_code >= 400:
-        err = f'status_code:{response.status_code}'
+        err = f'status_code:{response.status_code} - {response.text}'
         raise NetworkException(err)
     
-    data = response.json()
-    
-    return data
+    return response.json()
