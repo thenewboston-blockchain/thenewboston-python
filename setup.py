@@ -13,6 +13,7 @@ setup(
         'channels-redis==2.4.2',
         'channels==2.4.0',
         'django-cors-headers==3.4.0',
+        'django-redis==4.11.0',
         'djangorestframework==3.11.1',
         'factory-boy==3.0.1',
         'fakeredis[lua]==1.4.3',
