@@ -2,7 +2,7 @@
   <img alt="thenewboston logo" src="https://i.imgur.com/MautJBL.png" width="620">
 </p>
 
-## Overview
+# Overview
 
 Python library for thenewboston digital currency.
 
