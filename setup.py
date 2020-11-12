@@ -1,14 +1,12 @@
 # -*- coding: utf-8 -*-
 import re
-from os import path
 
 from setuptools import find_packages, setup
 
-
-with open(path.join(path.abspath(path.dirname(__file__)), 'README.md'), encoding='utf-8') as f:
+with open('README.md', encoding='utf-8') as f:
     long_description = f.read()
 
-with open(path.join(path.abspath(path.dirname(__file__)), 'requirements.txt'), encoding='utf-8') as f:
+with open('requirements.txt', encoding='utf-8') as f:
     requirements = f.read().splitlines()
 
 with open('src/thenewboston/__init__.py', encoding='utf8') as f:

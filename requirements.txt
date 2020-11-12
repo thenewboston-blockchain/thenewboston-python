@@ -27,7 +27,8 @@ pytest-cov==2.10.1
 pytest-django==4.1.0
 pytest-xdist==2.1.0
 pytest==6.1.2
-requests==2.24.0
-sentry-sdk==0.19.2
+requests==2.25.0
+requests-mock==1.8.0
+sentry-sdk==0.19.3
 setuptools==50.3.2
 wheel==0.35.1
