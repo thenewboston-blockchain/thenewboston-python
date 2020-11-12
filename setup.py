@@ -1,36 +1,26 @@
+# -*- coding: utf-8 -*-
+import re
 from os import path
 
 from setuptools import find_packages, setup
 
+
 with open(path.join(path.abspath(path.dirname(__file__)), 'README.md'), encoding='utf-8') as f:
     long_description = f.read()
 
+with open(path.join(path.abspath(path.dirname(__file__)), 'requirements.txt'), encoding='utf-8') as f:
+    requirements = f.read().splitlines()
+
+with open('src/thenewboston/__init__.py', encoding='utf8') as f:
+    version = re.search(r'__version__ = \'(.*?)\'', f.read()).group(1)
+
 setup(
-    install_requires=[
-        'Django==3.1.1',
-        'PTable==0.9.2',
-        'PyNaCl==1.3.0',
-        'channels-redis==2.4.2',
-        'channels==2.4.0',
-        'django-cors-headers==3.4.0',
-        'django-redis==4.11.0',
-        'djangorestframework==3.11.1',
-        'factory-boy==3.0.1',
-        'fakeredis[lua]==1.4.3',
-        'pycodestyle==2.6.0',
-        'pytest-asyncio==0.14.0',
-        'pytest-cov==2.10.1',
-        'pytest-django==3.10.0',
-        'pytest-xdist==2.1.0',
-        'pytest==6.0.2',
-        'requests~=2.24.0',
-        'sentry-sdk==0.18.0'
-    ],
+    install_requires=requirements,
     long_description=long_description,
     long_description_content_type='text/markdown',
     name='thenewboston',
     packages=find_packages(
         exclude=['tests', 'tests.*']
     ),
-    version='0.0.24',
+    version=version,
 )

@@ -44,6 +44,7 @@ sdist/
 share/python-wheels/
 var/
 wheels/
+dist/
 
 # Unit test / coverage reports
 *.cover

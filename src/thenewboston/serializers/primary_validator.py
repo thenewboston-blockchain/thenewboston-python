@@ -1,6 +1,7 @@
 from rest_framework import serializers
 
-from thenewboston.constants.network import MAX_POINT_VALUE, MIN_POINT_VALUE, HEAD_HASH_LENGTH, PROTOCOL_CHOICES, VERIFY_KEY_LENGTH
+from thenewboston.constants.network import HEAD_HASH_LENGTH, MAX_POINT_VALUE, MIN_POINT_VALUE, PROTOCOL_CHOICES, \
+    VERIFY_KEY_LENGTH
 
 """
 The PrimaryValidatorSerializer is used as a base class to ensure that a nodes primary validator is properly configured
