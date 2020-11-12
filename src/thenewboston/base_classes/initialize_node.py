@@ -1,9 +1,10 @@
 import decimal
 
 from django.core.exceptions import ValidationError
-from django.core.management.base import BaseCommand
+from django.core.management.base import BaseCommand, CommandParser
 from django.core.validators import validate_ipv46_address
 
+from thenewboston.argparser.validators import int_validator, ipv46_validator, str_length_validator
 from thenewboston.constants.network import PROTOCOL_LIST, VERIFY_KEY_LENGTH
 
 """
@@ -16,10 +17,22 @@ Includes methods to:
 
 
 class InitializeNode(BaseCommand):
+    unattended = False
 
     def __init__(self):
         super().__init__()
         self.required_input = {}
+
+    def add_arguments(self, parser: CommandParser):
+        parser.add_argument('node_identifier', type=str_length_validator(length=VERIFY_KEY_LENGTH))
+        parser.add_argument('account_number', type=str_length_validator(length=VERIFY_KEY_LENGTH))
+        parser.add_argument('default_transaction_fee', type=int)
+        parser.add_argument('ip_address', type=ipv46_validator())
+        parser.add_argument('port', type=int_validator(min_val=0, max_val=65535))
+        parser.add_argument('protocol', choices=PROTOCOL_LIST)
+        parser.add_argument('version_number', type=str_length_validator(max_len=32))
+
+        parser.add_argument('unattended', action='store_true')
 
     def _error(self, message):
         """
@@ -28,7 +41,7 @@ class InitializeNode(BaseCommand):
 
         self.stdout.write(self.style.ERROR(message))
 
-    def get_fee(self, *, attribute_name, human_readable_name):
+    def get_fee(self, *, attribute_name, human_readable_name, value=None):
         """
         Validate fee
         - default_transaction_fee
@@ -37,7 +50,10 @@ class InitializeNode(BaseCommand):
         valid = False
 
         while not valid:
-            fee = input(f'Enter {human_readable_name} (required): ')
+            if self.unattended:
+                fee = value
+            else:
+                fee = input(f'Enter {human_readable_name} (required): ')
 
             if not fee:
                 self._error(f'{attribute_name} required')
@@ -51,7 +67,7 @@ class InitializeNode(BaseCommand):
             self.required_input[attribute_name] = fee
             valid = True
 
-    def get_ip_address(self):
+    def get_ip_address(self, value=None):
         """
         Get IP address from user
         """
@@ -59,7 +75,10 @@ class InitializeNode(BaseCommand):
         valid = False
 
         while not valid:
-            ip_address = input('Enter public IP address (required): ')
+            if self.unattended:
+                ip_address = value
+            else:
+                ip_address = input('Enter public IP address (required): ')
 
             if not ip_address:
                 self._error('ip_address required')
@@ -74,7 +93,7 @@ class InitializeNode(BaseCommand):
             self.required_input['ip_address'] = ip_address
             valid = True
 
-    def get_port(self):
+    def get_port(self, value=None):
         """
         Get port from user
         """
@@ -82,7 +101,10 @@ class InitializeNode(BaseCommand):
         valid = False
 
         while not valid:
-            port = input('Enter port: ')
+            if self.unattended:
+                port = value
+            else:
+                port = input('Enter port: ')
 
             if not port:
                 break
@@ -104,7 +126,7 @@ class InitializeNode(BaseCommand):
             self.required_input['port'] = port
             valid = True
 
-    def get_protocol(self):
+    def get_protocol(self, value=None):
         """
         Get protocol from user
         """
@@ -112,7 +134,10 @@ class InitializeNode(BaseCommand):
         valid = False
 
         while not valid:
-            protocol = input('Enter protocol (required): ')
+            if self.unattended:
+                protocol = value
+            else:
+                protocol = input('Enter protocol (required): ')
 
             if not protocol:
                 self._error('protocol required')
@@ -125,7 +150,7 @@ class InitializeNode(BaseCommand):
             self.required_input['protocol'] = protocol
             valid = True
 
-    def get_verify_key(self, *, attribute_name, human_readable_name):
+    def get_verify_key(self, *, attribute_name, human_readable_name, value=None):
         """
         Validate verify key
         - account_number
@@ -135,7 +160,10 @@ class InitializeNode(BaseCommand):
         valid = False
 
         while not valid:
-            verify_key = input(f'Enter {human_readable_name} (required): ')
+            if self.unattended:
+                verify_key = value
+            else:
+                verify_key = input(f'Enter {human_readable_name} (required): ')
 
             if not verify_key:
                 self._error(f'{attribute_name} required')
@@ -148,7 +176,7 @@ class InitializeNode(BaseCommand):
             self.required_input[attribute_name] = verify_key
             valid = True
 
-    def get_version_number(self):
+    def get_version_number(self, value=None):
         """
         Get version from user
         """
@@ -157,7 +185,10 @@ class InitializeNode(BaseCommand):
         valid = False
 
         while not valid:
-            version = input('Enter version (required): ')
+            if self.unattended:
+                version = value
+            else:
+                version = input('Enter version (required): ')
 
             if not version:
                 self._error('version required')
@@ -169,6 +200,10 @@ class InitializeNode(BaseCommand):
 
             self.required_input['version'] = version
             valid = True
+
+    def execute(self, *args, **options):
+        self.unattended = options['unattended']
+        return super(InitializeNode, self).execute(*args, **options)
 
     def handle(self, *args, **options):
         """
