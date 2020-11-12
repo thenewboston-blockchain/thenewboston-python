@@ -1,4 +1,5 @@
 from tests.helpers import random_encoded_account_number
+
 from thenewboston.accounts.manage import create_account
 from thenewboston.blocks.block import generate_block
 from thenewboston.constants.network import SIGNATURE_LENGTH

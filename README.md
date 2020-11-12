@@ -17,7 +17,7 @@ GitHub Issue or reach out to any of our communities above.
 
 Install required packages:
 ```
-pip3 install -r requirements.txt
+pip3 install -e .
 ```
 
 ## Testing
@@ -29,7 +29,12 @@ pytest
 
 To run tests with coverage report:
 ```
-pytest --cov-config=.coveragerc --cov=./thenewboston 
+pytest --cov-config=.coveragerc --cov=./src 
+```
+
+To run linting:
+```
+flake8 .
 ```
 
 ## Building

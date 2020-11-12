@@ -12,6 +12,6 @@ def test_style():
     style = pycodestyle.StyleGuide(ignore=['E501', 'W504'])
     result = style.check_files([
         'tests/',
-        'thenewboston/',
+        'src/',
     ])
     assert not result.total_errors
