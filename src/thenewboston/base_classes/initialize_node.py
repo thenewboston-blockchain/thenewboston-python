@@ -19,20 +19,21 @@ Includes methods to:
 class InitializeNode(BaseCommand):
     unattended = False
 
-    def __init__(self):
-        super().__init__()
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
         self.required_input = {}
 
     def add_arguments(self, parser: CommandParser):
-        parser.add_argument('node_identifier', type=str_length_validator(length=VERIFY_KEY_LENGTH))
-        parser.add_argument('account_number', type=str_length_validator(length=VERIFY_KEY_LENGTH))
-        parser.add_argument('default_transaction_fee', type=int)
-        parser.add_argument('ip_address', type=ipv46_validator())
-        parser.add_argument('port', type=int_validator(min_val=0, max_val=65535))
-        parser.add_argument('protocol', choices=PROTOCOL_LIST)
-        parser.add_argument('version_number', type=str_length_validator(max_len=32))
+        super().add_arguments(parser)
+        parser.add_argument('--node_identifier', type=str_length_validator(length=VERIFY_KEY_LENGTH))
+        parser.add_argument('--account_number', type=str_length_validator(length=VERIFY_KEY_LENGTH))
+        parser.add_argument('--default_transaction_fee', type=int)
+        parser.add_argument('--ip_address', type=ipv46_validator())
+        parser.add_argument('--port', type=int_validator(min_val=0, max_val=65535))
+        parser.add_argument('--protocol', choices=PROTOCOL_LIST)
+        parser.add_argument('--version_number', type=str_length_validator(max_len=32))
 
-        parser.add_argument('unattended', action='store_true')
+        parser.add_argument('--unattended', action='store_true')
 
     def _error(self, message):
         """
@@ -202,8 +203,8 @@ class InitializeNode(BaseCommand):
             valid = True
 
     def execute(self, *args, **options):
-        self.unattended = options['unattended']
-        return super(InitializeNode, self).execute(*args, **options)
+        self.unattended = options.get('unattended', False)
+        return super().execute(*args, **options)
 
     def handle(self, *args, **options):
         """

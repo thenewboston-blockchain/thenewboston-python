@@ -13,10 +13,10 @@ def str_length_validator(length: int = None, min_len: int = None, max_len: int =
             raise argparse.ArgumentTypeError('Expecting string')
         if length and not len(value) == length:
             raise argparse.ArgumentTypeError('String length should be exactly %s chars' % length)
-        if min_len and not len(value) >= min_len:
+        if min_len and len(value) < min_len:
             raise argparse.ArgumentTypeError('String length should be greater or equal to %s chars' % min_len)
-        if max_len and not len(value) > max_len:
-            raise argparse.ArgumentTypeError('String length should less than or equal to %s chars' % min_len)
+        if max_len and len(value) > max_len:
+            raise argparse.ArgumentTypeError('String length should be less or equal to %s chars' % max_len)
         return value
     return inner
 
@@ -47,7 +47,6 @@ def ipv46_validator():
             except ValidationError:
                 raise argparse.ArgumentTypeError('Enter a valid IPv4 or IPv6 address')
         return value
-
     return inner
 
 
