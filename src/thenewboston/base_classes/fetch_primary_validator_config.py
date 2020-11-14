@@ -14,6 +14,7 @@ The FetchPrimaryValidatorConfig class contains logic to fetch and validate confi
 class FetchPrimaryValidatorConfig(InitializeNode):
 
     def __init__(self):
+        """Initialize FetchPrimaryValidatorConfig class"""
         super().__init__()
 
         self.required_input = {
@@ -24,10 +25,7 @@ class FetchPrimaryValidatorConfig(InitializeNode):
         }
 
     def get_primary_validator_address(self):
-        """
-        Return formatted address of primary validator
-        """
-
+        """Return formatted address of primary validator"""
         return format_address(
             ip_address=self.required_input['ip_address'],
             port=self.required_input['port'],
@@ -35,10 +33,7 @@ class FetchPrimaryValidatorConfig(InitializeNode):
         )
 
     def get_trust(self):
-        """
-        Get trust from user
-        """
-
+        """Get trust from user"""
         valid = False
 
         while not valid:
@@ -71,20 +66,14 @@ class FetchPrimaryValidatorConfig(InitializeNode):
             valid = True
 
     def fetch_validator_config(self):
-        """
-        Return config
-        """
-
+        """Return config"""
         address = self.get_primary_validator_address()
         url = f'{address}/config'
         results = fetch(url=url, headers={})
         return results
 
     def handle(self, *args, **options):
-        """
-        Run script
-        """
-
+        """Run script"""
         connected = False
 
         while not connected:
@@ -116,19 +105,13 @@ class FetchPrimaryValidatorConfig(InitializeNode):
         self.stdout.write(self.style.SUCCESS('Success'))
 
     def handle_primary_validator_config(self, primary_validator_config):
-        """
-        Handle primary validator configuration data
-        """
-
+        """Handle primary validator configuration data"""
         raise NotImplementedError(
             'subclasses of FetchPrimaryValidatorConfig must provide a handle_primary_validator_config() method'
         )
 
     def is_config_valid(self, config):
-        """
-        Validate config response data from the validator
-        """
-
+        """Validate config response data from the validator"""
         if config.get('node_type') != PRIMARY_VALIDATOR:
             self._error(f'node_type is not {PRIMARY_VALIDATOR}')
             return False

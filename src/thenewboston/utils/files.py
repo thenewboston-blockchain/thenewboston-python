@@ -6,10 +6,7 @@ from django.core.files.storage import default_storage
 
 
 def get_file_hash(file):
-    """
-    Return hash value of file
-    """
-
+    """Return hash value of file"""
     h = sha3()
 
     with default_storage.open(file, 'rb') as file:
@@ -23,10 +20,7 @@ def get_file_hash(file):
 
 
 def read_json(file):
-    """
-    Read JSON file
-    """
-
+    """Read JSON file"""
     try:
         with default_storage.open(file, 'r') as f:
             data = json.load(f)
@@ -37,10 +31,7 @@ def read_json(file):
 
 
 def write_json(file, data):
-    """
-    Write JSON file
-    """
-
+    """Write JSON file"""
     try:
         default_storage.delete(file)
     except NotImplementedError:

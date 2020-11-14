@@ -5,6 +5,7 @@ from rest_framework.test import APIClient
 class APIError(Exception):
 
     def __init__(self, *args, resp, expected):
+        """Inits APIError which includes the response and the expected response"""
         super().__init__(*args)
         self.resp = resp
         self.expected = expected
@@ -13,6 +14,7 @@ class APIError(Exception):
 class UserWrapper:
 
     def __init__(self, user=None):
+        """Creates APIClient and authenticates the user"""
         self.user = user
         self.client = APIClient()
         self.client.force_authenticate(user)

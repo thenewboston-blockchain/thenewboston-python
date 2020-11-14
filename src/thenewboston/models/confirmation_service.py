@@ -6,7 +6,7 @@ from thenewboston.models.created_modified import CreatedModified
 
 
 class ConfirmationService(CreatedModified):
-    id = models.UUIDField(default=uuid4, editable=False, primary_key=True)
+    id = models.UUIDField(default=uuid4, editable=False, primary_key=True)  # noqa: A003
     end = models.DateTimeField()
     start = models.DateTimeField()
 

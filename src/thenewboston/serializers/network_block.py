@@ -19,12 +19,7 @@ class NetworkBlockSerializer(serializers.Serializer):
         pass
 
     def validate(self, data):
-        """
-        Validate signature
-        Validate Tx recipients are unique
-        Validate account_number (the sender) is not included as a Tx recipient
-        """
-
+        """Validate signature, validate Tx recipients are unique and validate account_number (the sender) is not included as a Tx recipient"""
         account_number = data['account_number']
         message = data['message']
         txs = message['txs']

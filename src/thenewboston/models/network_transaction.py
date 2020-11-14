@@ -7,7 +7,7 @@ from thenewboston.constants.network import MAX_POINT_VALUE, MIN_POINT_VALUE, VER
 
 
 class NetworkTransaction(models.Model):
-    id = models.UUIDField(default=uuid4, editable=False, primary_key=True)
+    id = models.UUIDField(default=uuid4, editable=False, primary_key=True)  # noqa: A003
     amount = models.PositiveBigIntegerField(
         validators=[
             MaxValueValidator(MAX_POINT_VALUE),
