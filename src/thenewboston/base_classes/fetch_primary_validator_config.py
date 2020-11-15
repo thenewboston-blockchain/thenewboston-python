@@ -1,5 +1,7 @@
 from django.core.exceptions import ValidationError
+from django.core.management import CommandParser
 
+from thenewboston.argparser.validators import decimal_validator
 from thenewboston.base_classes.initialize_node import InitializeNode
 from thenewboston.constants.network import PRIMARY_VALIDATOR
 from thenewboston.utils.format import format_address
@@ -13,9 +15,9 @@ The FetchPrimaryValidatorConfig class contains logic to fetch and validate confi
 
 class FetchPrimaryValidatorConfig(InitializeNode):
 
-    def __init__(self):
+    def __init__(self, *args, **kwargs):
         """Initialize FetchPrimaryValidatorConfig class"""
-        super().__init__()
+        super().__init__(*args, **kwargs)
 
         self.required_input = {
             'ip_address': None,
@@ -23,6 +25,11 @@ class FetchPrimaryValidatorConfig(InitializeNode):
             'protocol': None,
             'trust': None
         }
+
+    def add_arguments(self, parser: CommandParser):
+        """Additional custom arguments"""
+        super().add_arguments(parser)
+        parser.add_argument('--trust', type=decimal_validator(min_val=0, max_val=100))
 
     def get_primary_validator_address(self):
         """Return formatted address of primary validator"""
@@ -32,12 +39,15 @@ class FetchPrimaryValidatorConfig(InitializeNode):
             protocol=self.required_input['protocol']
         )
 
-    def get_trust(self):
+    def get_trust(self, value=None):
         """Get trust from user"""
         valid = False
 
         while not valid:
-            trust = input('Enter trust (required): ')
+            if self.unattended:
+                trust = value
+            else:
+                trust = input('Enter trust (required): ')
 
             if not trust:
                 self._error('trust required')
@@ -83,9 +93,9 @@ class FetchPrimaryValidatorConfig(InitializeNode):
                 'protocol': None
             }
 
-            self.get_ip_address()
-            self.get_protocol()
-            self.get_port()
+            self.get_ip_address(value=options.get('ip_address'))
+            self.get_protocol(value=options.get('protocol'))
+            self.get_port(value=options.get('port'))
 
             try:
                 config = self.fetch_validator_config()
@@ -93,7 +103,7 @@ class FetchPrimaryValidatorConfig(InitializeNode):
                 if not self.is_config_valid(config):
                     continue
 
-                self.get_trust()
+                self.get_trust(value=options.get('trust'))
                 self.handle_primary_validator_config(config)
             except Exception as e:
                 self._error('Unable to connect')
