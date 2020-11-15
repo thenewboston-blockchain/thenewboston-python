@@ -5,10 +5,7 @@ from django.utils.translation import gettext_lazy as _
 
 
 def validate_is_real_number(value):
-    """
-    Validate value is real number, does not allow Infinity, -Infinity, or NaN
-    """
-
+    """Validate value is real number, does not allow Infinity, -Infinity, or NaN"""
     if not value:
         return
 

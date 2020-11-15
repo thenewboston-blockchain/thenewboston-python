@@ -23,8 +23,8 @@ jobs:
       - name: Install self
         run: pip install .
 
-#      - name: Lint with flake8
-#        run: flake8 .
+      - name: Lint with flake8
+        run: flake8 .
 
       - name: Test with pytest
         run: pytest .

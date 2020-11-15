@@ -15,20 +15,14 @@ class NetworkTransactionSerializer(serializers.Serializer):
         pass
 
     def validate(self, data):
-        """
-        Check that there are no additional keys included in the data
-        """
-
+        """Check that there are no additional keys included in the data"""
         validate_keys(self, data)
 
         return data
 
     @staticmethod
     def validate_amount(amount):
-        """
-        Check that amount is not 0
-        """
-
+        """Check that amount is not 0"""
         if amount == 0:
             raise serializers.ValidationError('Tx amount can not be 0 (Tx should be excluded)')
 

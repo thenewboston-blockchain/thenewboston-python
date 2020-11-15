@@ -16,10 +16,7 @@ class MessageSerializer(serializers.Serializer):
         pass
 
     def validate(self, data):
-        """
-        Validate Txs exist
-        """
-
+        """Validate Txs exist"""
         if not data['txs']:
             raise serializers.ValidationError('Invalid Txs')
 

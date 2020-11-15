@@ -6,10 +6,7 @@ from thenewboston.verify_keys.verify_key import encode_verify_key
 
 
 def generate_block(*, account_number, balance_lock, signing_key, transactions):
-    """
-    Generate block
-    """
-
+    """Generate block"""
     message = {
         'balance_key': balance_lock,
         'txs': sorted(transactions, key=itemgetter('recipient'))

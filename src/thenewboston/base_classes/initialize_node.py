@@ -20,6 +20,7 @@ class InitializeNode(BaseCommand):
     unattended = False
 
     def __init__(self, *args, **kwargs):
+        """Inits InitializeNode class"""
         super().__init__(*args, **kwargs)
         self.required_input = {}
 
@@ -36,18 +37,15 @@ class InitializeNode(BaseCommand):
         parser.add_argument('--unattended', action='store_true')
 
     def _error(self, message):
-        """
-        Display error message string in console
-        """
-
+        """Display error message string in console"""
         self.stdout.write(self.style.ERROR(message))
 
     def get_fee(self, *, attribute_name, human_readable_name, value=None):
         """
         Validate fee
+
         - default_transaction_fee
         """
-
         valid = False
 
         while not valid:
@@ -69,10 +67,7 @@ class InitializeNode(BaseCommand):
             valid = True
 
     def get_ip_address(self, value=None):
-        """
-        Get IP address from user
-        """
-
+        """Get IP address from user"""
         valid = False
 
         while not valid:
@@ -95,10 +90,7 @@ class InitializeNode(BaseCommand):
             valid = True
 
     def get_port(self, value=None):
-        """
-        Get port from user
-        """
-
+        """Get port from user"""
         valid = False
 
         while not valid:
@@ -128,10 +120,7 @@ class InitializeNode(BaseCommand):
             valid = True
 
     def get_protocol(self, value=None):
-        """
-        Get protocol from user
-        """
-
+        """Get protocol from user"""
         valid = False
 
         while not valid:
@@ -154,10 +143,10 @@ class InitializeNode(BaseCommand):
     def get_verify_key(self, *, attribute_name, human_readable_name, value=None):
         """
         Validate verify key
+
         - account_number
         - node_identifier
         """
-
         valid = False
 
         while not valid:
@@ -178,10 +167,7 @@ class InitializeNode(BaseCommand):
             valid = True
 
     def get_version_number(self, value=None):
-        """
-        Get version from user
-        """
-
+        """Get version from user"""
         max_length = 32
         valid = False
 
@@ -207,19 +193,16 @@ class InitializeNode(BaseCommand):
         return super().execute(*args, **options)
 
     def handle(self, *args, **options):
-        """
-        The actual logic of the command. Subclasses must implement this method
-        """
-
+        """The actual logic of the command. Subclasses must implement this method"""
         raise NotImplementedError('subclasses of InitializeNode must provide a handle() method')
 
     def validate_and_convert_to_decimal(self, value):
         """
         Validate that given value can be converted to Decimal value
+
         Returns: is_valid (bool), decimal_value (Decimal)
         Must return is_valid flag along with decimal_value to allow for proper validation of valid falsy value (0.0)
         """
-
         try:
             value = decimal.Decimal(value)
         except decimal.InvalidOperation:
@@ -231,9 +214,9 @@ class InitializeNode(BaseCommand):
     def validate_and_convert_to_integer(self, value):
         """
         Validate that given value can be converted to integer value
+
         Returns: is_valid (bool), integer_value (int)
         """
-
         try:
             value = int(value)
         except ValueError:
