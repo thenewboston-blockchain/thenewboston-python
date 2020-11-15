@@ -25,6 +25,7 @@ class InitializeNode(BaseCommand):
         self.required_input = {}
 
     def add_arguments(self, parser: CommandParser):
+        """Additional custom arguments"""
         super().add_arguments(parser)
         parser.add_argument('--node_identifier', type=str_length_validator(length=VERIFY_KEY_LENGTH))
         parser.add_argument('--account_number', type=str_length_validator(length=VERIFY_KEY_LENGTH))
