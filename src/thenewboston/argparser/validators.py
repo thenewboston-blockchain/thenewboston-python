@@ -30,9 +30,9 @@ def int_validator(min_val: int = None, max_val: int = None):
             value = int(value)
         except ValueError:
             raise argparse.ArgumentTypeError('Value is not a valid integer')
-        if value < min_val:
+        if min_val and value < min_val:
             raise argparse.ArgumentTypeError('Value can not be less than %s' % min_val)
-        if value > max_val:
+        if max_val and value > max_val:
             raise argparse.ArgumentTypeError('Value can not be greater than %s' % max_val)
         return value
     return inner
@@ -49,9 +49,9 @@ def decimal_validator(min_val: [int, decimal.Decimal] = None, max_val: [int, dec
             raise argparse.ArgumentTypeError('NaN is not allowed')
         if math.isinf(value):
             raise argparse.ArgumentTypeError('Infinity is not allowed')
-        if value < min_val:
+        if min_val and value < min_val:
             raise argparse.ArgumentTypeError(f'Value can not be less than {min_val}')
-        if value > max_val:
+        if max_val and value > max_val:
             raise argparse.ArgumentTypeError(f'Value can not be greater than {max_val}')
         return value
     return inner
