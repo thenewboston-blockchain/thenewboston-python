@@ -20,7 +20,7 @@ flake8-polyfill==1.0.2
 flake8-quotes==3.2.0
 freezegun==1.0.0
 iptools==0.7.0
-psycopg2==2.8.6
+psycopg2-binary==2.8.6
 pycodestyle==2.6.0
 pytest-asyncio==0.14.0
 pytest-cov==2.10.1
