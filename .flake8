@@ -6,7 +6,7 @@ exclude =
     venv
 filename = *.py
 application-import-names =
-    src
+    thenewboston
 accept-encodings = utf-8,utf-16
 import-order-style = pycharm
 inline-quotes = single
