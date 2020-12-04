@@ -1,5 +1,5 @@
 <p align="center">
-  <img alt="thenewboston logo" src="https://i.imgur.com/MautJBL.png" width="620">
+  <img alt="thenewboston logo" src="https://user-images.githubusercontent.com/65713950/100157416-cf2bbc00-2eaa-11eb-95fe-3ef87a18ad93.png" width="620">
 </p>
 
 # Overview
@@ -50,7 +50,7 @@ Join the community to stay updated on the most recent developments, project road
 completely unrelated topics.
 
 - [thenewboston.com](https://thenewboston.com/)
-- [Slack](https://join.slack.com/t/thenewboston/shared_invite/zt-hkw1b98m-X3oe6VPX6xenHvQeaXQbfg)
+- [Slack](https://join.slack.com/t/thenewboston/shared_invite/zt-j7j4ie92-ADy7GL3KAzCwSlaAVoDKLw)
 - [reddit](https://www.reddit.com/r/thenewboston/)
 - [LinkedIn](https://www.linkedin.com/company/thenewboston-developers/)
 - [Facebook](https://www.facebook.com/TheNewBoston-464114846956315/)

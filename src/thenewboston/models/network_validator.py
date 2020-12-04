@@ -12,5 +12,5 @@ class NetworkValidator(NetworkNode):
     # Confirmation rate (used by confirmation validators only)
     daily_confirmation_rate = models.PositiveBigIntegerField(blank=True, null=True)
 
-    class Meta:
+    class Meta(NetworkNode.Meta):
         abstract = True
