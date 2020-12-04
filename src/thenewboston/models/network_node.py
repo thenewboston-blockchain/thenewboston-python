@@ -9,15 +9,9 @@ from thenewboston.constants.network import MAX_POINT_VALUE, MIN_POINT_VALUE, PRO
 class NetworkNode(models.Model):
     id = models.UUIDField(default=uuid4, editable=False, primary_key=True)  # noqa: A003
     account_number = models.CharField(max_length=VERIFY_KEY_LENGTH)
-    ip_address = models.GenericIPAddressField(unique=True)
+    ip_address = models.GenericIPAddressField()
     node_identifier = models.CharField(max_length=VERIFY_KEY_LENGTH, unique=True)
-    port = models.PositiveIntegerField(
-        blank=True,
-        null=True,
-        validators=[
-            MaxValueValidator(65535)
-        ]
-    )
+    port = models.PositiveIntegerField(blank=True, null=True, validators=[MaxValueValidator(65535)])
     protocol = models.CharField(choices=PROTOCOL_CHOICES, max_length=5)
     version = models.CharField(max_length=32)
 
@@ -32,3 +26,11 @@ class NetworkNode(models.Model):
 
     class Meta:
         abstract = True
+        indexes = [
+            models.Index(fields=['ip_address', 'port', 'protocol']),
+        ]
+        constraints = [
+            models.UniqueConstraint(
+                fields=['ip_address', 'port', 'protocol'],
+                name='%(app_label)s_%(class)s_unique_ip_port_proto')
+        ]
