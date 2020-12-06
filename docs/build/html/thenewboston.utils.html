@@ -1,0 +1,240 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>thenewboston.utils package &#8212; thenewboston-python  documentation</title>
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="thenewboston-utils-package">
+<h1>thenewboston.utils package<a class="headerlink" href="#thenewboston-utils-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-thenewboston.utils.exceptions">
+<span id="thenewboston-utils-exceptions-module"></span><h2>thenewboston.utils.exceptions module<a class="headerlink" href="#module-thenewboston.utils.exceptions" title="Permalink to this headline">¶</a></h2>
+<dl class="py exception">
+<dt id="thenewboston.utils.exceptions.NetworkException">
+<em class="property">exception </em><code class="sig-prename descclassname">thenewboston.utils.exceptions.</code><code class="sig-name descname">NetworkException</code><a class="reference internal" href="_modules/thenewboston/utils/exceptions.html#NetworkException"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#thenewboston.utils.exceptions.NetworkException" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-thenewboston.utils.fields">
+<span id="thenewboston-utils-fields-module"></span><h2>thenewboston.utils.fields module<a class="headerlink" href="#module-thenewboston.utils.fields" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt id="thenewboston.utils.fields.all_field_names">
+<code class="sig-prename descclassname">thenewboston.utils.fields.</code><code class="sig-name descname">all_field_names</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/thenewboston/utils/fields.html#all_field_names"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#thenewboston.utils.fields.all_field_names" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return list of all field names for model</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="thenewboston.utils.fields.common_field_names">
+<code class="sig-prename descclassname">thenewboston.utils.fields.</code><code class="sig-name descname">common_field_names</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">a</span></em>, <em class="sig-param"><span class="n">b</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/thenewboston/utils/fields.html#common_field_names"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#thenewboston.utils.fields.common_field_names" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return field names that are common between different models</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="thenewboston.utils.fields.standard_field_names">
+<code class="sig-prename descclassname">thenewboston.utils.fields.</code><code class="sig-name descname">standard_field_names</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/thenewboston/utils/fields.html#standard_field_names"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#thenewboston.utils.fields.standard_field_names" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return set of standard (excluding date, ID, and relational) field names for model</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-thenewboston.utils.files">
+<span id="thenewboston-utils-files-module"></span><h2>thenewboston.utils.files module<a class="headerlink" href="#module-thenewboston.utils.files" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt id="thenewboston.utils.files.get_file_hash">
+<code class="sig-prename descclassname">thenewboston.utils.files.</code><code class="sig-name descname">get_file_hash</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">file</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/thenewboston/utils/files.html#get_file_hash"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#thenewboston.utils.files.get_file_hash" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return hash value of file</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="thenewboston.utils.files.read_json">
+<code class="sig-prename descclassname">thenewboston.utils.files.</code><code class="sig-name descname">read_json</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">file</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/thenewboston/utils/files.html#read_json"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#thenewboston.utils.files.read_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read JSON file</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="thenewboston.utils.files.write_json">
+<code class="sig-prename descclassname">thenewboston.utils.files.</code><code class="sig-name descname">write_json</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">file</span></em>, <em class="sig-param"><span class="n">data</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/thenewboston/utils/files.html#write_json"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#thenewboston.utils.files.write_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write JSON file</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-thenewboston.utils.format">
+<span id="thenewboston-utils-format-module"></span><h2>thenewboston.utils.format module<a class="headerlink" href="#module-thenewboston.utils.format" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt id="thenewboston.utils.format.format_address">
+<code class="sig-prename descclassname">thenewboston.utils.format.</code><code class="sig-name descname">format_address</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span></em>, <em class="sig-param"><span class="n">ip_address</span></em>, <em class="sig-param"><span class="n">port</span></em>, <em class="sig-param"><span class="n">protocol</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/thenewboston/utils/format.html#format_address"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#thenewboston.utils.format.format_address" title="Permalink to this definition">¶</a></dt>
+<dd><p>Format address</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-thenewboston.utils.messages">
+<span id="thenewboston-utils-messages-module"></span><h2>thenewboston.utils.messages module<a class="headerlink" href="#module-thenewboston.utils.messages" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt id="thenewboston.utils.messages.get_message_hash">
+<code class="sig-prename descclassname">thenewboston.utils.messages.</code><code class="sig-name descname">get_message_hash</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span></em>, <em class="sig-param"><span class="n">message</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/thenewboston/utils/messages.html#get_message_hash"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#thenewboston.utils.messages.get_message_hash" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return has of given message</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-thenewboston.utils.network">
+<span id="thenewboston-utils-network-module"></span><h2>thenewboston.utils.network module<a class="headerlink" href="#module-thenewboston.utils.network" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt id="thenewboston.utils.network.fetch">
+<code class="sig-prename descclassname">thenewboston.utils.network.</code><code class="sig-name descname">fetch</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span></em>, <em class="sig-param"><span class="n">url</span></em>, <em class="sig-param"><span class="n">headers</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/thenewboston/utils/network.html#fetch"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#thenewboston.utils.network.fetch" title="Permalink to this definition">¶</a></dt>
+<dd><p>Send a GET request and return response as Python object</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="thenewboston.utils.network.patch">
+<code class="sig-prename descclassname">thenewboston.utils.network.</code><code class="sig-name descname">patch</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span></em>, <em class="sig-param"><span class="n">url</span></em>, <em class="sig-param"><span class="n">body</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/thenewboston/utils/network.html#patch"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#thenewboston.utils.network.patch" title="Permalink to this definition">¶</a></dt>
+<dd><p>Send a PATCH request and return response as Python object</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="thenewboston.utils.network.post">
+<code class="sig-prename descclassname">thenewboston.utils.network.</code><code class="sig-name descname">post</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span></em>, <em class="sig-param"><span class="n">url</span></em>, <em class="sig-param"><span class="n">body</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/thenewboston/utils/network.html#post"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#thenewboston.utils.network.post" title="Permalink to this definition">¶</a></dt>
+<dd><p>Send a POST request and return response as Python object</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="thenewboston.utils.network.validate_response">
+<code class="sig-prename descclassname">thenewboston.utils.network.</code><code class="sig-name descname">validate_response</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">response</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/thenewboston/utils/network.html#validate_response"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#thenewboston.utils.network.validate_response" title="Permalink to this definition">¶</a></dt>
+<dd><p>Validate status code</p>
+<p>Return response as Python object</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-thenewboston.utils.serializers">
+<span id="thenewboston-utils-serializers-module"></span><h2>thenewboston.utils.serializers module<a class="headerlink" href="#module-thenewboston.utils.serializers" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt id="thenewboston.utils.serializers.validate_keys">
+<code class="sig-prename descclassname">thenewboston.utils.serializers.</code><code class="sig-name descname">validate_keys</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">serializer_instance</span></em>, <em class="sig-param"><span class="n">data</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/thenewboston/utils/serializers.html#validate_keys"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#thenewboston.utils.serializers.validate_keys" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check that there are no additional keys included in the data</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-thenewboston.utils.signed_requests">
+<span id="thenewboston-utils-signed-requests-module"></span><h2>thenewboston.utils.signed_requests module<a class="headerlink" href="#module-thenewboston.utils.signed_requests" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt id="thenewboston.utils.signed_requests.generate_signed_request">
+<code class="sig-prename descclassname">thenewboston.utils.signed_requests.</code><code class="sig-name descname">generate_signed_request</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span></em>, <em class="sig-param"><span class="n">data</span></em>, <em class="sig-param"><span class="n">nid_signing_key</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/thenewboston/utils/signed_requests.html#generate_signed_request"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#thenewboston.utils.signed_requests.generate_signed_request" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate and return signed request</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-thenewboston.utils.tools">
+<span id="thenewboston-utils-tools-module"></span><h2>thenewboston.utils.tools module<a class="headerlink" href="#module-thenewboston.utils.tools" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt id="thenewboston.utils.tools.sort_and_encode">
+<code class="sig-prename descclassname">thenewboston.utils.tools.</code><code class="sig-name descname">sort_and_encode</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dictionary</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/thenewboston/utils/tools.html#sort_and_encode"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#thenewboston.utils.tools.sort_and_encode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sort dictionary and return encoded data</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-thenewboston.utils.validators">
+<span id="thenewboston-utils-validators-module"></span><h2>thenewboston.utils.validators module<a class="headerlink" href="#module-thenewboston.utils.validators" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt id="thenewboston.utils.validators.validate_is_real_number">
+<code class="sig-prename descclassname">thenewboston.utils.validators.</code><code class="sig-name descname">validate_is_real_number</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/thenewboston/utils/validators.html#validate_is_real_number"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#thenewboston.utils.validators.validate_is_real_number" title="Permalink to this definition">¶</a></dt>
+<dd><p>Validate value is real number, does not allow Infinity, -Infinity, or NaN</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-thenewboston.utils">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-thenewboston.utils" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">thenewboston-python</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Bucky Roberts.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.3.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/thenewboston.utils.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
