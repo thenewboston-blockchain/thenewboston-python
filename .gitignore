@@ -32,7 +32,6 @@ media
 .eggs/
 .installed.cfg
 MANIFEST
-build/
 develop-eggs/
 downloads/
 eggs/

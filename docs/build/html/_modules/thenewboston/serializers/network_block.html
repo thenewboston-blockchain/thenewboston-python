@@ -1,0 +1,143 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>thenewboston.serializers.network_block &#8212; thenewboston-python  documentation</title>
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+   
+  <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <h1>Source code for thenewboston.serializers.network_block</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">rest_framework</span> <span class="kn">import</span> <span class="n">serializers</span>
+
+<span class="kn">from</span> <span class="nn">thenewboston.blocks.signatures</span> <span class="kn">import</span> <span class="n">verify_signature</span>
+<span class="kn">from</span> <span class="nn">thenewboston.constants.network</span> <span class="kn">import</span> <span class="n">SIGNATURE_LENGTH</span><span class="p">,</span> <span class="n">VERIFY_KEY_LENGTH</span>
+<span class="kn">from</span> <span class="nn">thenewboston.serializers.message</span> <span class="kn">import</span> <span class="n">MessageSerializer</span>
+<span class="kn">from</span> <span class="nn">thenewboston.utils.serializers</span> <span class="kn">import</span> <span class="n">validate_keys</span>
+<span class="kn">from</span> <span class="nn">thenewboston.utils.tools</span> <span class="kn">import</span> <span class="n">sort_and_encode</span>
+
+
+<div class="viewcode-block" id="NetworkBlockSerializer"><a class="viewcode-back" href="../../../thenewboston.serializers.html#thenewboston.serializers.network_block.NetworkBlockSerializer">[docs]</a><span class="k">class</span> <span class="nc">NetworkBlockSerializer</span><span class="p">(</span><span class="n">serializers</span><span class="o">.</span><span class="n">Serializer</span><span class="p">):</span>
+    <span class="n">account_number</span> <span class="o">=</span> <span class="n">serializers</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="n">VERIFY_KEY_LENGTH</span><span class="p">,</span> <span class="n">min_length</span><span class="o">=</span><span class="n">VERIFY_KEY_LENGTH</span><span class="p">)</span>
+    <span class="n">message</span> <span class="o">=</span> <span class="n">MessageSerializer</span><span class="p">()</span>
+    <span class="n">signature</span> <span class="o">=</span> <span class="n">serializers</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="n">SIGNATURE_LENGTH</span><span class="p">,</span> <span class="n">min_length</span><span class="o">=</span><span class="n">SIGNATURE_LENGTH</span><span class="p">)</span>
+
+<div class="viewcode-block" id="NetworkBlockSerializer.create"><a class="viewcode-back" href="../../../thenewboston.serializers.html#thenewboston.serializers.network_block.NetworkBlockSerializer.create">[docs]</a>    <span class="k">def</span> <span class="nf">create</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">validated_data</span><span class="p">):</span>
+        <span class="k">pass</span></div>
+
+<div class="viewcode-block" id="NetworkBlockSerializer.update"><a class="viewcode-back" href="../../../thenewboston.serializers.html#thenewboston.serializers.network_block.NetworkBlockSerializer.update">[docs]</a>    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">instance</span><span class="p">,</span> <span class="n">validated_data</span><span class="p">):</span>
+        <span class="k">pass</span></div>
+
+<div class="viewcode-block" id="NetworkBlockSerializer.validate"><a class="viewcode-back" href="../../../thenewboston.serializers.html#thenewboston.serializers.network_block.NetworkBlockSerializer.validate">[docs]</a>    <span class="k">def</span> <span class="nf">validate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Validate signature, validate Tx recipients are unique and validate account_number (the sender) is not included as a Tx recipient&quot;&quot;&quot;</span>
+        <span class="n">account_number</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;account_number&#39;</span><span class="p">]</span>
+        <span class="n">message</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;message&#39;</span><span class="p">]</span>
+        <span class="n">txs</span> <span class="o">=</span> <span class="n">message</span><span class="p">[</span><span class="s1">&#39;txs&#39;</span><span class="p">]</span>
+        <span class="n">signature</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;signature&#39;</span><span class="p">]</span>
+
+        <span class="n">verify_signature</span><span class="p">(</span>
+            <span class="n">message</span><span class="o">=</span><span class="n">sort_and_encode</span><span class="p">(</span><span class="n">message</span><span class="p">),</span>
+            <span class="n">signature</span><span class="o">=</span><span class="n">signature</span><span class="p">,</span>
+            <span class="n">verify_key</span><span class="o">=</span><span class="n">account_number</span>
+        <span class="p">)</span>
+
+        <span class="n">recipient_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">tx</span><span class="p">[</span><span class="s1">&#39;recipient&#39;</span><span class="p">]</span> <span class="k">for</span> <span class="n">tx</span> <span class="ow">in</span> <span class="n">txs</span><span class="p">]</span>
+        <span class="n">recipient_set</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">recipient_list</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">recipient_list</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">recipient_set</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="n">serializers</span><span class="o">.</span><span class="n">ValidationError</span><span class="p">(</span><span class="s1">&#39;Tx recipients must be unique&#39;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">account_number</span> <span class="ow">in</span> <span class="n">recipient_set</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">serializers</span><span class="o">.</span><span class="n">ValidationError</span><span class="p">(</span><span class="s1">&#39;Block account_number not allowed as Tx recipient&#39;</span><span class="p">)</span>
+
+        <span class="n">validate_keys</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">data</span></div></div>
+</pre></div>
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../../index.html">thenewboston-python</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../index.html">Documentation overview</a><ul>
+  <li><a href="../../index.html">Module code</a><ul>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Bucky Roberts.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.3.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

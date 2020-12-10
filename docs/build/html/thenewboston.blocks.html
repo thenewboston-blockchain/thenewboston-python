@@ -1,0 +1,131 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>thenewboston.blocks package &#8212; thenewboston-python  documentation</title>
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="thenewboston-blocks-package">
+<h1>thenewboston.blocks package<a class="headerlink" href="#thenewboston-blocks-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-thenewboston.blocks.block">
+<span id="thenewboston-blocks-block-module"></span><h2>thenewboston.blocks.block module<a class="headerlink" href="#module-thenewboston.blocks.block" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt id="thenewboston.blocks.block.generate_block">
+<code class="sig-prename descclassname">thenewboston.blocks.block.</code><code class="sig-name descname">generate_block</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span></em>, <em class="sig-param"><span class="n">account_number</span></em>, <em class="sig-param"><span class="n">balance_lock</span></em>, <em class="sig-param"><span class="n">signing_key</span></em>, <em class="sig-param"><span class="n">transactions</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/thenewboston/blocks/block.html#generate_block"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#thenewboston.blocks.block.generate_block" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate block</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-thenewboston.blocks.signatures">
+<span id="thenewboston-blocks-signatures-module"></span><h2>thenewboston.blocks.signatures module<a class="headerlink" href="#module-thenewboston.blocks.signatures" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt id="thenewboston.blocks.signatures.generate_signature">
+<code class="sig-prename descclassname">thenewboston.blocks.signatures.</code><code class="sig-name descname">generate_signature</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span></em>, <em class="sig-param"><span class="n">message</span></em>, <em class="sig-param"><span class="n">signing_key</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/thenewboston/blocks/signatures.html#generate_signature"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#thenewboston.blocks.signatures.generate_signature" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sign message using signing key and return signature</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="thenewboston.blocks.signatures.verify_signature">
+<code class="sig-prename descclassname">thenewboston.blocks.signatures.</code><code class="sig-name descname">verify_signature</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span></em>, <em class="sig-param"><span class="n">message</span></em>, <em class="sig-param"><span class="n">signature</span></em>, <em class="sig-param"><span class="n">verify_key</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/thenewboston/blocks/signatures.html#verify_signature"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#thenewboston.blocks.signatures.verify_signature" title="Permalink to this definition">¶</a></dt>
+<dd><p>Verify block signature</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-thenewboston.blocks">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-thenewboston.blocks" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">thenewboston-python</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Bucky Roberts.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.3.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/thenewboston.blocks.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

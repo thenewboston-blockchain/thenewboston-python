@@ -1,0 +1,250 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>thenewboston.base_classes package &#8212; thenewboston-python  documentation</title>
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="thenewboston-base-classes-package">
+<h1>thenewboston.base_classes package<a class="headerlink" href="#thenewboston-base-classes-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-thenewboston.base_classes.fetch_primary_validator_config">
+<span id="thenewboston-base-classes-fetch-primary-validator-config-module"></span><h2>thenewboston.base_classes.fetch_primary_validator_config module<a class="headerlink" href="#module-thenewboston.base_classes.fetch_primary_validator_config" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="thenewboston.base_classes.fetch_primary_validator_config.FetchPrimaryValidatorConfig">
+<em class="property">class </em><code class="sig-prename descclassname">thenewboston.base_classes.fetch_primary_validator_config.</code><code class="sig-name descname">FetchPrimaryValidatorConfig</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/thenewboston/base_classes/fetch_primary_validator_config.html#FetchPrimaryValidatorConfig"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#thenewboston.base_classes.fetch_primary_validator_config.FetchPrimaryValidatorConfig" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#thenewboston.base_classes.initialize_node.InitializeNode" title="thenewboston.base_classes.initialize_node.InitializeNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">thenewboston.base_classes.initialize_node.InitializeNode</span></code></a></p>
+<dl class="py method">
+<dt id="thenewboston.base_classes.fetch_primary_validator_config.FetchPrimaryValidatorConfig.add_arguments">
+<code class="sig-name descname">add_arguments</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">parser</span><span class="p">:</span> <span class="n">django.core.management.base.CommandParser</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/thenewboston/base_classes/fetch_primary_validator_config.html#FetchPrimaryValidatorConfig.add_arguments"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#thenewboston.base_classes.fetch_primary_validator_config.FetchPrimaryValidatorConfig.add_arguments" title="Permalink to this definition">¶</a></dt>
+<dd><p>Additional custom arguments</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="thenewboston.base_classes.fetch_primary_validator_config.FetchPrimaryValidatorConfig.fetch_validator_config">
+<code class="sig-name descname">fetch_validator_config</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/thenewboston/base_classes/fetch_primary_validator_config.html#FetchPrimaryValidatorConfig.fetch_validator_config"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#thenewboston.base_classes.fetch_primary_validator_config.FetchPrimaryValidatorConfig.fetch_validator_config" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return config</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="thenewboston.base_classes.fetch_primary_validator_config.FetchPrimaryValidatorConfig.get_primary_validator_address">
+<code class="sig-name descname">get_primary_validator_address</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/thenewboston/base_classes/fetch_primary_validator_config.html#FetchPrimaryValidatorConfig.get_primary_validator_address"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#thenewboston.base_classes.fetch_primary_validator_config.FetchPrimaryValidatorConfig.get_primary_validator_address" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return formatted address of primary validator</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="thenewboston.base_classes.fetch_primary_validator_config.FetchPrimaryValidatorConfig.get_trust">
+<code class="sig-name descname">get_trust</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/thenewboston/base_classes/fetch_primary_validator_config.html#FetchPrimaryValidatorConfig.get_trust"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#thenewboston.base_classes.fetch_primary_validator_config.FetchPrimaryValidatorConfig.get_trust" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get trust from user</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="thenewboston.base_classes.fetch_primary_validator_config.FetchPrimaryValidatorConfig.handle">
+<code class="sig-name descname">handle</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">options</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/thenewboston/base_classes/fetch_primary_validator_config.html#FetchPrimaryValidatorConfig.handle"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#thenewboston.base_classes.fetch_primary_validator_config.FetchPrimaryValidatorConfig.handle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Run script</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="thenewboston.base_classes.fetch_primary_validator_config.FetchPrimaryValidatorConfig.handle_primary_validator_config">
+<code class="sig-name descname">handle_primary_validator_config</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">primary_validator_config</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/thenewboston/base_classes/fetch_primary_validator_config.html#FetchPrimaryValidatorConfig.handle_primary_validator_config"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#thenewboston.base_classes.fetch_primary_validator_config.FetchPrimaryValidatorConfig.handle_primary_validator_config" title="Permalink to this definition">¶</a></dt>
+<dd><p>Handle primary validator configuration data</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="thenewboston.base_classes.fetch_primary_validator_config.FetchPrimaryValidatorConfig.is_config_valid">
+<code class="sig-name descname">is_config_valid</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">config</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/thenewboston/base_classes/fetch_primary_validator_config.html#FetchPrimaryValidatorConfig.is_config_valid"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#thenewboston.base_classes.fetch_primary_validator_config.FetchPrimaryValidatorConfig.is_config_valid" title="Permalink to this definition">¶</a></dt>
+<dd><p>Validate config response data from the validator</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-thenewboston.base_classes.initialize_node">
+<span id="thenewboston-base-classes-initialize-node-module"></span><h2>thenewboston.base_classes.initialize_node module<a class="headerlink" href="#module-thenewboston.base_classes.initialize_node" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="thenewboston.base_classes.initialize_node.InitializeNode">
+<em class="property">class </em><code class="sig-prename descclassname">thenewboston.base_classes.initialize_node.</code><code class="sig-name descname">InitializeNode</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/thenewboston/base_classes/initialize_node.html#InitializeNode"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#thenewboston.base_classes.initialize_node.InitializeNode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.core.management.base.BaseCommand</span></code></p>
+<dl class="py method">
+<dt id="thenewboston.base_classes.initialize_node.InitializeNode.add_arguments">
+<code class="sig-name descname">add_arguments</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">parser</span><span class="p">:</span> <span class="n">django.core.management.base.CommandParser</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/thenewboston/base_classes/initialize_node.html#InitializeNode.add_arguments"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#thenewboston.base_classes.initialize_node.InitializeNode.add_arguments" title="Permalink to this definition">¶</a></dt>
+<dd><p>Additional custom arguments</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="thenewboston.base_classes.initialize_node.InitializeNode.execute">
+<code class="sig-name descname">execute</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">options</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/thenewboston/base_classes/initialize_node.html#InitializeNode.execute"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#thenewboston.base_classes.initialize_node.InitializeNode.execute" title="Permalink to this definition">¶</a></dt>
+<dd><p>Try to execute this command, performing system checks if needed (as
+controlled by the <code class="docutils literal notranslate"><span class="pre">requires_system_checks</span></code> attribute, except if
+force-skipped).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="thenewboston.base_classes.initialize_node.InitializeNode.get_fee">
+<code class="sig-name descname">get_fee</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span></em>, <em class="sig-param"><span class="n">attribute_name</span></em>, <em class="sig-param"><span class="n">human_readable_name</span></em>, <em class="sig-param"><span class="n">value</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/thenewboston/base_classes/initialize_node.html#InitializeNode.get_fee"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#thenewboston.base_classes.initialize_node.InitializeNode.get_fee" title="Permalink to this definition">¶</a></dt>
+<dd><p>Validate fee</p>
+<ul class="simple">
+<li><p>default_transaction_fee</p></li>
+</ul>
+</dd></dl>
+
+<dl class="py method">
+<dt id="thenewboston.base_classes.initialize_node.InitializeNode.get_ip_address">
+<code class="sig-name descname">get_ip_address</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/thenewboston/base_classes/initialize_node.html#InitializeNode.get_ip_address"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#thenewboston.base_classes.initialize_node.InitializeNode.get_ip_address" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get IP address from user</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="thenewboston.base_classes.initialize_node.InitializeNode.get_port">
+<code class="sig-name descname">get_port</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/thenewboston/base_classes/initialize_node.html#InitializeNode.get_port"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#thenewboston.base_classes.initialize_node.InitializeNode.get_port" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get port from user</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="thenewboston.base_classes.initialize_node.InitializeNode.get_protocol">
+<code class="sig-name descname">get_protocol</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/thenewboston/base_classes/initialize_node.html#InitializeNode.get_protocol"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#thenewboston.base_classes.initialize_node.InitializeNode.get_protocol" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get protocol from user</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="thenewboston.base_classes.initialize_node.InitializeNode.get_verify_key">
+<code class="sig-name descname">get_verify_key</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span></em>, <em class="sig-param"><span class="n">attribute_name</span></em>, <em class="sig-param"><span class="n">human_readable_name</span></em>, <em class="sig-param"><span class="n">value</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/thenewboston/base_classes/initialize_node.html#InitializeNode.get_verify_key"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#thenewboston.base_classes.initialize_node.InitializeNode.get_verify_key" title="Permalink to this definition">¶</a></dt>
+<dd><p>Validate verify key</p>
+<ul class="simple">
+<li><p>account_number</p></li>
+<li><p>node_identifier</p></li>
+</ul>
+</dd></dl>
+
+<dl class="py method">
+<dt id="thenewboston.base_classes.initialize_node.InitializeNode.get_version_number">
+<code class="sig-name descname">get_version_number</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/thenewboston/base_classes/initialize_node.html#InitializeNode.get_version_number"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#thenewboston.base_classes.initialize_node.InitializeNode.get_version_number" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get version from user</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="thenewboston.base_classes.initialize_node.InitializeNode.handle">
+<code class="sig-name descname">handle</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">options</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/thenewboston/base_classes/initialize_node.html#InitializeNode.handle"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#thenewboston.base_classes.initialize_node.InitializeNode.handle" title="Permalink to this definition">¶</a></dt>
+<dd><p>The actual logic of the command. Subclasses must implement this method</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="thenewboston.base_classes.initialize_node.InitializeNode.unattended">
+<code class="sig-name descname">unattended</code><em class="property"> = False</em><a class="headerlink" href="#thenewboston.base_classes.initialize_node.InitializeNode.unattended" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="thenewboston.base_classes.initialize_node.InitializeNode.validate_and_convert_to_decimal">
+<code class="sig-name descname">validate_and_convert_to_decimal</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/thenewboston/base_classes/initialize_node.html#InitializeNode.validate_and_convert_to_decimal"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#thenewboston.base_classes.initialize_node.InitializeNode.validate_and_convert_to_decimal" title="Permalink to this definition">¶</a></dt>
+<dd><p>Validate that given value can be converted to Decimal value</p>
+<p>Returns: is_valid (bool), decimal_value (Decimal)
+Must return is_valid flag along with decimal_value to allow for proper validation of valid falsy value (0.0)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="thenewboston.base_classes.initialize_node.InitializeNode.validate_and_convert_to_integer">
+<code class="sig-name descname">validate_and_convert_to_integer</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/thenewboston/base_classes/initialize_node.html#InitializeNode.validate_and_convert_to_integer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#thenewboston.base_classes.initialize_node.InitializeNode.validate_and_convert_to_integer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Validate that given value can be converted to integer value</p>
+<p>Returns: is_valid (bool), integer_value (int)</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-thenewboston.base_classes">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-thenewboston.base_classes" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">thenewboston-python</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Bucky Roberts.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.3.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/thenewboston.base_classes.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
