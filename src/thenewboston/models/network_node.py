@@ -13,6 +13,8 @@ class NetworkNode(models.Model):
     node_identifier = models.CharField(max_length=VERIFY_KEY_LENGTH, unique=True)
     port = models.PositiveIntegerField(blank=True, null=True, validators=[MaxValueValidator(65535)])
     protocol = models.CharField(choices=PROTOCOL_CHOICES, max_length=5)
+    protocol.null = False
+    protocol.default = 80
     version = models.CharField(max_length=32)
 
     # Fees
