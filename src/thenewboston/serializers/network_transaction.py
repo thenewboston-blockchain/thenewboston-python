@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from thenewboston.constants.network import MAX_POINT_VALUE, MIN_POINT_VALUE, VERIFY_KEY_LENGTH, ACCEPTED_FEES
+from thenewboston.constants.network import ACCEPTED_FEES, MAX_POINT_VALUE, MIN_POINT_VALUE, VERIFY_KEY_LENGTH
 from thenewboston.utils.serializers import validate_keys
 
 
