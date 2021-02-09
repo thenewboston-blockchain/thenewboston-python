@@ -19,7 +19,11 @@ class NetworkBlockSerializer(serializers.Serializer):
         pass
 
     def validate(self, data):
-        """Validate signature, validate Tx recipients are unique and validate account_number (the sender) is not included as a Tx recipient"""
+        """
+        Validate signature, validate Tx recipients are unique,
+        validate Tx fees are unique and validate account_number
+        (the sender) is not included as a Tx recipient
+        """
         account_number = data['account_number']
         message = data['message']
         txs = message['txs']
@@ -39,6 +43,12 @@ class NetworkBlockSerializer(serializers.Serializer):
 
         if account_number in recipient_set:
             raise serializers.ValidationError('Block account_number not allowed as Tx recipient')
+
+        fee_list = [tx.get('fee', None) for tx in txs]
+        fee_set = set(fee_list)
+
+        if len(fee_list) != len(fee_set):
+            raise serializers.ValidationError('Tx fees must be unique')
 
         validate_keys(self, data)
 
