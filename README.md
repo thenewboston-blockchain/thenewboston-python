@@ -2,7 +2,7 @@
   <img alt="thenewboston logo" src="https://user-images.githubusercontent.com/65713950/100157416-cf2bbc00-2eaa-11eb-95fe-3ef87a18ad93.png" width="620">
 </p>
 
-# Overview
+## Overview
 
 Python library for thenewboston digital currency.
 
@@ -10,7 +10,7 @@ This library contains all of the core logic, shared functionality, and
 constants used by both the [Bank](https://github.com/thenewboston-developers/Bank) and 
 [Validator](https://github.com/thenewboston-developers/Validator) on thenewboston network.
 
-# Project Setup
+## Project Setup
 
 Follow the steps below to set up the project on your environment. If you run into any problems, feel free to leave a 
 GitHub Issue or reach out to any of our communities above.
@@ -39,7 +39,11 @@ flake8 .
 
 ## Building
 
-To produce a source distribution:
+The building and publishing of this package is automated through GitHub actions. To publish a new release, update the
+`./src/thenewboston/__init__.py` file with the latest version number. The updated package will be published once the
+branch is merged into `master`.
+
+To produce a source distribution manually:
 ```
 python3 setup.py sdist
 ```
