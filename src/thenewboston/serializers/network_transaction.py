@@ -7,7 +7,7 @@ from thenewboston.utils.serializers import validate_keys
 class NetworkTransactionSerializer(serializers.Serializer):
     amount = serializers.IntegerField(max_value=MAX_POINT_VALUE, min_value=MIN_POINT_VALUE)
     recipient = serializers.CharField(max_length=VERIFY_KEY_LENGTH, min_length=VERIFY_KEY_LENGTH)
-    fee = serializers.CharField(required=False, choices=ACCEPTED_FEES)
+    fee = serializers.ChoiceField(required=False, choices=ACCEPTED_FEES)
 
     def create(self, validated_data):
         pass
@@ -20,13 +20,6 @@ class NetworkTransactionSerializer(serializers.Serializer):
         validate_keys(self, data)
 
         return data
-
-    @staticmethod
-    def validate_fee(fee):
-        if fee not in ACCEPTED_FEES:
-            raise serializers.ValidationError(f'Invalid option. Valid choices are {"".join(ACCEPTED_FEES)}')
-
-        return fee
 
     @staticmethod
     def validate_amount(amount):
