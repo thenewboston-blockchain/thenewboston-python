@@ -33,6 +33,6 @@ class NetworkTransactionSerializer(serializers.Serializer):
         try:
             int(recipient, 16)
         except ValueError:
-            raise serializers.ValidationError('Invalid recipient value')
+            raise serializers.ValidationError('Recipient must be a valid hexadecimal')
 
         return recipient
