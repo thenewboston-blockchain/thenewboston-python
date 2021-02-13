@@ -1,7 +1,7 @@
 from rest_framework import serializers
 
 from thenewboston.blocks.signatures import verify_signature
-from thenewboston.constants.network import SIGNATURE_LENGTH, VERIFY_KEY_LENGTH
+from thenewboston.constants.network import BANK, PRIMARY_VALIDATOR, SIGNATURE_LENGTH, VERIFY_KEY_LENGTH
 from thenewboston.serializers.message import MessageSerializer
 from thenewboston.utils.serializers import validate_keys
 from thenewboston.utils.tools import sort_and_encode
@@ -40,11 +40,28 @@ class NetworkBlockSerializer(serializers.Serializer):
         if account_number in recipient_set:
             raise serializers.ValidationError('Block account_number not allowed as Tx recipient')
 
-        fee_list = [tx.get('fee', None) for tx in txs]
-        fee_set = set(fee_list)
+        bank_fee_exists = False
+        primary_validator_fee_exists = False
 
-        if len(fee_list) != len(fee_set):
-            raise serializers.ValidationError('Tx fees must be unique')
+        for tx in txs:
+            fee = tx.get('fee', None)
+
+            if fee is None:
+                continue
+
+            if fee == BANK:
+
+                if bank_fee_exists:
+                    raise serializers.ValidationError('Multiple bank fees not allowed')
+                else:
+                    bank_fee_exists = True
+
+            if fee == PRIMARY_VALIDATOR:
+
+                if primary_validator_fee_exists:
+                    raise serializers.ValidationError('Multiple primary validator fees not allowed')
+                else:
+                    primary_validator_fee_exists = True
 
         validate_keys(self, data)
 
