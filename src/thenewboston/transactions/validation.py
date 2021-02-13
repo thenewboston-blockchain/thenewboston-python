@@ -3,9 +3,9 @@ def validate_transaction_exists(*, amount, fee, error, recipient, txs):
     tx = next(
         (
             tx for tx in txs if
-            tx.get('amount') >= amount and
-            tx.get('fee') == fee and
-            tx.get('recipient') == recipient
+            tx.get('amount') >= amount
+            and tx.get('fee') == fee
+            and tx.get('recipient') == recipient
         ),
         None
     )
