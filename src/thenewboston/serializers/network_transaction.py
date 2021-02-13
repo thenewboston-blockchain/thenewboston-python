@@ -28,3 +28,13 @@ class NetworkTransactionSerializer(serializers.Serializer):
             raise serializers.ValidationError('Tx amount can not be 0 (Tx should be excluded)')
 
         return amount
+
+    @staticmethod
+    def validate_recipient(recipient):
+        """Check that recipient is a valid hexadecimal"""
+        try:
+            int(recipient, 16)
+        except ValueError:
+            raise serializers.ValidationError('Recipient must be a valid hexadecimal')
+
+        return recipient
