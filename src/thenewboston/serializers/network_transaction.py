@@ -31,6 +31,7 @@ class NetworkTransactionSerializer(serializers.Serializer):
 
     @staticmethod
     def validate_recipient(recipient):
+        """Check that recipient is a valid hexadecimal"""
         try:
             int(recipient, 16)
         except ValueError:
