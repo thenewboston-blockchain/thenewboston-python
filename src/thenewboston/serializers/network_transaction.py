@@ -1,11 +1,12 @@
 from rest_framework import serializers
 
-from thenewboston.constants.network import MAX_POINT_VALUE, MIN_POINT_VALUE, VERIFY_KEY_LENGTH
+from thenewboston.constants.network import ACCEPTED_FEES, MAX_POINT_VALUE, MIN_POINT_VALUE, VERIFY_KEY_LENGTH
 from thenewboston.utils.serializers import validate_keys
 
 
 class NetworkTransactionSerializer(serializers.Serializer):
     amount = serializers.IntegerField(max_value=MAX_POINT_VALUE, min_value=MIN_POINT_VALUE)
+    fee = serializers.ChoiceField(choices=ACCEPTED_FEES, required=False)
     recipient = serializers.CharField(max_length=VERIFY_KEY_LENGTH, min_length=VERIFY_KEY_LENGTH)
 
     def create(self, validated_data):
@@ -27,3 +28,13 @@ class NetworkTransactionSerializer(serializers.Serializer):
             raise serializers.ValidationError('Tx amount can not be 0 (Tx should be excluded)')
 
         return amount
+
+    @staticmethod
+    def validate_recipient(recipient):
+        """Check that recipient is a valid hexadecimal"""
+        try:
+            int(recipient, 16)
+        except ValueError:
+            raise serializers.ValidationError('Recipient must be a valid hexadecimal')
+
+        return recipient
