@@ -14,7 +14,7 @@ class NetworkTransaction(models.Model):
             MinValueValidator(MIN_POINT_VALUE),
         ]
     )
-    fee = models.CharField(blank=True, choices=ACCEPTED_FEE_CHOICES, max_length=17, required=False)
+    fee = models.CharField(blank=True, choices=ACCEPTED_FEE_CHOICES, max_length=17)
     recipient = models.CharField(max_length=VERIFY_KEY_LENGTH)
 
     class Meta:
