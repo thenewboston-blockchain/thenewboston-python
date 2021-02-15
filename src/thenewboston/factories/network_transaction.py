@@ -7,8 +7,8 @@ from ..models.network_transaction import NetworkTransaction
 
 class NetworkTransactionFactory(DjangoModelFactory):
     amount = Faker('pyint', max_value=MAX_POINT_VALUE, min_value=MIN_POINT_VALUE)
-    recipient = Faker('text', max_nb_chars=VERIFY_KEY_LENGTH)
     fee = Iterator(ACCEPTED_FEE_LIST + [''])
+    recipient = Faker('text', max_nb_chars=VERIFY_KEY_LENGTH)
 
     class Meta:
         model = NetworkTransaction
