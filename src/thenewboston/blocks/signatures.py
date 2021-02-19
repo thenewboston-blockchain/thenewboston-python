@@ -11,4 +11,4 @@ def verify_signature(*, message, signature, verify_key):
     """Verify block signature"""
     verify_key = VerifyKey(verify_key.encode('utf-8'), encoder=HexEncoder)
     signature = bytes.fromhex(signature)
-    verify_key.verify(message, signature)
+    return verify_key.verify(message, signature) == message
