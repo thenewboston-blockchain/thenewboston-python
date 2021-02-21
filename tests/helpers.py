@@ -24,7 +24,19 @@ def get_transactions():
     transactions = [
         {
             'amount': 1,
+            'fee' : 1,
+            'recipient': random_encoded_account_number(),
+        },
+        {
+            'amount': 2,
+            'fee' : 1,
+            'recipient': random_encoded_account_number(),
+        },
+        {
+            'amount': 3,
+            'fee' : 1,
             'recipient': random_encoded_account_number(),
         }
     ]
     return transactions
+    
