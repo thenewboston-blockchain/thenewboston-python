@@ -1,6 +1,4 @@
-
 from thenewboston.accounts.manage import create_account
-
 from thenewboston.verify_keys.verify_key import encode_verify_key
 
 
