@@ -1,3 +1,4 @@
+# TODO(dmu) LOW: Consider moving coverage configuration to `pyproject.toml`
 [run]
 omit = */tests/*
        */factories/*
