@@ -12,12 +12,22 @@ constants used by both the [Bank](https://github.com/thenewboston-developers/Ban
 
 ## Project Setup
 
-Follow the steps below to set up the project on your environment. If you run into any problems, feel free to leave a 
-GitHub Issue or reach out to any of our communities above.
+Follow the steps below to set up the project on your environment (see `INSTALL.rst` for detailed
+step-by-step setup). If you run into any problems, feel free to leave a GitHub Issue or reach out
+to any of our communities above.
 
 Install required packages:
 ```
-pip3 install -e .
+pip3 install virtualenvwrapper && \
+pip3 install poetry==1.1.4 && \
+poetry config virtualenvs.path ${HOME}/.virtualenvs && \
+poetry install
+```
+
+Activate project virtual env:
+
+```
+poetry shell
 ```
 
 ## Testing
@@ -29,12 +39,13 @@ pytest
 
 To run tests with coverage report:
 ```
-pytest --cov-config=.coveragerc --cov=./src 
+pytest --cov-config=.coveragerc --cov=./src
 ```
 
 To run linting:
 ```
-flake8 .
+# TODO(dmu) MEDIUM: Consider moving tests into `src/thenewboston`
+flake8 src/thenewboston tests
 ```
 
 ## Building

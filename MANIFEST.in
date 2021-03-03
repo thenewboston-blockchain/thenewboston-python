@@ -1,5 +1,0 @@
-include LICENSE
-include pytest.ini
-include requirements.txt
-graft tests
-global-exclude *.pyc

@@ -7,28 +7,32 @@ on:
 
 jobs:
   publish:
-
     name: Publish
-
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v2
 
       - uses: actions/setup-python@v2
         with:
-          python-version: 3.7
+          python-version: 3.9.2
+
+      - name: Run Poetry image
+        uses: abatilo/actions-poetry@v2.0.0
+        with:
+          poetry-version: 1.1.4
 
       - name: Building
         run: >-
-          python setup.py sdist
+          make build
 
+      # TODO(dmu) LOW: Consider publishing with Poetry: `poetry publish`
       - name: Publish to Test PyPI
         uses: pypa/gh-action-pypi-publish@master
         with:
           password: ${{ secrets.TEST_PYPI_PASSWORD }}
           repository_url: https://test.pypi.org/legacy/
 
+      # TODO(dmu) LOW: Consider publishing with Poetry: `poetry publish`
       - name: Publish to PyPI
         uses: pypa/gh-action-pypi-publish@master
         with:

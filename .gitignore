@@ -78,3 +78,7 @@ env/
 venv
 venv.bak/
 venv/
+
+# Poetry
+# We do not pin dependecies for libraries therefore ignoring poetry.lock
+/poetry.lock
