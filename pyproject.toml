@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "thenewboston"
-version = "0.2.1"
+version = "0.2.0"
 description = "Python library for thenewboston digital currency"
 authors = ["Bucky Roberts <buckyroberts@gmail.com>"]
 # TODO(dmu) LOW: Does `maintainers` have correct value?
