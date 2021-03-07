@@ -12,9 +12,8 @@ constants used by both the [Bank](https://github.com/thenewboston-developers/Ban
 
 ## Project Setup
 
-Follow the steps below to set up the project on your environment (see `INSTALL.rst` for detailed
-step-by-step setup). If you run into any problems, feel free to leave a GitHub Issue or reach out
-to any of our communities above.
+Follow the steps below to set up the project on your environment. If you run into any problems, feel free to leave a 
+GitHub Issue or reach out to any of our communities above.
 
 Install required packages:
 ```
@@ -30,7 +29,7 @@ pytest
 
 To run tests with coverage report:
 ```
-pytest --cov-config=.coveragerc --cov=./src
+pytest --cov-config=.coveragerc --cov=./src 
 ```
 
 To run linting:
