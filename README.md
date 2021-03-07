@@ -18,16 +18,7 @@ to any of our communities above.
 
 Install required packages:
 ```
-pip3 install virtualenvwrapper && \
-pip3 install poetry==1.1.4 && \
-poetry config virtualenvs.path ${HOME}/.virtualenvs && \
-poetry install
-```
-
-Activate project virtual env:
-
-```
-poetry shell
+pip3 install -e .
 ```
 
 ## Testing
@@ -44,8 +35,7 @@ pytest --cov-config=.coveragerc --cov=./src
 
 To run linting:
 ```
-# TODO(dmu) MEDIUM: Consider moving tests into `src/thenewboston`
-flake8 src/thenewboston tests
+flake8 .
 ```
 
 ## Building
