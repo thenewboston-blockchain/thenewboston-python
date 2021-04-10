@@ -5,24 +5,26 @@ on: [pull_request]
 
 jobs:
   tests:
-    name: Testing
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: [3.7, 3.8, 3.9]
+
+    name: Testing Python ${{ matrix.python-version }}
+
     runs-on: ubuntu-latest
+
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-python@v2
         with:
-          python-version: 3.9.2
+          python-version: ${{ matrix.python-version }}
 
-      - name: Run Poetry image
-        uses: abatilo/actions-poetry@v2.0.0
-        with:
-          poetry-version: 1.1.4
+      - name: Install self
+        run: pip install .
 
-      - name: Install
-        run: make install
+      - name: Lint with flake8
+        run: flake8 .
 
-      - name: Lint
-        run: make lint
-
-      - name: Test
-        run: make test
+      - name: Test with pytest
+        run: pytest .
