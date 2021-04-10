@@ -3,7 +3,13 @@ from uuid import uuid4
 from django.core.validators import MaxValueValidator, MinValueValidator
 from django.db import models
 
-from thenewboston.constants.network import ACCEPTED_FEE_CHOICES, MAX_POINT_VALUE, MIN_POINT_VALUE, VERIFY_KEY_LENGTH
+from thenewboston.constants.network import (
+    ACCEPTED_FEE_CHOICES,
+    MAX_POINT_VALUE,
+    MEMO_MAX_LENGTH,
+    MIN_POINT_VALUE,
+    VERIFY_KEY_LENGTH
+)
 
 
 class NetworkTransaction(models.Model):
@@ -15,6 +21,7 @@ class NetworkTransaction(models.Model):
         ]
     )
     fee = models.CharField(blank=True, choices=ACCEPTED_FEE_CHOICES, max_length=17)
+    memo = models.CharField(blank=True, max_length=MEMO_MAX_LENGTH)
     recipient = models.CharField(max_length=VERIFY_KEY_LENGTH)
 
     class Meta:
