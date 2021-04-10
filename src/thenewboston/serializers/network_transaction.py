@@ -1,12 +1,21 @@
+import re
+
 from rest_framework import serializers
 
-from thenewboston.constants.network import ACCEPTED_FEE_LIST, MAX_POINT_VALUE, MIN_POINT_VALUE, VERIFY_KEY_LENGTH
+from thenewboston.constants.network import (
+    ACCEPTED_FEE_LIST,
+    MAX_POINT_VALUE,
+    MEMO_MAX_LENGTH,
+    MIN_POINT_VALUE,
+    VERIFY_KEY_LENGTH
+)
 from thenewboston.utils.serializers import validate_keys
 
 
 class NetworkTransactionSerializer(serializers.Serializer):
     amount = serializers.IntegerField(max_value=MAX_POINT_VALUE, min_value=MIN_POINT_VALUE)
     fee = serializers.ChoiceField(choices=ACCEPTED_FEE_LIST, required=False)
+    memo = serializers.CharField(max_length=MEMO_MAX_LENGTH, required=False)
     recipient = serializers.CharField(max_length=VERIFY_KEY_LENGTH, min_length=VERIFY_KEY_LENGTH)
 
     def create(self, validated_data):
@@ -28,6 +37,14 @@ class NetworkTransactionSerializer(serializers.Serializer):
             raise serializers.ValidationError('Tx amount can not be 0 (Tx should be excluded)')
 
         return amount
+
+    @staticmethod
+    def validate_memo(memo):
+        """Check that all characters are valid"""
+        if not re.match('^[a-zA-Z0-9_ ]*$', memo):
+            raise serializers.ValidationError('Invalid characters in memo')
+
+        return memo
 
     @staticmethod
     def validate_recipient(recipient):
