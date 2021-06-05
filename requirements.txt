@@ -1,4 +1,4 @@
-Django==3.1.8
+Django==3.1.9
 PTable==0.9.2
 PyNaCl==1.4.0
 channels-redis==2.4.2
