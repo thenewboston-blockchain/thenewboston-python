@@ -9,7 +9,7 @@ from thenewboston.constants.network import MAX_POINT_VALUE, MIN_POINT_VALUE, PRO
 class NetworkNode(models.Model):
     id = models.UUIDField(default=uuid4, editable=False, primary_key=True)  # noqa: A003
     account_number = models.CharField(max_length=VERIFY_KEY_LENGTH)
-    ip_address = models.GenericIPAddressField()
+    ip_address = models.URLField()
     node_identifier = models.CharField(max_length=VERIFY_KEY_LENGTH, unique=True)
     port = models.PositiveIntegerField(blank=True, null=True, validators=[MaxValueValidator(65535)])
     protocol = models.CharField(choices=PROTOCOL_CHOICES, max_length=5)
