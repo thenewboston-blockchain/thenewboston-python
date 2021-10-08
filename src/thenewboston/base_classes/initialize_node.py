@@ -75,7 +75,7 @@ class InitializeNode(BaseCommand):
             if self.unattended:
                 ip_address = value
             else:
-                ip_address = input('Enter public IP address (required): ')
+                ip_address = input('Enter URL or public IP address (required): ')
 
             if not ip_address:
                 self._error('ip_address required')
@@ -84,7 +84,7 @@ class InitializeNode(BaseCommand):
             try:
                 validate_ipv46_address(ip_address)
             except ValidationError:
-                self._error('Enter a valid IPv4 or IPv6 address')
+                self._error('Enter a valid Url, IPv4 or IPv6 address')
                 continue
 
             self.required_input['ip_address'] = ip_address
