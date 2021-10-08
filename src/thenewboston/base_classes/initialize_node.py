@@ -2,9 +2,9 @@ import decimal
 
 from django.core.exceptions import ValidationError
 from django.core.management.base import BaseCommand, CommandParser
-from django.core.validators import validate_ipv46_address
+from django.core.validators import URLValidator
 
-from thenewboston.argparser.validators import int_validator, ipv46_validator, str_length_validator
+from thenewboston.argparser.validators import int_validator, ipv46_validator, str_length_validator, url_validator
 from thenewboston.constants.network import PROTOCOL_LIST, VERIFY_KEY_LENGTH
 
 """
@@ -82,7 +82,8 @@ class InitializeNode(BaseCommand):
                 continue
 
             try:
-                validate_ipv46_address(ip_address)
+                url_validator = URLValidator
+                url_validator(ip_address)
             except ValidationError:
                 self._error('Enter a valid Url, IPv4 or IPv6 address')
                 continue
