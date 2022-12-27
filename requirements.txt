@@ -28,5 +28,5 @@ pytest==6.2.2
 requests-mock==1.8.0
 requests==2.25.1
 sentry-sdk==0.19.5
-setuptools==50.3.2
+setuptools==65.5.1
 wheel==0.35.1
